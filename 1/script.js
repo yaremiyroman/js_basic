@@ -29,4 +29,13 @@ console.log('Hello, world!'); */
 
 // document.write(num);
 
-// alert(num);
+
+// let num;
+
+// console.log(num);
+// alert('12312\'312 \
+// 313132');
+
+// alert(`sfsadf ${3 + 7} 
+// asdfasDFSA
+// ASdfasfsaff s fsaf `)
