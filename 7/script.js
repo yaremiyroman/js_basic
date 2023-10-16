@@ -285,19 +285,19 @@
 
 
 
-function createMatrix(size) {
-    const matrix = [];
+// function createMatrix(size) {
+//     const matrix = [];
 
-    for (let i = 0; i < size; i++) {
-        matrix[i] = [];
+//     for (let i = 0; i < size; i++) {
+//         matrix[i] = [];
 
-        for (let j = 0; j < size; j++) {
-            matrix[i][j] = Math.floor(Math.random() * 100);
-        }
-    }
+//         for (let j = 0; j < size; j++) {
+//             matrix[i][j] = Math.floor(Math.random() * 100);
+//         }
+//     }
 
-    return matrix;
-}
+//     return matrix;
+// }
 
-const resultMatrix = createMatrix(3);
-console.table('resultMatrix > ', resultMatrix);
+// const resultMatrix = createMatrix(3);
+// console.table('resultMatrix > ', resultMatrix);
