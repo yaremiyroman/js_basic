@@ -265,22 +265,22 @@
 
 // let
 
-function f() {
-    const x = true;
+// function f() {
+//     const x = true;
 
-    if (x === true) {
-        // block 
-        const y = 'Hello';
-        console.log('y > ', y);
-    }
-    const y = 'Hello Next';
-    
-    console.log('y > ', y);
+//     if (x === true) {
+//         // block 
+//         const y = 'Hello';
+//         console.log('y > ', y);
+//     }
+//     const y = 'Hello Next';
 
-}
+//     console.log('y > ', y);
+
+// }
 
 
-f();
+// f();
 
 
 
