@@ -1,7 +1,23 @@
 const app = document.getElementById("app");
+const locationContainer = document.getElementById("location");
 const tasksList = document.createElement("ul");
 tasksList.id = "tasks-list";
 app.append(tasksList);
+
+function getGeolocation() {
+    navigator.geolocation.getCurrentPosition(renderMapsLink);
+}
+
+function renderMapsLink(position) {
+    if (!position || !position.coords) return;
+
+    const mapsLink = document.createElement("a");
+    mapsLink.innerHTML = `My Location`;
+    mapsLink.target = `_blank`;
+    mapsLink.href = `https://www.google.com/maps/@${position?.coords?.latitude},${position?.coords?.longitude}`;
+    mapsLink.id = "my-location";
+    locationContainer.append(mapsLink);
+}
 
 function addTask(taskText) {
     if (!taskText) return;
@@ -43,12 +59,12 @@ function render() {
     while (true) {
         const task = prompt("Enter task: ");
         if (task === null) break;
-
         addTask(task);
     }
 }
 
 function init() {
+    getGeolocation();
     render();
     renderAddButton();
 }

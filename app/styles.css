@@ -17,18 +17,35 @@ body {
     line-height: 1;
     padding: 20px;
     display: flex;
-    flex-direction: column;
     background-color: rgba(135, 206, 235, 0.25);
+    flex-wrap: wrap;
 }
 
 h1 {
-    margin: 0 0 20px;
+    width: 40%;
 }
 
+#location {
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
+
+#my-location {
+    text-decoration: none;
+    display: flex;
+    color: seagreen;
+}
+
+#my-location::after {
+    content: '📍';
+}
 #app {
     padding: 10px;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
 }
 
 #tasks-list {
