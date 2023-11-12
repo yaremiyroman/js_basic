@@ -19,6 +19,10 @@ function renderMapsLink(position) {
     locationContainer.append(mapsLink);
 }
 
+function handleItemState(event) {
+    event.currentTarget.classList.toggle("done");
+}
+
 function addTask(taskText) {
     taskText = taskText.trim();
     if (!taskText) return;
@@ -31,6 +35,7 @@ function addTask(taskText) {
     removeButton.classList.add("remove-task");
     removeButton.innerHTML = "❌";
     removeButton.addEventListener("click", event => {
+        event.stopPropagation();
         event.target.closest(".task").remove();
         const removedItem = event.target.previousElementSibling.innerHTML;
         const updatedTasks = localStorage
@@ -41,6 +46,8 @@ function addTask(taskText) {
     });
 
     taskElement.append(removeButton);
+
+    taskElement.addEventListener("click", handleItemState);
 
     tasksList.append(taskElement);
 }
