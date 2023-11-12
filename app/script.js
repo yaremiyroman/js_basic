@@ -20,6 +20,9 @@ function renderMapsLink(position) {
 }
 
 function addTask(taskText) {
+    taskText = taskText.trim();
+    if (!taskText) return;
+
     const taskElement = document.createElement("li");
     taskElement.innerHTML = `<span>${taskText}</span>`;
     taskElement.classList.add("task");
