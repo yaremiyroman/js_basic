@@ -73,10 +73,9 @@ function addAllTasks() {
     while (true) {
         const task = prompt("Enter task: ");
         if (task === null) break;
-        if (!!task.length) {
-            addTask(task);
-            tasks.push(task);
-        }
+        if (!!task.trim().length) continue;
+        addTask(task);
+        tasks.push(task);
     }
 
     localStorage.setItem("tasks", tasks);
