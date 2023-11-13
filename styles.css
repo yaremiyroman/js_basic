@@ -1,0 +1,109 @@
+* * {
+    box-sizing: border-box;
+}
+
+html {
+    /* height: 100000000000px; */
+
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+}
+
+#rect {
+    width: 100px;
+    height: 100px;
+    background: red;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.new-block {
+    width: 100px;
+    height: 100px;
+}
+
+#rect.active {
+    background: green;
+    border: 3px solid yellow;
+}
+
+#outer {
+    padding: 10px;
+    background: green;
+    width: 300px;
+    height: 300px;
+}
+
+#inner {
+    padding: 10px;
+    background: blue;
+    height: 200px;
+    width: 200px;
+}
+
+#table {
+    width: 75%;
+    height: 10px;
+    background-color: darkblue;
+    /* margin-top: auto; */
+    margin-bottom: 10px;
+}
+
+.stack-element {
+    width: 50%;
+    height: 20px;
+    /* margin-top: auto; */
+    margin-bottom: 5px;
+}
+
+#add-element {
+    width: 25px;
+    height: 25px;
+    background: green;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    transition: all 0.15s;
+    cursor: pointer;
+}
+
+#add-element:hover {
+    transform: scale(1.1);
+}
+
+#remove-element {
+    width: 25px;
+    height: 25px;
+    background: red;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    transition: all 0.15s;
+    cursor: pointer;
+}
+
+#remove-element:hover {
+    transform: scale(1.1);
+}
