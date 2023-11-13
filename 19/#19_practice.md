@@ -1,1 +1,1 @@
-# Tic-Tac toy app
+# Tic-Tac-Toy app
