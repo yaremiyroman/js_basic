@@ -82,14 +82,42 @@
 
 
 
+
+
+const storageName = 'elements';
 const arr = [];
+let store = null;
 
+if (localStorage.getItem(storageName)) {
+    store = localStorage.getItem(storageName).split(',');
+} else {
+    while (true) {
+        const option = prompt('Enter option > ');
+        if (option === null) break;
 
-while (true) {
-    const option = prompt('Enter option > ');
-    if (option !== null) return;
+        arr.push(option);
+    }
 
-    arr.push(option);
+    localStorage.setItem(storageName, arr);
+    store = arr;
 }
 
-console.log("arr > ", arr);
+console.log("store > ", store);
+
+// console.log("arr > ", arr);
+
+store.forEach(option => {
+    const h2 = document.createElement('h2');
+    h2.innerHTML = option;
+    document.body.append(h2);
+});
+
+
+localStorage.clear()
+
+
+// CRUD
+// create
+// read
+// update
+// delete
