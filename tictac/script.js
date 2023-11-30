@@ -1,20 +1,20 @@
 const crosses = document.getElementById("crosses");
 const rounds = document.getElementById("rounds");
+const fields = document.getElementById("board");
 
 let user = true;
+
 const board = [
     [null, null, null],
     [null, null, null],
     [null, null, null],
 ];
 
-function makeMark() {}
-
 function weHaveAWinner(winner) {
-    console.log(
-        "We have a winner > ",
-        winner ? "Crosses wins!" : "Zeros wins!"
-    );
+    if (!!winner) {
+        console.log(`%cWe have a winner > ${winner}`, `color: red`);
+        fields.classList.add("final");
+    }
 }
 
 function switchUser(user) {
@@ -28,30 +28,34 @@ function switchUser(user) {
 }
 
 function checkBoard() {
+    const flatBoard = board.flat();
+
     // rows
-    board.forEach((row, i) => {
-        if (row.every(field => field !== null && field === row[0])) {
-            return weHaveAWinner(row[0]);
-        }
-    });
+    if (flatBoard[0] === flatBoard[1] && flatBoard[1] === flatBoard[2])
+        weHaveAWinner(flatBoard[0]);
+
+    if (flatBoard[3] === flatBoard[4] && flatBoard[4] === flatBoard[5])
+        weHaveAWinner(flatBoard[3]);
+
+    if (flatBoard[6] === flatBoard[7] && flatBoard[7] === flatBoard[8])
+        weHaveAWinner(flatBoard[6]);
 
     // cols
-    if (board[0][0] !== null && (board[0][0] === board[1][0]) === board[2][0]) {
-        return weHaveAWinner(board[0][0]);
-    }
-    if (board[0][1] !== null && (board[0][1] === board[1][1]) === board[2][1]) {
-        return weHaveAWinner(board[0][1]);
-    }
-    if (board[0][2] !== null && (board[0][2] === board[1][2]) === board[2][2]) {
-        return weHaveAWinner(board[0][2]);
-    }
+    if (flatBoard[0] === flatBoard[3] && flatBoard[3] === flatBoard[6])
+        weHaveAWinner(flatBoard[0]);
+
+    if (flatBoard[1] === flatBoard[4] && flatBoard[4] === flatBoard[7])
+        weHaveAWinner(flatBoard[1]);
+
+    if (flatBoard[2] === flatBoard[5] && flatBoard[5] === flatBoard[8])
+        weHaveAWinner(flatBoard[2]);
 
     // curves
-    if (board[0][0] !== null && (board[0][0] === board[1][1]) === board[2][2])
-        return weHaveAWinner(board[0][0]);
+    if (flatBoard[0] === flatBoard[4] && flatBoard[4] === flatBoard[8])
+        weHaveAWinner(flatBoard[0]);
 
-    if (board[0][2] !== null && (board[0][2] === board[1][1]) === board[2][0])
-        return weHaveAWinner(board[0][2]);
+    if (flatBoard[2] === flatBoard[4] && flatBoard[4] === flatBoard[6])
+        weHaveAWinner(flatBoard[2]);
 }
 
 function init() {
@@ -62,8 +66,9 @@ function init() {
     for (let field of fields) {
         field.addEventListener("click", event => {
             if (!event.currentTarget.dataset.marked) {
-                board[event.target.dataset.row][event.target.dataset.col] =
-                    Boolean(user);
+                board[event.target.dataset.row][event.target.dataset.col] = user
+                    ? "X"
+                    : "O";
                 event.currentTarget.dataset.marked = true;
                 event.target.innerHTML = user ? "X" : "O";
                 switchUser((user = !user));

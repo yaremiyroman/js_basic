@@ -60,6 +60,11 @@ div.active {
     margin: -1px;
 }
 
+#board.final {
+    opacity: 0.25;
+    pointer-events: none;
+}
+
 .field {
     width: calc(100% / 3);
     height: calc(100% / 3);
