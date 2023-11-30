@@ -16,13 +16,34 @@
 //     alert('YA FUNCTION');
 // });
 
-$("#app")
-    .html("<div>New HTML</div>")
-    .hide()
-    .show()
-    .fadeOut(1000)
-    .fadeIn(2000)
-    .addClass('SUPER-CLASS')
-    .on("click", () => alert("ME CALLBACK"));
+// $("#app")
+//     .html("<div>New HTML</div>")
+//     .hide()
+//     .show()
+//     .fadeOut(1000)
+//     .fadeIn(2000)
+//     .addClass('SUPER-CLASS')
+//     .on("click", () => alert("ME CALLBACK"));
 
-$( "#accordionID" ).accordion();
+// $( "#accordionID" ).accordion();
+
+
+
+let tasksInput = prompt("Please, write down a list of tasks to do, separated by commas", " ");
+const tasksArray = tasksInput.split(",");
+
+
+function createToDoList(arr){
+    const tasksList = document.createElement('ul');
+    for (let i = 0; i < arr.length; i++ ) {
+        let task = document.createElement('li');
+        task.innerHTML = arr[i];
+        tasksList.appendChild(task);
+    }
+    return tasksList;
+}
+
+let bodyPage = createToDoList(tasksArray).body;
+
+console.log(bodyPage);
+
