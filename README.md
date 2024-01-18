@@ -1,12 +1,13 @@
 # Basic: script, types, math, variable
-# Flow: if-else
-# Flow: cycles
+# Flow: conditions
+# Flow: loops
 # Arrays
 # Functions
 # Closure
 # Objects
 # OOP prototypes
 # OOP classes
+
 # DOM
 # DOM: events
 # BOM: window, location, screen, history
