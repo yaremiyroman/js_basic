@@ -1,289 +1,271 @@
-// Конкатенація строк
+a1 = "String 1";
+a2 = 5;
 
-// first = 'random string';
-// second = 'second random string';
+// console.log('a1 =', a1);
+// console.log('a2 =', a2);
 
-// console.log(first);
-// console.log(second);
+// b1 = "String 1";
+// b2 = "String 1 String 1String 1String 1String 1String 1";
+// console.log(b1);
+// console.log(b2);
 
-// third = first + ' ' + ' any sting ' + second;
-// third = first + ' ' + ' any sting  sting\r\n sting  sting  sting  sting here ' + second;
+// b3 = "   ";
+// console.log('b3 =', b3);
 
-// console.log(third);
+// b4 = " ";
+// console.log('b4 =', b4);
 
+// b5 = "";
+// console.log('b5 =', b5);
 
+// b6 = "2345234532453464";
+// console.log('b6 =', b6);
 
+// x1 = 2345234532453464;
+// console.log('x1 =', x1);
 
-// Строковий літерал
+// x2 = 0;
+// console.log('x2 =', x2);
 
-// bigString = `Any new string will be here`;
+// x3 = -234577;
+// console.log('x3 =', x3);
 
-// bigStringWithBreak = `Any new string
-// will be here`;
+// x4 = 3.14;
+// console.log('x4 =', x4);
 
+// console.log(typeof b6);
+// console.log(typeof x1);
 
-// count = 15;
-// secondCount = 25;
+// Конкатенація
 
-// bigStringInterpolate = `${count + 9 - 10 + 25} apples`;
+// firstName = prompt('What is your name?');
+// console.log(firstName);
 
-// bigStringInterpolate2 = `${count + secondCount} apples`;
+// start = 'Your name is ';
+// console.log(start);
 
-// console.log(bigStringInterpolate2);
+// end = '. Hello!';
+// console.log(end);
 
+// greetings = start + firstName + end;
+// console.log(greetings);
 
+// j1 = ' теж щось було';
+// q1 = 'stroka ' + 'something next ' + 123 + j1;
 
-// HW
-// userName = prompt('Say your name', '');
-// console.log(userName);
+// console.log(q1);
 
-// alert('My name is ' + userName + '!!! Hello!');
-
-// alert(`My name is ${userName}!!! Hello!`);
-
-
-
-
-// Змінні ES4
-
-
-// var var3 = 'text';
-// console.log(var3);
-
-// var3 = 'another value';
-// console.log(var3);
-
-// var SOME_CONST = 'const';
-// console.log(SOME_CONST);
-
-
-
-
-
-
-
-// Змінні ES6
-
-// const variable = 'some text';
-// console.log(variable);
-
-
-// let var_2 = 142;
-// console.log(var_2);
-
-// var_2 = 42412;
-
-// Reserved words
-// name = prompt('PROMNT');
-// var var = asdfasf;
-
-// good
-// let myNewFreshBrowser_1;
-// let myNewFreshBrowser_2;
-// let myNewFreshBrowser_3;
-
-// bad
-// let 124dsgsdg;
-// let @#$%^&;
-// console.log(lowerCAsE);
-
-// let lowerCase = 1;
-// let lowerCASE = 2;
-
-// let sometimes;
-// console.log(sometimes);
-
-// let another = 'some value';
-// console.log(another);
-
-// let someString = '';
-// console.log(someString);
-
-
-// let a = 7;
-// let b = 8;
-
-// let a = 7,
-//     b = 8,
-//     c = 214124;
-
-// const x = 'qewt', y = 555;
-
-// console.log(x);
-// console.log(y);
-
-// let x = 0;
+// x = a + b + c + d + e;
 // console.log(x);
 
-// const y = 'Hello';
-// console.log(y);
+// a = 12;
+// b = 7;
 
-
-
-// Global and local vars
-
-// global
-// x = 123;
-// console.log(window.x);
-
-// local
-// const x = 111;
-// console.log(window.x);
-// let y = 123;
-
-
-// let x = y = 555, z, we = 'tqewwqt';
-
+// x = a + b;
 // console.log(x);
+
+// y = a - b;
 // console.log(y);
 
+// y2 = b - a;
+// console.log(y2);
 
+// z = b * a;
+// console.log(z);
 
+// w = a / b;
+// console.log(w);
 
+// rest = a % b;
+// console.log(rest);
 
-// Aryphm
+// a = 12;
+// b = 7;
+
+// console.log(-a);
+
+// Math.
+
 // console.log(Math.PI);
 
-// let cube = 3 * 3 * 3 * 3; 
-// cube = Math.pow(3, 4);
+// x = 53.83462363;
+// y = Math.round(x);
 
-// console.log(cube);
+// console.log(x);
+// console.log(y);
 
-// const a = 5, b = 9, c = 3;
-// const minimum = Math.min(a, b, c);
+// 3^4
+// x = 3 * 3 * 3 * 3;
 
-// console.log(minimum);
-// console.log('minimum > ', minimum, 123213, minimum, ' 123 1231 312 31');
+// // 3^6
+// x = 3 * 3 * 3 * 3 * 3 * 3;
 
-
-// let a = 5;
-
-// console.log('a >', a);
-
-
-
-
-
-
-// Типи даних
-
-// 1. string
-// const str = 'some string';
-// console.log('str > ', str);
-// console.log(typeof str);
-
-// 2. number
-// const num = 123;
-// console.log('num > ', num);
-// console.log(typeof num);
-
-
-// 3. boolean
-// const ok = true;
-// const no = false;
-
-// console.log('ok > ', ok);
-// console.log(typeof ok);
-
-// console.log('no > ', no);
-// console.log(typeof no);
-
-// 4. undefined
-// let x;
-// let X = undefined;
-// console.log('x > ', x);
-// console.log(typeof x);
-
-// 5. null
-
-// let y = null;
-// console.log('y > ', y);
-// console.log(typeof y);
-
-
-
-// Перетворення типів
-
-// let qwe = 141241;
-// console.log('qwe > ', qwe);
-// console.log(typeof qwe);
-
-// let qwee = true;
-// console.log('qwee > ', qwee);
-// console.log(typeof qwee);
-
-
-
-
-
-
-
-const str1 = 'First string';
-const number1 = 1111111;
-const bool1 = false;
-
-
-// ...
-// ...
-// ...
-// ...
-// ...
-// ...
-
-// let output = number1 + str1 + bool1;
-
-// console.log('output >', output);
-// console.log(typeof output);
-
-
-const str2 = '2432';
-// console.log('str2 >', str2);
-// console.log(typeof str2);
-// console.log(typeof str1);
-
-
-// console.log(str2 + str1);
-
-
-
-// const num3 = 333;
-// const str3 = '4242';
-
-// console.log(typeof num3);
-// console.log(typeof +str3);
-
-// console.log(num3 + +str3);
-
-
-// const str4 = 'stroka4';
-// const num4 = 235235235;
-
-// console.log('str4 + num4 =', str4 + num4);
-
-
-// const num7 = '444.634';
-
-// const result = parseInt(num7);
-// const result = parseFloat(num7);
+// result = Math.pow(3, 6);
 
 // console.log(result);
 
+// обчислити обʼєм циліндру,
+// у якого діаметр дна 16см та висота 34,5см
 
+// d = +prompt('Введіть діаметр циліндру: ');
+// console.log(typeof d);
+// h = prompt('Введіть висоту циліндру: ');
+// R = d / 2;
 
-// const notAnumber = prompt('What?');
-// console.log(+notAnumber);
-
-// let A = NaN;
-// console.log('A > ', A);
-// console.log(typeof A);
-
-
-
-// const someNum = prompt('Enter number:');
-// const result = +someNum / -0;
+// // πR^2 * H
+// V = Math.PI * R * R * h;
+// result = 'Обʼєм циліндру = ' + V;
 
 // console.log(result);
-// console.log(typeof result);
 
-// const numb5 = 124124124;
-// console.log(numb5.toString());
+//  string to number
+// s = +'100';
+// console.log(s);
+// console.log(typeof s);
+
+//   number to string
+// n = 100;
+// result = n + '';
+// console.log(result);
+
+// a = 'qwert24';
+// console.log(+a);
+
+// a = 6;
+
+// console.log(a);
+
+// let a = 6;
+// console.log('a > ', a);
+
+// a = 9;
+// console.log('a > ', a);
+
+// a = 'sdfgsdfgdsfgdsg';
+// console.log('a > ', a);
+
+// let a = 6;
+// console.log('a > ', a);
+
+// let b = 7;
+// console.log('b > ', b);
+
+// let c = a + b;
+// console.log('c > ', c);
+
+// c = 'wrong';
+// console.log('c > ', c);
+
+// const q1 = 1000;
+// console.log('q1 >', q1);
+
+// q1 = 999;
+
+// const a = 'asdfgsdafgd';
+// let b = 34535;
+
+// b = 'New Value';
+
+// const c = 2456436436;
+
+// const a = 1;
+// const b = 2;
+// const x = 3;
+
+// const catColor = 'red';
+// console.log('catColor > ', catColor);
+
+// const quantityLegs = 4;
+// console.log('quantityLegs > ', quantityLegs);
+
+// const a4 = 4;
+// console.log('a4 > ', a4);
+
+// const A4 = 5;
+// console.log('A4 > ', A4);
+
+
+// const color = 'black';
+// console.log('color > ', color);
+
+// const catColor = 'red';
+// console.log('red > ', red);
+
+// const name = 'John';
+
+// let x = 1;
+// console.log('x >', x);
+
+// let hello = 'asdfg';
+// console.log('hello >', hello);
+
+
+// let const = 9;
+
+// typeof
+// const
+// var
+
+
+
+
+// const str1 = "String 'Cite of author' 1 String";
+// const str2 = 'String "Cite of author" 1 String';
+// const bigString = str1 + ' ' + str2;
+
+// console.log(bigString);
+
+
+
+// const str2 = "String 2";
+// const str3 = 'String 3';
+// const str4 = `String 4`;
+
+// console.log('str4 > ', str4);
+
+
+// const str7 = 'Lorem ipsum\r\n dolor sit amet...';
+
+// const str8 = `Lorem ipsum dolor sit amet...
+// Lorem ipsum dolor sit amet...
+
+//     Lorem ipsum dolor sit amet...
+// Lorem    ipsum dolor sit amet...
+// Lorem ipsum dolor sit amet...
+// Lorem ipsum dolor sit amet...
+// Lorem ipsum dolor sit amet...
+// `;
+
+// console.log(str8);
+
+
+
+// const myNumber = 19;
+// const myString = `
+// **********************
+// My best
+// number is = ${myNumber + 5}
+// text tetx
+// **********************
+// `;
+
+// console.log(myString);
+
+
+// const str1 = '';
+// const str2 = "";
+// const str3 = ``;
+// const str4 = `text text ${str2} text`;
+
+
+const newVariable = "Some text";
+
+
+
+// alert(newVariable);
+// document.write(newVariable);
+
+// const superString = `text text "t'ex't" text text`;
+
+const superString = `text text \`text text text`;
+console.log(superString);
