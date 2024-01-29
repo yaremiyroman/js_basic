@@ -1,49 +1,99 @@
-// switch (a) {
-//     case 1: // if (x === 1)
-//         alert('');
-//         break;
-//     case 2:
-//         alert('');
-//         break;
-//     case 3:
-//         alert('');
-//         break;
-//     defaul1:
-//         alert('');
-// }
+// Fruits
 
-// alert( false || false ); // false
-// alert( false || true );  // true
-// alert( true || false );  // true
-// alert( true || true );   // true
+// let price = 0;
+// const applePrice = 10;
+// const orangePrice = 12;
+// const kiwiPrice = 15;
 
+// const doYouWantFruits = confirm("Do you want fruits?");
 
+// if (doYouWantFruits === true) {
+//     alert("Ok lets start!");
 
-// Домашка
+//     const doYouWantApples = confirm("Do you want apples?");
 
-// const fingerNumber = +prompt('Enter your finger', 0);
+//     if (doYouWantApples === true) {
+//         const applesAmount = +prompt("Enter amount of apple", 1);
+//         price = price + applesAmount * applePrice;
+//     }
 
+//     const doYouWantOranges = confirm("Do you want oranges?");
 
-// if (fingerNumber === 1) {
-//     alert('Великий');
-// } else if (fingerNumber === 2) {
-//     alert('Вказіваний');
-// } else if (fingerNumber === 3) {
-//     alert('Середній');
-// } else if (fingerNumber === 4) {
-//     alert('Безимяний');
-// } else if (fingerNumber === 5) {
-//     alert('М');
+//     if (doYouWantOranges === true) {
+//         const orangesAmount = +prompt("Enter amount of oranges", 1);
+//         price = price + orangesAmount * orangePrice;
+//     }
+
+//     const doYouWantKiwi = confirm("Do you want kiwi?");
+
+//     if (doYouWantKiwi === true) {
+//         const kiwiAmount = +prompt("Enter amount of kiwi", 1);
+//         price = price + kiwiAmount * kiwiPrice;
+//     }
+
+//     alert(`Price is ${price}`);
 // } else {
-//     alert('Був введений неправильний варінт');
+//     alert("Oh Bye!");
+//     alert(`Price is ${price}`);
 // }
 
+// const x = 5 + 5 / (6 * 6);
 
+// let a = 7;
+// console.log('a > ', a);
+
+// // a = a + 5;
+// a += 5;
+// console.log('a > ', a);
+
+// // a = a + 3;
+// a += 3;
+// console.log('a > ', a);
+
+// a -= 5;
+// console.log('a > ', a);
+
+// let price = 0;
+// const applePrice = 10;
+// const orangePrice = 12;
+// const kiwiPrice = 15;
+
+// const doYouWantFruits = confirm("Do you want fruits?");
+
+// // if (doYouWantFruits === true) {
+// if (doYouWantFruits) {
+//     alert("Ok lets start!");
+
+//     const doYouWantApples = confirm("Do you want apples?");
+
+//     if (doYouWantApples) {
+//         const applesAmount = +prompt("Enter amount of apple", 1);
+//         price = price + applesAmount * applePrice;
+//     }
+
+//     const doYouWantOranges = confirm("Do you want oranges?");
+
+//     if (doYouWantOranges) {
+//         const orangesAmount = +prompt("Enter amount of oranges", 1);
+//         price = price + orangesAmount * orangePrice;
+//     }
+
+//     const doYouWantKiwi = confirm("Do you want kiwi?");
+
+//     if (doYouWantKiwi) {
+//         const kiwiAmount = +prompt("Enter amount of kiwi", 1);
+//         price = price + kiwiAmount * kiwiPrice;
+//     }
+
+//     alert(`Price is ${price}`);
+// } else {
+//     alert("Oh Bye!");
+//     alert(`Price is ${price}`);
+// }
 
 // SWITCH
 
 // const fingerNumber = +prompt('Enter your finger', 0);
-
 
 // switch (fingerNumber) {
 
@@ -73,213 +123,213 @@
 
 // }
 
+// const time = +prompt('Яка зараз година?');
+// console.log('time > ', time);
 
-// Switch 2
+// let timeOfDay = ((time > 12)) ? 'evening' : 'morning';
 
-// const errorCode0 = 0;
-// const errorCode2 = 2;
-// const errorCode1 = 1;
-// const errorCode5 = 5;
+// if (time > 12) {
+//     timeOfDay = 'evening';
+// } else {
+//     timeOfDay = 'morning';
+// }
 
-// switch (errorCode) {
-//     case 24327:
-//         alert(`Error Number: ${errorCode}`);
+// console.log('timeOfDay > ', timeOfDay);
+
+// a = 5 + 8;
+// a = 5 - 8;
+// a = 5 % 8;
+// let timeOfDay = ((time > 12)) ? 'evening' : 'morning';
+
+// a = 6;
+// a += 1;
+// a += 1;
+// console.log('a > ', a);
+
+// a = 6;
+// a++;
+// a++;
+// a++;
+// console.log('a > ', a);
+// a--;
+// a--;
+// console.log('a > ', a);
+
+// a = 6;
+// console.log("a > ", a);
+
+// // a++;
+// // ++a;
+// console.log("a > ", a++);
+// console.log("a > ", a);
+
+// ()
+// * /
+// + -
+
+// if (5 + 6 * 4 === 9 / (3 * 5)) {
+//     alert("===");
+// }
+
+// const finger = prompt("Enter your finger number", 1);
+
+// if (finger === 1) {
+//     alert("Big finger");
+// } else if (finger === 2) {
+//     alert("Big finger");
+// } else if (finger === 3) {
+//     alert("Big finger");
+// } else if (finger === 4) {
+//     alert("Big finger");
+// } else if (finger === 5) {
+//     alert("Big finger");
+// } else {
+//     alert("NO finger");
+// }
+
+// const finger = +prompt("Enter your finger number", 1);
+
+// switch (finger) {
+//     case 53: {
+//         alert("Big finger");
 //         break;
-
-//     case 23464:
-//     case 23525235:
-//         alert(`Error Number Big Error`);
+//     }
+//     case 26: {
+//         alert("Index finger");
 //         break;
-
-//     case 345353:
-//         alert(`Error Number: ${errorCode}`);
+//     }
+//     case 43: {
+//         alert("Middle finger");
 //         break;
-
+//     }
+//     case 24:
+//         alert("Ring finger");
+//         break;
+//     case 56:
+//         alert("Little finger");
+//         break;
 //     default:
-//         alert('123');
+//         alert("NO finger");
 //         break;
 // }
 
+// # Логічні оператори. !, !!, &&, ||
 
-// Скоречений ариф оператор
-
-
-// let price = 0;
-// const applePrice = 10;
-// const orangePrice = 12;
-// const kiwiPrice = 15;
-
-// const desire = confirm('Do you want fruits?');
-
-// if (desire === false) {
-//     alert('Go away');
-// } else {
-//     const desireApples = confirm('Do you want apples?');
-//     if (desireApples === true) {
-//         const amountApples = +prompt('How many apples?', 1);
-
-//         price += amountApples * applePrice;
-//         // price -= amountApples * applePrice;
-//         // price /= amountApples * applePrice;
-//         // price *= amountApples * applePrice;
-//         // price %= amountApples * applePrice;
-//     }
-
-//     const desireOranges = confirm('Do you want oranges?');
-//     if (desireOranges === true) {
-//         const amountOranges = +prompt('How many oranges?', 1);
-
-//         price += amountOranges * orangePrice;
-//     }
-
-//     const desireKiwi = confirm('Do you want kiwi?');
-//     if (desireKiwi === true) {
-//         const amountKiwi = +prompt('How many kiwi?', 1);
-
-//         price += amountKiwi * kiwiPrice;
-//     }
-
-//     alert(price);
-// }
-
-
-
-// Тернарний оператор
-
-// X >= 0 => X
-// X < 0 => |X|
-
-// const numberToConvert = +prompt('Enter number > ', 0);
-
-// if (numberToConvert >= 0) {
-//     console.log('ABS > ', numberToConvert);
-// } else {
-//     console.log('ABS > ', -numberToConvert);
-// }
-
-// const num = numberToConvert >= 0
-//                 ? numberToConvert
-//                 : -numberToConvert;
-
-
-// console.log('ABS > ', num);
-
-
-
-
-
-// const a = 5;
-// const b = 9;
-// const c = 3;
-
-// ()  (||)  (+)  (++)
-
-// ! && || 
-
-// console.log(   a + (b * (c / a))  );
-
-
-
-
-//  Логічні оператори. !, !!, &&, ||
-
-const okay = true;
-const maybeOk = true;
-const no = false;
+// const yes = true;
+// const no = false;
 
 // !
-// Логічне Ні
-// Інверсія
+// let yes = true;
+// console.log('yes =', yes);
 
-// const result = !true;
+// yes = !yes;
+// console.log('yes =', yes);
 
-// const smthng = 0;
-
-// console.log('smthng >', !true);
-// console.log('smthng >', !!smthng);
-
+// yes = !yes;
+// console.log('yes =', yes);
 
 // &&
-// Логічне І
-// Обʼєднанння
 
-// const relsult = okay && no;
+// const first = false;
+// const second = false;
 
-// console.log('&& >', relsult);
+// console.log('first > ', first);
+// console.log('second > ', second);
 
-// console.log('false && false >', false && false ); // false
-// console.log('true && false >', true && false ); // false
-// console.log('false && true >', false && true ); // false
-// console.log('true && true >', true && true ); // true
+// !
+// const result = !true; // false
+// console.log('!true = ', result);
 
-// console.log    (okay && no && maybeOk);
+// const resultt = !false; // false
+// console.log('!false = ', resultt);
 
-// ||
-// Логічне Або
-// Множення
+// console.log('---------------------------------');
 
-// const relsult = okay && no;
+// // &&
+// const result1 = false && false; // false
+// console.log('false && false = ', result1);
 
-// console.log('&& >', relsult);
+// const result2 = false && true; // false
+// console.log('false && true = ', result2);
 
-// console.log('false || false >', false || false ); // false
-// console.log('true || false >', true || false ); // true
-// console.log('false || true >', false || true ); // true
-// console.log('true || true >', true || true ); // true
+// const result3 = true && false; // false
+// console.log('true && false = ', result3);
 
-// console.log     (no || okay || maybeOk);
+// const result4 = true && true; // false
+// console.log('true && true = ', result4);
+
+// console.log('---------------------------------');
+
+// // ||
+
+// const result11 = false || false; // false
+// console.log('false || false = ', result11);
+
+// const result22 = false || true; // false
+// console.log('false || true = ', result22);
+
+// const result33 = true || false; // false
+// console.log('true || false = ', result33);
+
+// const result44 = true || true; // false
+// console.log('true || true = ', result44);
+
+// const num = +prompt('Enter any number', 0);
+
+// if (num < 0) {
+//     console.log(-num);
+// } else {
+//     console.log(num);
+// }
+
+// console.log(Math.abs(-42));
+
+// const hr = +prompt("What is the time now?", 0);
+// console.log("hr > ", hr);
+
+// 19 - 21
+
+// // (true && true)
+// if (hr > 19 && hr < 21) {
+//     alert('Заняття йде!');
+// } else {
+//     alert('Заняття немає!');
+// }
+
+// // (true || true)
+// if (hr < 19 || hr > 21) {
+//     alert('Заняття немає!');
+// } else {
+//     alert('Заняття йде!');
+// }
+
+// let result = false && (true || false) && true;
+//     result = false && true && true;
+//     result = false && true;
+//     result = false;
+
+
+
+// console.log('result > ', result);
 
 
 
 
-// Boolean(   true && false || true && !false      )
+// const hr = +prompt('Яка година?', 0);
 
-// Boolean(   true && false || true && true      )
-
-// Boolean(   false || true      )
-
-//             true
-
-
-
-
-// true && (false || true) && !false
-// true && true && !false
-// true && true && true
-// true
+// if (hr !== 12) {
+//     alert('Не полдень');
+//     alert('Не полдень2');
+//     }
+// else alert('Полдень');
 
 
 
-//  Чи зараз йде заняття? &&, ||
-
-
-//  [19 - 21) => заняття йде
-//  < 19 => заняття !йде
-//  > 21 => заняття !йде
-
-let currentHours = new Date().getHours();
-
-if (currentHours < 19) {
-    console.log('FREE TIME');
-} else if (currentHours >= 21) {
-    console.log('FREE TIME');
-} else {
-    console.log('TIME TO LEARN');   
-}
-
-
-// &&
-if (currentHours >= 19 && currentHours < 21) {
-    console.log('TIME TO LEARN');  
-} else {
-    console.log('FREE TIME');
-}
-
-// ||
-if (currentHours < 19 || currentHours >= 21) {
-    console.log('FREE TIME');
-} else {
-    console.log('TIME TO LEARN');   
-}
+// (true && true)
+// if (hr !== 19 || hr !== 20 hr !== 21) {
+//     alert('Заняття йде!');
+// } else {
+//     alert('Заняття немає!');
+// }
 
 
