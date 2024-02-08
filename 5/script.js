@@ -306,3 +306,47 @@
 
 // console.log(' newArr > ', newArr);
 // console.log(' invertedArr > ', invertedArr);
+
+
+
+
+
+
+// for (let index = 0; index < array.length; index++) {
+//     const element = array[index];
+    
+// }
+
+
+// for (counter; condition; step) {
+//     const element = array[index];
+    
+// }
+
+
+
+// counter = 0;
+
+// while (condition) {
+    
+//     step++;
+// }
+
+
+
+
+
+// const newArr = [25, 62, 88, 72, 36, 5];
+
+// console.log('newArr > ', newArr);
+// console.log('newArr > ', newArr[0]);
+// console.log('newArr > ', newArr[4]);
+
+
+
+
+// const counterEnd = 7;
+
+// for (let i = 0; i < newArr.length; i++) {
+//     console.log(i);
+// }

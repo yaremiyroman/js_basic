@@ -1,14 +1,21 @@
-# Basic: script, types, math, variable
-# Flow: if-else
-# Flow: cycles
-# Arrays
-# Functions
-# Closure
-# Objects
-# OOP prototypes
-# OOP classes
+# Знайомство з JS. Змінні. Типи даних.
+# Змінні, типи даних поглиблено. Оператори.
+# Умовні конструкції. Boolean та логічні операції.
+# Switch. Тернарний оператор. Boolean та логічні операції.
+# Масиви та цикли.
+# Масиви та цикли поглиблено
+# Функції
+# Функції поглиблено
+# Функції поглиблено. Обʼєкти.
+# Обʼєкти поглиблено
+# ООП. Прототипи.
+# ООП. Класи.
+# Алгоритми
 # DOM
-# DOM: events
-# BOM: window, location, screen, history
-# BOM: data storage
-# jQuery
+# DOM поглиблено
+# BOM
+# BOM поглиблено. Практика.
+# jQuery. Практика.
+
+
+

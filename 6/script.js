@@ -1,339 +1,229 @@
-// let n = +prompt('Enter number: ', 1);
+// # number та його обмеження, кутові випадки
 
-// let counter = 1;
+// 9! = 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9;
 
-// if (n === 0 || n <= 1) {
-//     console.log(`! = ${counter}`);
+// -х!
+// 0! = 1
+// 1! = 1
+
+// 4.63! = !!!
+
+// [0, 21]
+
+// const value = 0;
+// let result = 1;
+
+// if (value < 0) {
+//     alert("Відʼємне ПОГАНО!");
+// } else if (value === 0 || value === 1) {
+//     console.log("result > ", result);
+// } else if (value <= 0 || value > 21) {
+//     alert('1');
+// } else if (!Number.isInteger(value)) {
+//     alert("ПОГАНЕ ЧИЛО!");
+// } else {
+//     for (let i = 1; i <= value; i++) {
+//         result *= i;
+//     }
+
+//     console.log("---------------------");
+//     console.log("result > ", result);
 // }
 
-// if (n < 0) {
-//     console.log(`Відʼємні не потрібні!`);
-// }
+// # Робота з масивами
+// - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+// -
+// - includes/indexOf
+// - find/findIndex
+// - split/join
+// - slice, split for strings
 
+// const arr = [];
 
-// for (let i = 1; i <= n; i++) {
-//     counter *= i;
-// }
+// console.log(typeof arr);
 
+// - splice/slice
 
+// splice(startIndex, [elementAmount, elements1, elements2 ...])
 
-// let i = 1
-
-// while (i <= n) {
-//     counter *= i;
-//     i++;
-// }
-
-// let i = 1;
-
-// while (n) {
-//     counter *= n;
-//     n--;
-// }
-
-
-
-// console.log('counter > ', counter);
-
-
-
-
-
-// splice
-// const arr = [13, 62, 5, 26, 7, 23, 7, 76]; 
-
+// const arr = [5, 7, 3, 8];
 // console.log('arr > ', arr);
 
-
-
-// // Array.splice(startIndex, counter, elements...);
-
-// // вирізати 3 елементи починаючи з 2 індексу
-// const subArray = arr.splice(2, 3);
-
-// console.log('subArray > ', subArray);
-// console.log('!arr > ', arr);
-
-// вирізати всі елементи починаючи з 4 індексу
-
-// const arr = [13, 62, 5, 26, 7, 23, 7, 76, null, undefined]; 
+// arr.splice(1, 3);
 // console.log('arr > ', arr);
 
-// const subArray = arr.splice(4);
+// arr.splice(1, 3, 777, 888, 999);
+// // console.log('arr > ', arr);
 
-// console.log('subArray > ', subArray);
-// console.log('!arr > ', arr);
+// arr.splice(0, 2);
+// // console.log('arr > ', arr);
 
-// вирізати 2 елементи починаючи з 3 індексу, та замість них вставити будь які 2 елементи
-// const arr = [13, 62, 5, 26, 7, 23, 7, 76]; 
+// const removedElemetns = arr.splice(0, 1);
 // console.log('arr > ', arr);
+// // console.log('removedElemetns > ', removedElemetns);
 
-// const subArray = arr.splice(3, 2, 'X', 'Y', 5, 'Z', 'A');
-
-// console.log('subArray > ', subArray);
-// console.log('!arr > ', arr);
-
-// вирізати 2 елементи починаючи з 3 індексу, та замість них вставити будь які 2 елементи
-// const arr = [13, 62, 5, 26, 7, 23, 7, 76];
+// arr.splice(1, 0, null, undefined, 0, -0, 123, 666, true,  1, 1, 1, 1, 1, 1, 1 ,1);
 // console.log('arr > ', arr);
-
-// const subArray = arr.splice(3, 0, 'X', 'Y', 5, 'Z', 'A');
-
-// console.log('subArray > ', subArray);
-// console.log('!arr > ', arr);
-
-
 
 // slice
-// const arr = [13, 62, 5, 26, 7, 23, 7, 76]; 
+// const arr = [5, 7, 3, 8];
 
+// const result = arr.slice(1, 4);
+// const result2 = arr.slice(2);
 // console.log('arr > ', arr);
-
-
-
-// const subArray = arr.slice(3, 6);
-
-// console.log('subArray > ', subArray);
-// console.log('!arr > ', arr);
-
-
-
-
-// const arr = [13, 62, 5, 26, 7, 23, 7, 76]; 
-
+// console.log('result > ', result);
+// console.log('result2 > ', result2);
 // console.log('arr > ', arr);
-
-// // вирізати 3 елементи починаючи з кінця
-// const subArray = arr.slice(-2, -4);
-
-// console.log('subArray > ', subArray);
-// console.log('!arr > ', arr);
-
-
 
 // concat/destruction
 
+// const arr1 = [5, 7, 3, 8];
+// const arr2 = [6, 2, 7, 8, 3];
+// const arrX = ["x", "y", "z", "w"];
+// const arr0 = [null, undefined, NaN];
 
-// const a = [1, 3, 5];
-// const b = [2, 5, 3];
-// const d = ['2', '5', '3'];
+// const arr3 = arr1.concat(arr2, arrX, arr0, 6, ['arr'], NaN);
 
-
-
-// const c = a.concat(
-//     d,
-//     b,
-//     [4, 4, 4, 4],
-//     null,
-//     'X',
-//     '100*10'
-// );
-
-// console.log('a > ', a);
-// console.log('b > ', b);
-// console.log('c > ', c);
-
-
-
-
-
-// const a = [1, 3, 5];
-// const b = [2, 5, 3];
-// const d = ['2', '5', '3'];
-
-// const result = [...a, ...b, ...d, 'Y'];
-
-// console.log('result > ', result);
-
-
-
-
-
-
-// - includes/indexOf
-
-
-// const arr = [13, 62, 5, 26, 7, 'Y', 23, 7, 76];
-
-// console.log('arr > ', arr);
-
-// const isIncluded = arr.includes('Y');
-
-
-// console.log('isIncluded > ', isIncluded);
-
-
-// const elemIndex = arr.indexOf('Y');
-
-// console.log('elemIndex > ', elemIndex);
-
-
-
-
-
-
-// - split/join (str)
-
-// const arr = [13, 62, 5, 26, 7, 'Y', 23, 7, 76, NaN, null, undefined];
-
-// const joined = arr.join(' <-=-> ');
-
-// console.log('joined > ', joined);
-
-
-// const strrr = '5+8+3+6+5+8+3+6+5+8+3+6+5+8+3+6';
-
-
-// const splitted = strrr.split('+');
-
-// console.log('splitted > ', splitted);
-
-// const splitted = strrr.split('');
-
-// console.log('splitted > ', splitted);
-
-
-
-// const strr = '   Dovilna dstroka    ';
-// console.log('strr > ', strr);
-
-
-// // const result = strr.split('');
-// // const result = strr.slice(2, 5);
-// // const result = strr.splice(2);
-// const result = strr.trim();
-
-
-
-
-// console.log('result > ', result);
-
-
-
-
-// const arr = [13, 62, 5, 26, 7, 'Y', 23, 7, 76, NaN, null, undefined];
-
-// arr.forEach(function (elem, i) {
-//     console.log('i > ', i);
-//     console.log('elem > ', elem);
-// });
-
-
-// const result = arr.some(function(elem, i) {
-//     return elem === 62;
-// })
-
-
-// console.log('result > ', result);
-
-
-
-
-
-// const arr = [13, 62, 5, 26, 7,  23, 7, 76];
-// const arr2 = ["Sean", "John", "Mark", "Bob",];
+// console.log('arr1 > ', arr1);
 // console.log('arr2 > ', arr2);
+// console.log('arr3 > ', arr3);
 
-// const result = arr2.sort();
-// console.log('result > ', result);
+// const arr4 = [...arr1, ...arr2, ...arrX, ...arr0];
+// const arr4 = [...arr1, ...arr2, 0, null, 123];
 
+// console.log("arr4 > ", arr4);
 
+// includes/indexOf
+// const arrX = ["x", "y", "z", "w"];
 
+// const isInArray = arrX.includes('x');
+// console.log('isInArray > ', isInArray);
 
-// const arr = [13, 62, 5, 26, 7, 23, 7, 76];
-// console.log('arr > ', arr);
+// const searchFor = arrX.indexOf('x');
+// console.log('searchFor > ', searchFor);
 
-// const result = arr.sort();
-// console.log('result > ', result);
+// split/join
 
-// const result = arr.sort(function (a, b) {
+// const animals = 'cat, dog, cow, frog, elk';
+// const animalsArr = animals.split(',');
+
+// const animals2 = 'cat+dog+cow+frog+elk';
+// const animalsArr2 = animals2.split('+');
+// console.log('animalsArr2 > ', animalsArr2);
+
+// const animals = ['cat', 'dog', 'cow', 'frog', 'elk'];
+// console.log('animals > ', animals);
+
+// const joinedAnimald = animals.join('+-!-+');
+// console.log('joinedAnimald > ', joinedAnimald);
+
+// - slice, split for strings
+
+// const animals = 'cat, dog, cow, frog, elk';
+// const animalsArr = animals.split(',');
+
+// const str = 'What a happy day!';
+// const slicedString = str.slice(0, 4);
+// console.log('slicedString > ', slicedString);
+
+// # Сортування масиву
+// - sort/reverse
+
+// const arr = [6, 170, 16, 2, 3];
+
+// // const sortedArr = arr.sort();
+// // console.log("sortedArr > ", sortedArr);
+
+// const arr = [6, 170, 16, 2, 3];
+
+// const sortedArr = arr.sort((a, b) => {
 //     if (a > b) return 1;
-//     // if (a === b) return 0;
 //     if (a < b) return -1;
+//     if (a === b) return 0;
 // });
-// console.log('result > ', result);
+
+// console.log("sortedArr > ", sortedArr);
+
+
+// const arr = [6, 170, 16, 2, 3];
+// console.log("arr > ", arr);
+
+// const arrReversed = arr.reverse();
+// console.log("arrReversed > ", arrReversed);
 
 
 
+// - forEach
 
-
-// const arr = [1, 3, 5, 7, 8];
-// arr[i];
-// console.log('arr[2] > ', arr[2]);
-
-// const arrMulti = [
-//     [1, 3, 5],
-//     [5, 4, 7],
-//     [4, 7, 8],
-// ];
-
-// // arr[i][k];
-// console.log('arrMulti[2] > ', arrMulti[1]);
-// console.log('arrMulti[2] > ', arrMulti[1][2]);
-
-
-// const arrMulti = [
-//     [[1, 4, 6], [3, 4], [5, 6]],
-//     [[5, 5], [4, 5], [7, 7]],
-//     [[2, 3, 4], [6], [8]],
-// ];
-
-// // arr[i][k][j];
-// console.log('arrMulti > ', arrMulti);
+// - filter (typeof number)
 
 
 
+// const testArr = [6, 170, 16, 2, 3];
 
-// const arrMulti = [
-//     [1, 3, 5],
-//     [5, 4, 7],
-//     [4, 7, 8],
-// ];
-
-
-// for (let i = 0; i < arrMulti.length; i++) {
-//     for (let k = 0; k < arrMulti[i].length; k++) {
-//         console.log(`i > ${i}-${k} =`, arrMulti[i][k]);
-//     }
+// for (let i = 0; i < testArr.length; i++) {
+//     console.log('elem > ', testArr[i]);
 // }
 
+// console.log('----------------------');
+
+
+// const testArr = [6, 170, 16, 2, 3];
+// const halfArray = Math.floor(testArr.length / 2);
+// console.log('halfArray > ', halfArray);
+
+// testArr.forEach((element, index) => {
+//     if (index === halfArray) {
+//         console.log('Значення на половині = ', element);
+//     };
+// });
+
+
+
+// testArr.filter((elem, i) => {
+
+// });
+
+// const testArr = [6, 170, 17, 2, 3];
+
+
+// const filteredArray = testArr.filter((elem, i) => {
+//     return (elem % 2 === 0);
+// });
+
+// console.log('testArr > ', testArr);
+// console.log('filteredArray > ', filteredArray);
+
+
+// # Перетворити “my-short-string” в “myShortString”
 
 
 
 
+// "my-short-string"
+// "my" "short" "string"
+// "my" "Short" "String"
+// "myShortString"
 
+// const kebabString = "my-short-string";
+// console.log('kebabString > ', kebabString);
+// const kebabArray = kebabString.split('-');
 
-
-// Перетворити “my-short-string” в “my Short String”
-
-// const str1 = 'dlya-pere-virky';
-// // const str2 = 'myShortString';
-
-// const subStrings = str1.split('-');
-
-
-
-// subStrings.forEach(function(subString, i) {
+// kebabArray.forEach((elem, i, kebabBase) => {
 //     if (i !== 0) {
-//         const chars = subString.split('');
-//         chars[0] = chars[0].toUpperCase();
-
-//         subStrings[i] = chars.join('');
+//         const splittedElem = elem.split('');
+//         splittedElem[0] = splittedElem[0].toUpperCase();
+//         const joinedElem = splittedElem.join('');
+//         kebabBase[i] = joinedElem;
 //     }
 // });
 
-// const result = subStrings.join('');
-
-
-// console.log('result > ', result);
-
-
-
-// # Почистити масив від нуль-значень
-
-
-const arr = [12, '23424', 324, null, 5, 0, 0, 9, undefined, NaN, 6, 7];
-// const arr = [12, '23424', 324, 6, 7];
+// const kebabJoined = kebabArray.join('');
+// console.log('kebabJoined > ', kebabJoined);
 
 
 
+const str = 'My-$+$-New-$+$-Awesome-$+$-String';
+const splittedString = str.split('$+$');
+
+console.log(splittedString);
