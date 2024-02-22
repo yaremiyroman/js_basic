@@ -222,34 +222,7 @@
 
 
 
-// // Створіть об’єкт ladder, що дозволяє підійматися вгору-вниз
 
-// const ladder = {
-//     step: 0,
-//     goUpstairs: function() {
-//         this.step++;
-//     },
-//     goDownstairs: function() {
-//         this.step--;
-//     },
-//     showCurrentStep: function() {
-//         console.log('step >', this.step);
-//     }
-// };
-
-// ladder.showCurrentStep();
-// ladder.goUpstairs();
-// ladder.goUpstairs();
-// ladder.goUpstairs();
-// ladder.showCurrentStep();
-// ladder.goDownstairs();
-// ladder.goDownstairs();
-// ladder.goDownstairs();
-// ladder.goDownstairs();
-// ladder.goDownstairs();
-// ladder.goDownstairs();
-// ladder.goDownstairs();
-// ladder.showCurrentStep();
 
 
 // var, let, const
