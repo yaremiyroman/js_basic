@@ -1,259 +1,307 @@
-'use strict';
+// const object1 = {};
+// const object2 = {};
 
-// то він виконується після виклику функції sum(a, b), і як вхідне значення приймає результат роботи функції sum(a, b).
-// - Функція main повинна повертати результат функції аргументу cb, якщо він є, або результат функції sum(a, b)
+// // console.log(object1 == object2);
 
-// function main(a = 2, b = 3, cb) {
-//     if (typeof cb === 'function') {
-//         return cb(sum(a, b));
-//     } else {
-//         return sum(a, b);
+// const myNumber = 212;
+// const myString = "212";
+// const myBool = true;
+
+// object2.color = "red";
+
+// const myArray = [];
+
+// myArray.push("anyValue");
+// // console.log('myArray > ', myArray);
+
+// const myNewObject = {
+//     value: "123",
+//     anyProp: false,
+//     internal: {
+//         value: "123",
+//         anyProp: false,
+//         internal2: {
+//             value: "123123123",
+//             anyProp: false,
+//         },
+//     },
+// };
+
+// // console.log(myNewObject.internal.internal2.value);
+
+// const mySuperArray = [2, 3, 34, 3452, 2345, 2345];
+
+// mySuperArray.push("X");
+
+// // console.log(mySuperArray);
+
+// // const a = 5;
+// // const b = 5;
+
+// // console.log(a == b);
+
+// // const object3 = {
+// //     a: 5,
+// // };
+
+// // const object4 = {
+// //     a: 5,
+// // };
+
+// // console.log(object3 === object4); // false
+// // console.log(object3 === object3); // true
+
+// const object4 = {
+//     a: 5,
+//     b: "5",
+//     new: false,
+// };
+
+// const object8 = {
+//     a: 5,
+//     b: "5",
+//     new: false,
+// };
+
+// const object5 = {
+//     a: 5,
+//     b: "5",
+//     new: false,
+//     object4L: {
+//         a: 5,
+//         b: "5",
+//         new: false,
+//         object4L: {
+//             a: 5,
+//             b: "5",
+//             new: false,
+//             object4L: {
+//                 a: 5,
+//                 b: "5",
+//                 new: false,
+//                 object4L: {
+//                     a: 5,
+//                     b: "5",
+//                     new: false,
+//                 },
+//             },
+//         },
+//     },
+// };
+
+// //es6
+
+// // const object9 = {
+// //     a: 5,
+// //     b: "5",
+// //     new: false,
+// // };
+
+// // const object10 = {
+// //     true: "Long string",
+// //     newProp: [4, 6, 7, 8, 9],
+// //     prop: true,
+// // };
+
+// // console.log('object9 > ', object9);
+// // console.log('object10 > ', object10);
+
+// // // Spread
+
+// // const object11 = { ...object9, ...object10};
+// // console.log('object11 > ', object11);
+
+
+
+// const object9 = {
+//     a: 5,
+//     b: "5",
+//     new: false,
+// };
+
+// const object99 = {
+//     a: 5,
+//     b: "5",
+//     new: true,
+// };
+
+// const object10 = {
+//     true: "Long string",
+//     newProp: [4, 6, 7, 8, 9],
+//     prop: true,
+// };
+
+
+// console.log('object9 > ', object9);
+
+// // const object111 = { ...object9, ...object99,  ...object10};
+
+
+// const object111 = { 
+//     ...object9,
+//     ...{
+//         'YY': 'YY'
+//     },
+//     ...object99,
+//     ...object10,
+//     ...{
+//         XX: 'YY'
 //     }
-// }
-
-// function cb(result) {
-//     alert(result);
-// }
-
-// function sum(a, b) {
-//     return a + b;
-// }
-
-// // const res = main(7, 9);
-// // console.log('res > ', res);
-
-// main(10, 20, cb);
-
-
-
-// const cityProperties = ["name", "area", "population", "main street", "mayor's name"];
-
-
-// function createCity(properties) {
-//     const city = {};
-
-//     properties.forEach(function(elem, i) {
-//         city[elem] = prompt(`Enter your city ${elem}`, elem);
-//     });
-
-//     return city;
-// } 
-
-// const city  = createCity(cityProperties);
-// console.log('city > ', city);
-
-
-
-
-
-// let a = 5;
-// console.log('a > ', a);
-
-// let b = a;
-// console.log('b > ', b);
-
-
-
-// let obj1 = {};
-// obj1.a = 56;
-// obj1 = 10000;
-// console.log('obj1 > ', obj1);
-
-// const obj2 = {};
-// console.log('obj2 > ', obj2);
-
-// console.log(obj1 === obj2);
-
-
-
-
-// const user = {
-//     name: 'Petro',
-//     isLoggedIn: true,
 // };
 
-
-// user.name = 'John';
-
-// const admin = user;
-
-// admin.name = 'Paul';
-
-
-// console.log('user >', user);
-// console.log('admin >', admin);
+// console.log('object111 > ', object111);
 
 
 
+// // es5
 
-// const user = {
-//     name: 'Petro',
-//     isLoggedIn: true,
+
+
+// const object99 = {
+//     a: 5,
+//     b: "5",
+//     new: true,
 // };
 
-// const admin = user;
-
-// console.log(admin === user);
-// console.log({} === {});
-
-
-
-
-
-
-// const user = {
-//     name: 'Petro',
-//     isLoggedIn: true,
+// const object10 = {
+//     true: "Long string",
+//     newProp: [4, 6, 7, 8, 9],
+//     prop: true,
 // };
 
-// const superUser = {};
+// const newObject = Object.assign({}, object99, object10);
 
-// for (let prop in user) {
-//     // console.log('prop > ', prop);
-//     // console.log('user[prop] > ', user[prop]);
-
-//     superUser[prop] = user[prop];
-// }
-
-// superUser.console = 'log';
-
-// console.log('user > ', user);
-// console.log('superUser > ', superUser);
+// console.log('newObject > ', newObject);
 
 
 
 
+// // es5
 
 
-// const user1 = {
-//     name: 'Petro',
-//     isLoggedIn: true,
-// };
 
-// // console.log('user1 > ', user1);
-
-// const user2 = {
-//     name: 'Qwerty',
-//     isLoggedIn: true,
-//     age: 423,
-//     height: 150,
-//     newObj: {
-//         x: 1,
-//         y: 2,
-//         z: {
-//             wqert: 'adfgsdg',
-//             wqert: 'adfgsdg',
-//             wqert: 'adfgsdg',
+// const object99 = {
+//     a: 5,
+//     b: "5",
+//     new: true,
+//     nestedProp: {
+//         true: "Long string",
+//         newProp: [4, 6, 7, 8, 9],
+//         prop: true,
+//         nestedProp: {
+//             true: "Long string",
+//             newProp: [4, 6, 7, 8, 9],
+//             prop: true,
 //         }
 //     }
 // };
 
-// const postalInfo = {
-//     address: 'Deribasovska',
-//     zip: 54007,
-// }
-
-// // console.log('user2 > ', user2);
-
-// // const result = Object.assign(user1, user2, postalInfo);
-// const newResult = Object.assign({}, user1, user2);
-
-// console.log('newResult > ', newResult);
-
-
-
-
-
-// const user2 = {
-//     name: 'Qwerty',
-//     isLoggedIn: true,
-//     age: 423,
-//     height: 150,
-//     newObj: {
-//         x: 1,
-//         y: 2,
-//         z: {
-//             wqert: 'adfgsdg',
-//             wqert: 'adfgsdg',
-//             wqert: 'adfgsdg',
-//         }
-//     }
+// const object10 = {
+//     true: "Long string",
+//     newProp: [4, 6, 7, 8, 9],
+//     prop: true,
 // };
 
+// const newObject = Object.assign({}, object99, object10);
 
-// const newObject = structuredClone(user2);
-
-// user2.name = 'Zxcvbnm';
-
-// console.log('user2 > ', user2);
 // console.log('newObject > ', newObject);
 
 
 
 
 
-// const user1 = {
-//     name: 'Petro',
-//     isLoggedIn: false,
-//     sayHello: function(newName) {
-//         console.log('newName > ', newName);
-//         this.name = newName;
-//         alert(`Hello, ${this.name}!`);
-//     },
-//     logOut: function() {
-//         this.isLoggedIn = false;
-//     },
-//     logIn: function() {
-//         this.isLoggedIn = true;
-//     },
+// const object10 = {
+//     true: "Long string",
+//     newProp: [4, 6, 7, 8, 9],
+//     prop: true,
 // };
 
 
-// console.log('user1.isLoggedIn >', user1.isLoggedIn);
-// user1.logIn();
-// console.log('user1.isLoggedIn >', user1.isLoggedIn);
-// user1.name = 'New Name';
-// user1.sayHello('SuperUserName');
-// user1.logOut();
-// console.log('user1.isLoggedIn >', user1.isLoggedIn);
 
-// console.log('user1.name >', user1.name);
-// user1.sayHello();
-
-
-
-
-
-
-// var, let, const
-
-
-
-
-
-
-
-
-//global
-
-// let
-
-// function f() {
-//     const x = true;
-
-//     if (x === true) {
-//         // block 
-//         const y = 'Hello';
-//         console.log('y > ', y);
-//     }
-//     const y = 'Hello Next';
-
-//     console.log('y > ', y);
-
+// for (let key in object10) {
+//     console.log('key > ', key);
+//     console.log('object10[key] > ', object10[key]);
+//     console.log('----------------');
 // }
 
 
-// f();
+// const object10 = {
+//     true: "Long string",
+//     newProp: [4, 6, 7, 8, 9],
+//     prop: true,
+// };
+
+
+
+// const allEntries = Object.entries(object10);
+// const allKeys = Object.keys(object10);
+// const allValues = Object.values(object10);
+
+// console.log('allEntries > ', allEntries);
+// console.log('---------------------------');
+// console.log('allKeys > ', allKeys);
+// console.log('---------------------------');
+// console.log('allValues > ', allValues);
+
+
+
+// console.log(object10.hasOwnProperty('newProp'));
+// console.log(object10.hasOwnProperty('anyProp'));
+
+
+
+
+
+
+// const userData = {
+//     name: 'UserName',
+//     secondName: 'Johnson',
+//     sayName: function() {
+//         alert(this.name + ' ' + this.secondName);
+//     }
+// };
+
+// userData.sayName();
+
+
+
+// const ladder = {
+//     step: 0,
+//     goUpstairs: function() {
+//         this.step++;
+//     },
+//     goDownstairs: function() {
+//         this.step--;
+//     },
+//     showCurrentStep: function() {
+//         console.log('step > ', this.step);
+//     },
+//     ladderInside: {
+//         showCurrentStep: function() {
+//             console.log('step > ', this.step);
+//         },
+//     }
+// };
+
+
+// console.log(ladder.showCurrentStep());
+// console.log(ladder.goUpstairs());
+// console.log(ladder.goUpstairs());
+// console.log(ladder.goUpstairs());
+// console.log(ladder.showCurrentStep());
+// console.log(ladder.goDownstairs());
+// console.log(ladder.showCurrentStep());
+// console.log(ladder.goUpstairs());
+// console.log(ladder.goUpstairs());
+// console.log(ladder.goUpstairs());
+// console.log(ladder.goUpstairs());
+// console.log(ladder.goUpstairs());
+// console.log(ladder.goUpstairs());
+// console.log(ladder.goUpstairs());
+// console.log(ladder.goUpstairs());
+// console.log(ladder.goUpstairs());
+// console.log(ladder.showCurrentStep());
+// console.log(ladder.ladderInside.showCurrentStep());
 
 
 
@@ -261,7 +309,23 @@
 
 
 
+const asdgdsg = ['name', 'area', 'population', 'main street', 'mayor\'s name']
+
+function newFunc(array) {
+
+const sdgdsfgdsfg = {};
+
+sdgdsfgdsfg[array[i]] = 'Mykolaiv';
 
 
 
+    return {
+        'name': prompt(),
+        'area': 450,
+        'population': 500000,
+        'main street': 'Soborna',
+        'mayor\'s name': 'S. Syenkivich',
+    };
+}
 
+newFunc(asdgdsg);
