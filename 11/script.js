@@ -1,413 +1,382 @@
-// Успадкування з прототипів
+var b;
+// процедурне програму
+// функціональне прог
+// обʼєктно орієнтоване прог - Успадкування, інкапсуляція, поліморфізм
 
-// Успадкування з прототипів є однією з основних концепцій об'єктно-орієнтованого програмування в JavaScript.
-//  У JavaScript успадкування реалізується через механізм прототипів. Давайте розглянемо декілька ключових понять.
-// Тобто ми хочемо повторно використовувати те, що ми маємо в user,
-// але також додати ще власні методи і властивості.
-// Інакше кажучи, просто хочемо збудувати новий об’єкт поверх того, що існує.
+// Успадкування, Prototype
+// функцію-контрусктор
+
+// # Успадкування з прототипів
 
 // const catParent = {
-//     breed: "sphinx",
-//     color: "red",
+//     breed: 'sphinx51',
+//     color: 'red',
+//     name: 'erased',
 //     sayMeow: function() {
-//       alert('sayMeow!');
+//         alert('meow');
 //     }
 // };
 
 // const catChild = {
-//     name: "Tom",
+//     name: 'Tom',
 //     __proto__: catParent,
 // };
 
-// console.log("catChild > ", catChild);
-// console.log("catChild.name > ", catChild.name);
-// console.log("catChild.name > ", catChild.secondName);
-// console.log("catChild.name > ", catChild.color);
+// catParent.breed = ' new    ';
+// console.log('catParent > ', catParent.name);
+// console.log('catChild > ', catChild.breed);
 
+// # Ланцюжок прототипів
 
-
-
-// успадкування та Ланцюжок прототипів
-// JavaScript використовує механізм успадкування через прототипи.
-// Кожен об'єкт може мати прототип, і якщо властивість або метод не знаходиться у самому об'єкті,
-//  JavaScript буде шукати його в його прототипі, і так далі, уздовж ланцюжка прототипів.
-
-// const cat1 = {
-//     legs: 4,
+// const cat = {
+//     legs: 5,
 //     sayMeow: function() {
-//         alert('sayMeow');
+//         alert('meow');
 //     }
 // };
 
-// const catParent2 = {
-//     secondName: 'sphinx',
+// const catParent = {
+//     breed: 'sphinx',
 //     color: 'red',
-//     __proto__: cat1
+//     name: 'Father',
+//     __proto__: cat,
 // };
 
+// const catChild = {
+//     name: 'Child-cat',
+//     __proto__: catParent,
+// };
+
+// const superCat = {...cat, ...catParent, ...catChild};
+// console.log('superCat > ', superCat);
+// catChild.__proto__ = catParent;
+
+// console.log('cat > ', cat);
+// console.log('catParent > ', catParent);
+// console.log('catChild > ', catChild);
+
+// const obj = {};
+// const objChild = { name: 'anyName' };
+
+// obj.__proto__ = objChild;
+
+// console.log('obj > ', obj);
+// console.log('objChild > ', objChild);
+
+// const obj5 = { super2: 1415415 };
+// const obj4 = { super: 14 };
+// const obj3 = {};
+// const objChild6 = { name: 'anyName' };
+
+// Object.setPrototypeOf(obj3, objChild6);
+// Object.setPrototypeOf(objChild6, obj4);
+// Object.setPrototypeOf(obj4, obj5);
+
+// console.log('obj3 > ', obj3);
+// console.log('objChild6 > ', objChild6);
+
+// const cat = {};
+
+// const catParent = {
+//     breed: 'sphinx',
+//     color: 'red',
+//     name: 'Father',
+//     __proto__: cat,
+// };
+
+// cat.legs = 5;
+// cat.sayMeow = function() { alert('meow');};
+
+// console.log('catParent > ', catParent);
+
+// const catChild1 = {
+//     name: 'Child1',
+//     __proto__: catParent,
+// };
+
+// console.log('catChild1 > ', catChild1);
+
+// const catChild2 = {
+//     name: 'Child2',
+//     __proto__: catParent,
+// };
+
+// console.log('catChild2 > ', catChild2);
+
 // const catChild3 = {
-//     name: 'Tom',
-//     __proto__: catParent2
+//     name: 'Child3',
+//     __proto__: catParent,
 // };
 
 // console.log('catChild3 > ', catChild3);
 
-
-
-
-
-// Використання Object.setPrototypeOf():
-
-// var obj = {};
-// var newProto = { newProperty: 'Hello!' };
-
-// obj.__proto__ = newProto;
-
-// console.log(obj.newProperty); // Виведе 'Hello!'
-
-
-
-// var obj = {};
-// var newProto = { newProperty: 'Hello!' };
-
-// Object.setPrototypeOf(obj, newProto);
-
-// console.log(obj.newProperty); // Виведе 'Hello!'
-
-
-
-
-//-------------------------------------------------------
-
-
-// const cat = {
-//     legs: 4,
-//     sayMeow: function () {
-//         alert("sayMeow");
-//     },
-//     name: "Parent Name",
-// };
-
-// const catParent = {
-//     secondName: 'sphinx',
-//     color: 'red',
-
-//     sayMeow: function() {
-//         alert(`  My name is: ${this.name}   `)
-//     },
-//     __proto__: cat
-
-// };
-
-// const catChild1 = {
-//     id: 1000,
-//     __proto__: catParent
-// };
-
-// const catChild2 = {
-//     id: 1001,
-//     __proto__: catParent
-// };
-
-// const catChild3 = {
-//     id: 1002,
-//     __proto__: catParent
-// };
-
 // const catChild4 = {
-//     id: 1006,
-//     __proto__: catParent
+//     name: 'Child4',
+//     __proto__: catParent,
 // };
 
-
-
-
-// console.log(catChild1.id);
-// console.log(catChild3.id);
-// console.log(catChild1.color);
-// console.log(catChild2.color);
-// console.log(catChild3.color);
-
-
-
-
+// console.log('catChild4 > ', catChild4);
 
 // # Використання конструктора для створення об’єктів
 
-// function Cat() {
+// const cat2 = {
+//     breed: 'sphinx',
+// color: 'red',
+//     name: 'Father',
+// };
 
-//     const tempObj = {};
+// console.log(getCat());
 
-//     tempObj.color = 'red';
-//     tempObj.secondName = 'sphinx';
-//     tempObj.sayMeow = function() {
-//         alert(`  Meow   `);
-//     };
+// function GetCat() {
+//     const this = {};
 
-//     return tempObj;
-
-// }
-
-// function Cat() {
-//     // const this = {};
-
+//     this.breed = 'sphinx';
 //     this.color = 'red';
-//     this.secondName = 'sphinx';
-//     this.sayMeow = function() {
-//         alert(`  Meow   `);
-//     };
+//     this.name = 'Father';
 
-//     // return this;
+//     return this;
 // }
 
-// function Cat() {
+// function getCat() {
+//     const cat = {};
+
+//     cat.breed = 'sphinx';
+//     cat.color = 'red';
+//     cat.name = 'Father';
+
+//     return cat;
+// }
+
+// function GetCat() {
+//     this.breed = 'sphinx';
 //     this.color = 'red';
-//     this.secondName = 'sphinx';
-//     this.sayMeow = function() {
-//         alert(`  Meow   `);
-//     };
+//     this.name = 'Father';
 // }
 
-// const firstCat = new Cat();
-// const firstCat2 = new Cat();
-// const firstCat3 = new Cat();
-// const firstCat4 = new Cat();
-// const firstCat5 = new Cat();
-// const firstCat6 = new Cat();
-// const firstCat7 = new Cat();
-// const firstCat8 = new Cat();
-// const firstCat10 = new Cat();
+// const cat = new GetCat();
+// const cat2 = new GetCat();
+// const cat3 = new GetCat();
 
-// const firstCat9 = new Cat();
-// firstCat9.hadDinner = true;
+// console.log('cat > ', cat);
+// console.log('cat2 > ', cat2);
+// console.log('cat3 > ', cat3);
 
-// console.log('firstCat8 > ', firstCat8);
-// console.log('firstCat9 > ', firstCat9);
-
-
-
-
-
-
-
-// Розширення конструкторів для отримання аргументів
-// function Cat(catColor, catSecondName) {
-//     this.color = catColor;
-//     this.secondName = catSecondName;
-//     this.sayMeow = function () {
-//         alert(`  Meow   `);
-//     };
+// function Date() {
+//     this.date = 'today 20:44';
 // }
 
-// const firstCat9 = new Cat('black', 'best');
-// const firstCat7 = new Cat('red', 'super');
-// const firstCat777 = new Cat('orange', 'good');
+// function GetCat(breedName = 'sphinx', colorValue = 'red', nameName = 'Father') {
+//     this.breed = breedName;
+//     this.color = colorValue;
+//     this.name = nameName;
+//     this.legs = 4 + 100 / 12 - 6;
+// }
+
+// const cat = new GetCat('SuperBreed', 'orange', 'NewFather');
+// const cat2 = new GetCat('SuperBreed', 'orange');
+// const cat3 = new GetCat('SuperBreed', undefined, 'NewFather');
 
 // const newDate = new Date();
 
+// console.log(newDate);
+// console.log(cat instanceof GetCat);
+// console.log(cat2 instanceof GetCat);
+// console.log(cat3 instanceof GetCat);
+// console.log(newDate instanceof GetCat);
 
-
-
-// Перевірка конструктора об’єкта за допомогою instanceof
-
-// console.log(  firstCat7 instanceof    Cat   );
-// console.log(  newDate instanceof    Cat   );
-// console.log(  newDate instanceof    Date   );
-
-// function Cat(catColor, catSecondName) {
-//     this.color = catColor;
-//     this.secondName = catSecondName;
-//     this.sayMeow = function () {
-//         alert(`  Meow   `);
-//     };
-// }
-
-// const firstCat777 = new Cat('orange', 'good');
-
-
-
-
-
-
-// Власні властивості
-// const hasSecondName = firstCat777.hasOwnProperty('secondName');
-// const hasAnotherProp = firstCat777.hasOwnProperty('anotherProp');
-
-// console.log('hasSecondName > ', hasSecondName);
-// console.log('hasAnotherProp > ', hasAnotherProp);
-
-
-
-
-// // Властивості прототипу
-// function Cat(catColor, catSecondName) {
-//     this.color = catColor;
-//     this.secondName = catSecondName;
-//     // this.eyes = 2;
-// }
-
-// const firstCat777 = new Cat('orange', 'good');
-// const firstCat6 = new Cat('black', 'fine');
-// const firstCat3 = new Cat('red', 'best');
-
-
-
-// Cat.prototype.sayMeow = function() {
-//     alert(' Meow ');
-// };
-
-// firstCat777.sayMeow();
-
-// console.log('firstCat777 > ', firstCat777);
-// console.log('firstCat6 > ', firstCat6);
-// console.log('firstCat3 > ', firstCat3);
-
-// Cat.prototype.ears = 2;
-
-// firstCat777.ears = 5;
-
-// console.log('firstCat3.ears > ', firstCat777.ears);
-// console.log('firstCat3.ears > ', firstCat3.ears);
-// console.log('firstCat3.ears > ', firstCat6.ears);
-
-// console.log('firstCat777 > ', firstCat777);
-
-
-
-
-// Ітерація через усі властивості for..in
-
-// const cat = {
-//     legs: 4,
-//     sayMeow: function () {
-//         alert("sayMeow");
-//     },
-//     name: "Parent Name",
+// const catParent = {
+//     legs: 5,
+//     sayMeow: function() {
+//         alert('meow');
+//     }
 // };
 
 // const catChild = {
-//     secondName: 'sphinx',
+//     breed: 'sphinx',
 //     color: 'red',
-
-//     sayMeow: function() {
-//         alert(`  My name is: ${this.name}   `)
-//     },
-//     __proto__: cat
-
+//     name: 'Father',
+//     __proto__: catParent,
 // };
 
+// catParent.anyProp = 234654235;
+// catParent.anyPropNew = 'new';
 
-// for (let key in catChild) {
-//     if (catChild.hasOwnProperty(key)) {
-//       console.log(key + ': ' + catChild[key]);
-//     }
-//   }
+// // console.log(catChild.hasOwnProperty('breed'));
+// // console.log(catChild.hasOwnProperty('name'));
+// // console.log(catChild.hasOwnProperty('sayMeow'));
+// catChild.sayMeow();
 
-
-
-
-
-
-// Написати функцію ConstructCity, що буде приймати в себе властивості міста (властивості на ваш розсуд) та створювати екземпляри ConstructCity. Функція має бути функцією-конструктором.
-
-
-
-// 1 option
-// function MakeBuilding(name, floors, apartments, street) {
-//     this.floorsCount = floors;
-//     this.apartmentsCount = apartments;
-//     this.street = street;
-//     this.name = name;
+// function GetCat(breedName = 'sphinx', colorValue = 'red', nameName = 'Father') {
+//     this.breed = breedName;
+//     this.color = colorValue;
+//     this.name = nameName;
 // }
 
-// const firstBuilding = new MakeBuilding('JK Gefest', 22, 300, "Soborna");
-// const firstBuilding2 = new MakeBuilding('JK Gefest', 22, 300, "Soborna");
-// const firstBuilding3 = new MakeBuilding('JK Gefest', 22, 300, "Soborna");
+// const cat = new GetCat('SuperBreed', 'orange', 'NewFather');
+// const cat3 = new GetCat('SuperBreed', undefined, 'NewFather');
 
-// console.log('firstBuilding > ', firstBuilding);
+// GetCat.prototype.sayMeow = function() { alert('mewo'); };
+// GetCat.prototype.legs = 4;
 
+// // cat.sayMeow();
+// // cat3.sayMeow();
 
+// console.log(cat3.hasOwnProperty('legs'));
 
+// // console.log(cat3.legs);
 
+// for (let key in cat3) {
+//     if (cat3.hasOwnProperty(key))  {
+//         console.log(key);
+//     }
+// }
 
+// написати функцію ConstuctCity
+// приймати в себе властивості на наш розсуд
+// функція має бути конструкторм
 
+// function ConstuctCity(
+//     cityName = prompt('enter city name'),
+//     cityMayor = prompt('enter cityMayor'),
+//     mainStreet = prompt('enter mainStreet'),
+// ) {
+//     this.cityName = cityName;
+//     this.cityMayor = cityMayor;
+//     this.mainStreet = mainStreet;
+// }
 
+// const myCity = new ConstuctCity('Mykolaiv');
 
+// console.log('myCity > ', myCity);
 
+// es5
+// es6
 
+// var, let, const
 
-// В ES6 введено локальні блокові області видимості для змінних, оголошених за допомогою let та const.
-// Ключові слова var та let використовуються для оголошення змінних в JavaScript,
-// але вони мають деякі відмінності в їхній області видимості та поведінці. Ось деякі з основних відмінностей
+// const constName = 5;
+// let letName = 5;
 
+// letName = 56;
+// letName = null;
 
-// Область видимості (Scope):
-
-// Змінні, оголошені з використанням var, мають функціональну область видимості (functional scope).
-//  Це означає, що вони видимі всередині функції, незалежно від блоку, в якому вони оголошені.
-function exampleVar() {
-    if (true) {
-      var x = 10;
-    }
-    console.log(x); // 10
-  }
-
-
-//   Змінні, оголошені з використанням let, мають блокову область видимості (block scope). 
-// Це означає, що вони видимі лише всередині блоку, в якому вони оголошені.
-
-function exampleLet() {
-    if (true) {
-      let y = 20;
-    }
-    console.log(y); // Помилка: y is not defined
-  }
-
-
-
-//   Hoisting:
-
-// Змінні, оголошені за допомогою var, піднімаються (hoisted) на початок функції або глобального контексту,
-// що означає, що їх можна використовувати навіть до того, як вони були оголошені.
-console.log(a); // undefined
-var a = 5;
-
-// Змінні, оголошені за допомогою let, також піднімаються, але вони залишаються непроініціалізованими 
-// до моменту їхнього фактичного оголошення.
-console.log(b); // Помилка: Cannot access 'b' before initialization
-let b = 10;
+// var newVariable =  234535;
+// newVariable = '123421424';
+// newVariable = null;
 
 
 
 
-// Повторне оголошення
+// function exampleVar() {
+//     var x = 10;
 
-// Змінні, оголошені за допомогою var,
-//  можна повторно оголосити в тому ж функціональному контексті без отримання помилки
+//     if (true) {
+//         x = 10;
+//     }
 
-var x = 5;
-var x = 10; // Працює без помилки
+//     console.log("x > ", x);
+// }
 
-
-// Змінні, оголошені за допомогою let, не можна повторно оголошувати в тому ж блочному контексті
-// let y = 15;
-// let y = 20; // Помилка: Identifier 'y' has already been declared
+// exampleVar();
 
 
 
 
 
+// function exampleLet() {
+//     let x2 = 10;
+
+//     if (true) {
+//         x2 = 15;
+//     }
+
+//     console.log("x2 > ", x2);
+// }
+
+// exampleLet();
 
 
-// Default параметри для функцій. ES6 дозволяє встановлювати значення за замовчуванням для параметрів функцій.
-// Шаблонні рядки. ES6 дозволяє використовувати шаблонні рядки для вбудовування виразів в рядки
-// Деструктуризація
-// [1,2,3].concat([2,3]); (5) [1, 2, 3, 2, 3] [...[1,2,3], ...[2,3]]
-// () => {}
-// В ES6 введено ключові слова class для визначення класів та extends для наслідування класів.
+
+// hoisting
 
 
 
-// use strict
-// "use strict";
-// x = 10; // Помилка: x is not defined
+// console.log(a);
+// const a = 15;
+// // console.log(a);
+
+
+// console.log(b);
+// var b = 16161;
+
+
+
+
+
+// let a = 15;
+// console.log(a);
+// let a = 25;
+// console.log(a);
+
+
+// var a = 15;
+// console.log(a);
+// var a = 25;
+// console.log(a);
+
+
+
+
+
+
+// function newFunc(a, b) {
+//     if (a === undefined) {
+//         a = 15;
+//     }
+
+//     if (b === undefined) {
+//         b = 25;
+//     }
+// }
+
+
+
+// function newFunc(a = 15, b = 25) {
+
+// }
+
+
+
+
+
+// const arr1 = [2, 5, 7];
+// const arr2 = ['2', '5', '7'];
+
+// var arrUnited = arr1.concat(arr2);
+// console.log('arrUnited > ', arrUnited);
+
+// const arrUnitedES6 = [...arr1, ...arr2];
+// console.log('arrUnited > ', arrUnitedES6);
+
+
+
+
+
+// function funcDeclaration() {
+
+// }
+
+// const funcExpression = () => {};
+// const funcExpression3 = _ => {};
+
+
+
+
+// var stringES5 = '1341234124124';
+
+// const stringES6 = `the same ${6 +  stringES5 + 7} old string`;
+
+// console.log('stringES5 > ', stringES5);
+// console.log('stringES6 > ', stringES6);
+
+
