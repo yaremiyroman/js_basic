@@ -1,136 +1,92 @@
-// const a = {
-//     x: 3,
-//     y: 6
-// };
+// Успадкування з прототипів
 
-// const b = {
-//     w: 11
-// };
-
-
-// function main() {
-//     sdfgsdfg
-// }
-
-// main(123);
-
-
-// // console.log('a > ', a);
-// // console.log('b > ', b);
-
-// Object.assign(a, b);
-
-// console.log('a > ', a);
-
-// const newCloned = Object.assign({}, a, b);
-// console.log('newCloned > ', newCloned);
-
-// spread operator
-// ...
-
-
-// const a = {
-//     x: 3,
-//     y: 6
-// };
-
-// ...a
-// x: 3, y: 6
-
-
-
-// const b = {
-//     w: 11
-// };
-
-// const c = {
-//     c: "stringstirg"
-// };
-
-
-// ...b
-// w: 11
-
-// const newObj = { ...a, ...b, ...c };
-
-// const newObj2 = Object.assign({}, a, b, c);
-
-// console.log('newObj > ', newObj);
-
-
-// console.log('...a > ', {...a});
-
-
-
-// const A = [3, 5, 7];
-// const B = [345, 524524];
-
-// const C = [ ...A, ...B];
-
-// console.log('C > ', C);
-
-
-
-
+// Успадкування з прототипів є однією з основних концепцій об'єктно-орієнтованого програмування в JavaScript.
+//  У JavaScript успадкування реалізується через механізм прототипів. Давайте розглянемо декілька ключових понять.
+// Тобто ми хочемо повторно використовувати те, що ми маємо в user,
+// але також додати ще власні методи і властивості.
+// Інакше кажучи, просто хочемо збудувати новий об’єкт поверх того, що існує.
 
 // const catParent = {
-//     secondName: 'sphinx',
-//     color: 'red',
+//     breed: "sphinx",
+//     color: "red",
+//     sayMeow: function() {
+//       alert('sayMeow!');
+//     }
 // };
-
-
 
 // const catChild = {
-//     name: 'Tom',
-//     __proto__: catParent
+//     name: "Tom",
+//     __proto__: catParent,
 // };
 
-
-// console.log('catChild > ', catChild);
-// console.log('catChild.name > ', catChild.name);
-// console.log('catChild.name > ', catChild.secondName);
-// console.log('catChild.name > ', catChild.color);
-
+// console.log("catChild > ", catChild);
+// console.log("catChild.name > ", catChild.name);
+// console.log("catChild.name > ", catChild.secondName);
+// console.log("catChild.name > ", catChild.color);
 
 
 
-// const cat = {
+
+// успадкування та Ланцюжок прототипів
+// JavaScript використовує механізм успадкування через прототипи.
+// Кожен об'єкт може мати прототип, і якщо властивість або метод не знаходиться у самому об'єкті,
+//  JavaScript буде шукати його в його прототипі, і так далі, уздовж ланцюжка прототипів.
+
+// const cat1 = {
 //     legs: 4,
 //     sayMeow: function() {
 //         alert('sayMeow');
 //     }
 // };
 
-
-// const catParent = {
+// const catParent2 = {
 //     secondName: 'sphinx',
 //     color: 'red',
-//     __proto__: cat
+//     __proto__: cat1
 // };
 
-
-
-// const catChild = {
+// const catChild3 = {
 //     name: 'Tom',
-//     __proto__: catParent
+//     __proto__: catParent2
 // };
 
-
-// console.log('catChild > ', catChild);
-
+// console.log('catChild3 > ', catChild3);
 
 
 
 
-const cat = {
-    legs: 4,
-    sayMeow: function () {
-        alert('sayMeow');
-    },
-    name: 'Parent Name',
-};
+
+// Використання Object.setPrototypeOf():
+
+// var obj = {};
+// var newProto = { newProperty: 'Hello!' };
+
+// obj.__proto__ = newProto;
+
+// console.log(obj.newProperty); // Виведе 'Hello!'
 
 
+
+// var obj = {};
+// var newProto = { newProperty: 'Hello!' };
+
+// Object.setPrototypeOf(obj, newProto);
+
+// console.log(obj.newProperty); // Виведе 'Hello!'
+
+
+
+
+//-------------------------------------------------------
+
+
+// const cat = {
+//     legs: 4,
+//     sayMeow: function () {
+//         alert("sayMeow");
+//     },
+//     name: "Parent Name",
+// };
 
 // const catParent = {
 //     secondName: 'sphinx',
@@ -142,8 +98,6 @@ const cat = {
 //     __proto__: cat
 
 // };
-
-
 
 // const catChild1 = {
 //     id: 1000,
@@ -167,6 +121,7 @@ const cat = {
 
 
 
+
 // console.log(catChild1.id);
 // console.log(catChild3.id);
 // console.log(catChild1.color);
@@ -174,29 +129,10 @@ const cat = {
 // console.log(catChild3.color);
 
 
-// console.log(' > ', catParent.color);
 
 
 
-
-
-
-
-
-
-
-// secondName: 'sphinx',
-// color: 'red',
-
-// sayMeow: function() {
-//     alert(`  Meow   `)
-// },
-
-
-// camelCase
-// CamelCase
-
-
+// # Використання конструктора для створення об’єктів
 
 // function Cat() {
 
@@ -212,7 +148,6 @@ const cat = {
 
 // }
 
-
 // function Cat() {
 //     // const this = {};
 
@@ -225,9 +160,6 @@ const cat = {
 //     // return this;
 // }
 
-
-
-
 // function Cat() {
 //     this.color = 'red';
 //     this.secondName = 'sphinx';
@@ -235,9 +167,6 @@ const cat = {
 //         alert(`  Meow   `);
 //     };
 // }
-
-
-
 
 // const firstCat = new Cat();
 // const firstCat2 = new Cat();
@@ -249,8 +178,6 @@ const cat = {
 // const firstCat8 = new Cat();
 // const firstCat10 = new Cat();
 
-
-
 // const firstCat9 = new Cat();
 // firstCat9.hadDinner = true;
 
@@ -260,6 +187,10 @@ const cat = {
 
 
 
+
+
+
+// Розширення конструкторів для отримання аргументів
 // function Cat(catColor, catSecondName) {
 //     this.color = catColor;
 //     this.secondName = catSecondName;
@@ -267,9 +198,6 @@ const cat = {
 //         alert(`  Meow   `);
 //     };
 // }
-
-
-
 
 // const firstCat9 = new Cat('black', 'best');
 // const firstCat7 = new Cat('red', 'super');
@@ -278,17 +206,13 @@ const cat = {
 // const newDate = new Date();
 
 
+
+
+// Перевірка конструктора об’єкта за допомогою instanceof
+
 // console.log(  firstCat7 instanceof    Cat   );
 // console.log(  newDate instanceof    Cat   );
 // console.log(  newDate instanceof    Date   );
-
-
-
-
-
-
-
-
 
 // function Cat(catColor, catSecondName) {
 //     this.color = catColor;
@@ -298,13 +222,14 @@ const cat = {
 //     };
 // }
 
-
-
-
 // const firstCat777 = new Cat('orange', 'good');
 
 
 
+
+
+
+// Власні властивості
 // const hasSecondName = firstCat777.hasOwnProperty('secondName');
 // const hasAnotherProp = firstCat777.hasOwnProperty('anotherProp');
 
@@ -314,14 +239,12 @@ const cat = {
 
 
 
-
+// // Властивості прототипу
 // function Cat(catColor, catSecondName) {
 //     this.color = catColor;
 //     this.secondName = catSecondName;
 //     // this.eyes = 2;
 // }
-
-
 
 // const firstCat777 = new Cat('orange', 'good');
 // const firstCat6 = new Cat('black', 'fine');
@@ -333,11 +256,7 @@ const cat = {
 //     alert(' Meow ');
 // };
 
-
 // firstCat777.sayMeow();
-
-
-
 
 // console.log('firstCat777 > ', firstCat777);
 // console.log('firstCat6 > ', firstCat6);
@@ -351,10 +270,45 @@ const cat = {
 // console.log('firstCat3.ears > ', firstCat3.ears);
 // console.log('firstCat3.ears > ', firstCat6.ears);
 
-
 // console.log('firstCat777 > ', firstCat777);
 
 
+
+
+// Ітерація через усі властивості for..in
+
+// const cat = {
+//     legs: 4,
+//     sayMeow: function () {
+//         alert("sayMeow");
+//     },
+//     name: "Parent Name",
+// };
+
+// const catChild = {
+//     secondName: 'sphinx',
+//     color: 'red',
+
+//     sayMeow: function() {
+//         alert(`  My name is: ${this.name}   `)
+//     },
+//     __proto__: cat
+
+// };
+
+
+// for (let key in catChild) {
+//     if (catChild.hasOwnProperty(key)) {
+//       console.log(key + ': ' + catChild[key]);
+//     }
+//   }
+
+
+
+
+
+
+// Написати функцію ConstructCity, що буде приймати в себе властивості міста (властивості на ваш розсуд) та створювати екземпляри ConstructCity. Функція має бути функцією-конструктором.
 
 
 
@@ -374,36 +328,22 @@ const cat = {
 
 
 
-// 2 option
-// function MakeBuilding(name, floors, apartments, street) {
-//     this.floorsCount = floors;
-//     this.apartmentsCount = apartments;
-//     this.street = street;
-//     this.name = name;
-// }
-
-// const firstBuilding = new MakeBuilding(
-//     prompt('Enter JK name: ', 'JK Gefest'),
-//     prompt('How much floors? ', 22),
-//     prompt('How much apartments? ', 300),
-//     prompt('Enter street name: ', "Soborna"),
-// );
-
-// console.log('firstBuilding > ', firstBuilding);
 
 
-// 3 option
 
-// function MakeBuilding() {
-//     this.floorsCount = prompt('How much floors? ', 22);
-//     this.apartmentsCount = prompt('How much apartments? ', 300);
-//     this.street = prompt('Enter street name: ', "Soborna");
-//     this.name = prompt('Enter JK name: ', 'JK Gefest');
-// }
 
-// const firstBuilding = new MakeBuilding();
-// const firstBuilding2 = new MakeBuilding();
-// const firstBuilding6 = new MakeBuilding();
-// const firstBuilding4 = new MakeBuilding();
 
-// console.log('firstBuilding > ', firstBuilding);
+
+
+
+// В ES6 введено локальні блокові області видимості для змінних, оголошених за допомогою let та const.
+// Default параметри для функцій. ES6 дозволяє встановлювати значення за замовчуванням для параметрів функцій.
+// Шаблонні рядки. ES6 дозволяє використовувати шаблонні рядки для вбудовування виразів в рядки
+// Деструктуризація
+// [1,2,3].concat([2,3]); (5) [1, 2, 3, 2, 3] [...[1,2,3], ...[2,3]]
+// () => {}
+// В ES6 введено ключові слова class для визначення класів та extends для наслідування класів.
+
+
+
+// use strict
