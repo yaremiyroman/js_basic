@@ -1,400 +1,268 @@
-// class MyClass {
-//     prop = value;   
-//     constructor(...) {     }
-//     method(...) {}
-//     get something(...) {}
-//     set something(...) {}
-//   }
+// console.log(arr.sort());
 
-// 'use strict';
 
-// var js = 1;
-
-// () => {}
-// ...js
-// class ClassName;
+// console.log([-5, 8, 3, -10, 8, 4, 3, 10, 5, 0]);
+// console.log([-5, 3, 8, -10, 8, 4, 3, 10, 5, 0]);
+// console.log([-5, 3, -10, 8, 8, 4, 3, 10, 5, 0]);
+// console.log([-5, 3, -10, 8, 4, 8, 3, 10, 5, 0]);
+// console.log([-5, 3, -10, 8, 4, 3, 8, 10, 5, 0]);
+// console.log([-5, 3, -10, 8, 4, 3, 8, 5, 10, 0]);
+// console.log([-5, 3, -10, 8, 4, 3, 8, 5,  0, 10]);
 
 
 
-// const firstCat6 = new Cat('black', 'fine');
-// const firstCat3 = new Cat('red', 'best');
+// [6, 3, 5, 4]
+// [3, 6, 5, 4]
+// [3, 5, 6, 4]
+// [3, 5, 4, 6]
 
 
 
-// Cat.prototype.sayMeow = function() {
-//     alert(' Meow ');
-// };
+// const arr = [-5, 8, 3, -10, 5, 0];
+
+// // console.log('arr    > ', arr);
+
+// function bubbleSort(arr) {
+
+//     for (let j = 0; j < arr.length; j++) {
 
 
-// firstCat777.sayMeow();
+//         for (let i = 0; i < arr.length; i++) {
+
+//             if (arr[i] > arr[i + 1]) {
+//                 let temp = arr[i];
+//                 arr[i] = arr[i + 1];
+//                 arr[i + 1] = temp;
+//             }
+
+//         }
 
 
+//     }
 
-
-
-// function CatConstructor(catColor, catSecondName) {
-//     this.color = catColor;
-//     this.secondName = catSecondName;
-//     this.eyes = 2;
+//     return arr;
 // }
 
 
+// const result = bubbleSort(arr);
 
-// const cat1 = new CatConstructor('orange', 'good');
-
-// console.log('cat1 > ', cat1);
-
+// console.log('result > ', result); 
 
 
 
+// Вам буде надано масив з двох чисел. Поверніть суму цих двох чисел плюс суму всіх чисел між ними. Найменше число не завжди буде на першому місці.
 
-// class CatClass {
-//     constructor(catColor, catSecondName) {
-//         this.color = catColor;
-//         this.secondName = catSecondName;
-//         this.eyes = 2;
+// [3, 6]
+// [6, 3]
+
+
+
+// два однакових числа
+// порядок чисел
+// вхідні дані: саме масив саме з 2х чисел
+
+
+// function sumAll(arr) {
+
+//     if (!Array.isArray(arr)) {
+//         console.log('Not an array');
+//         return;
 //     }
 
-//     sayMeow() {
-//         console.log(' Meow ');
+//     if (arr.length !== 2) {
+//         console.log('Not correct array');
+//         return;
 //     }
 
+//     const arrSorted = bubbleSort(arr);
+//     let sum = 0;
 
-// }
-
-// // CatClass.prototype.sayMeow = function() {
-// //     alert(' Meow ');
-// // };
-
-// CatClass.prototype.howManyEyes = function () {
-//     console.log(`I have ${this.eyes} eyes`);
-// };
-
-
-// // console.log('CatClass.prototype > ', CatClass.prototype);
-// // console.log('CatClass.prototype.constructor > ', CatClass.prototype.constructor);
-
-// const cat2 = new CatClass('black', 'bad');
-
-// console.log('cat2 > ', cat2);
-// // console.log('typeof CatClass > ', typeof CatClass);
-
-// // console.log('cat2.color > ', cat2.color);
-// // console.log('cat2.secondName > ', cat2.secondName);
-// // console.log('cat2.eyes > ', cat2.eyes);
-
-// cat2.sayMeow();
-// cat2.howManyEyes();
-
-
-
-// Class Declaration та Class Expression
-// Function Declaration
-// function name() {}
-// Function Expression
-// const name = function() {}
-
-
-// Class Declaration
-// class CatClass {
-//     constructor(catColor, catSecondName) {
-//         this.color = catColor;
-//         this.secondName = catSecondName;
-//         this.eyes = 2;
+//     for (let i = arrSorted[0]; i <= arrSorted[1]; i++) {
+//         sum += i;
 //     }
 
-//     sayMeow() {
-//         console.log(' Meow ');
-//     }
+//     return sum;
 // }
 
 
-// // Class Expression
-// const CatClass2 = class {
-//     constructor(catColor, catSecondName) {
-//         this.color = catColor;
-//         this.secondName = catSecondName;
-//         this.eyes = 2;
+// console.log(sumAll([6, 2]));
+
+
+
+// Рекурсія
+
+// 4! = 1 * 2 * 3 * 4;
+
+// -n! = error
+// 0! = 1;
+// 1! = 1;
+
+// function factorial(n) {
+
+//     if (n < 0) {
+//         console.log('Negative number!!!');
+//         return;
 //     }
 
-//     sayMeow() {
-//         console.log(' Meow ');
+//     if (n === 0) {
+//         return 1;
 //     }
+
+//     if (n === 1) {
+//         return 1;
+//     }
+
+//     let fact = 1;
+
+//     for (let i = 1; i <= n; i++) {
+//         fact *= i;
+//     }
+
+//     return fact;
 // }
 
+// console.log('factorial > ', factorial(4));
 
 
+// function factorialRecursive(n) {
 
-// class Animal {}
-
-// class Dog {}
-
-// class Cat {}
-
-
-// const weather = 'good';
-
-
-// let MyClass = null;
-
-// if (weather === 'good') {
-//     MyClass = class {
-//         // DOG
-//     }
-// } else {
-//     MyClass = class {
-//         // CAT
-//     }
 // }
 
 
 
 
+// 5! = 5 * 4 * 3 * 2 * 1;
+
+// factorialRecursive(5) = 5 * factorialRecursive(4)
+
+// factorialRecursive(5) = 5 * 4 * factorialRecursive(3)
+
+// factorialRecursive(5) = 5 * 4 * 3 * factorialRecursive(2);
+
+// factorialRecursive(5) = 5 * 4 * 3 * 2 * 1;
 
 
-// class CatClass {
-//     constructor(catColor, catSecondName) {
-//         this.color = catColor;
-//         this.secondName = catSecondName;
-//         this.eyes = 2;
+
+// function factorialRecursive(n) {
+//     if (n === 1) {
+//         return 1;
 //     }
 
-//     sayMeow() {
-//         console.log(' Meow ');
-//     }
+//     return n * factorialRecursive(n - 1);
+// }
 
-//     get eyesGetSet() {
-//         console.log('Getter started > ');
-//         return this.eyes - 1;
-//     }
 
-//     set eyesGetSet(eyesNumber) {
-//         console.log('Setter started > ');
-//         this.eyes = eyesNumber * 3;
-//         console.log('Setter finished > ');
+// {
+//     a: {
+//         b: {
+//             c: {
+//                 d: {
+//                     ...
+//                 }
+//             }
+//         }
 //     }
 // }
 
-// const cat3 = new CatClass('red', 'red');
-
-// console.log('cat3.eyes > ', cat3.eyes);
-
-// cat3.eyes = 1000;
-// console.log('cat3.eyes > ', cat3.eyes);
-
-// const getterResult = cat3.eyesGetSet;
-
-// console.log('getterResult > ', getterResult);
-
-// cat3.eyesGetSet = 5;
-
-// cat3.eyesGetSet = 7;
-// cat3.eyesGetSet = 30;
-// cat3.eyesGetSet = 30;
-// cat3.eyesGetSet = 30;
-// cat3.eyesGetSet = 30;
-// cat3.eyesGetSet = 30;
-// cat3.eyesGetSet = 30;
-
-// const getterResult2 = cat3.eyesGetSet;
-// console.log('getterResult2 > ', getterResult2);
-
-// cat3.sayMeow();
 
 
 
 
+// function factorialRecursive(n) {
 
-
-
-
-// class Animal {
-//     constructor(legsNumber, speed) {
-//         this.legs = legsNumber;
-//         this.speed = speed;
+//     if (n < 0) {
+//         console.log('Negative number!!!');
+//         return;
 //     }
 
-//     static X = 'Y';
-
-//     say() {
-//         console.log('I am animal');
+//     if (n === 0) {
+//         return 1;
 //     }
+
+//     if (n === 1) {
+//         return 1;
+//     }
+
+//     return n * factorialRecursive(n - 1);
 // }
 
-// class Cat extends Animal {
-//     constructor(legsNumber, speed, catColor, catSecondName) {
-//         super(legsNumber, speed);
 
-//         this.color = catColor;
-//         this.secondName = catSecondName;
-//         this.eyes = 2;
-//     }
 
-//     sayMeow() {
-//         console.log(' Meow ');
-//     }
 
-//     say() {
-//         console.log(super.X);
-//         super.say();
-//         console.log('I am CAT');
-//     }
+// const factorialRecursive = n => n < 0 ? console.log('Negative number!!!') :
+//     (!n || n === 1) ? 1 : n * factorialRecursive(n - 1);
 
-//     get eyesGetSet() {
-//         console.log('Getter started > ');
-//         return this.eyes - 1;
-//     }
 
-//     set eyesGetSet(eyesNumber) {
-//         console.log('Setter started > ');
-//         this.eyes = eyesNumber * 3;
-//         console.log('Setter finished > ');
-//     }
+
+
+// console.log('factorialRecursive > ', factorialRecursive(5));
+
+
+
+
+
+
+
+
+
+// kebabCase: Перетворіть рядок в шашличний регістр. У шашличному регістрі всі-слова-в-нижньому-регістрі-та-розділені-рискою.
+
+// - spinalCase("This Is Spinal Tap") має повертати рядок this-is-spinal-tap.
+
+
+// function kebabCase(str) {
+//     console.log('str > ', str);
+
+//     const lowerCaseStr = str.toLowerCase();
+
+//     console.log('lowerCaseStr > ', lowerCaseStr);
+
+//     const splittedStr = lowerCaseStr.split(" ");
+
+//     console.log('splittedStr > ', splittedStr);
+
+//     const joinedStr = splittedStr.join("-");
+
+//     console.log('joinedStr > ', joinedStr);
 // }
 
-// const cat6 = new Cat(4, 200, 'yellow', 'Smith');
-
-// // console.log('cat6 > ', cat6);
-
-// cat6.sayMeow();
-// cat6.say();
-
-// console.log(Animal.X);
 
 
+// function kebabCase(str) {
+//     const lowerCaseStr = str.toLowerCase();
+//     const splittedStr = lowerCaseStr.split(" ");
+//     const joinedStr = splittedStr.join("-");
 
-
-
-
-// Використайте ключове слово class та напишіть constructor, щоб створити клас Vegetable. 
-
-// Клас Vegetable дозволяє створити об’єкт-овоч із властивістю name, що передається до constructor.
-
-// const carrot = new Vegetable('carrot');
-// console.log(carrot.name); // Повинно показувати 'carrot'
-
-
-// class Vegetable {
-//     constructor(name) {
-//         this.name = name;
-//     }
+//     return joinedStr;
 // }
 
-// const potato = new Vegetable('potato');
-// console.log('potato > ', potato);
-
-// const carrot = new Vegetable('carrot');
-// console.log('carrot > ', carrot);
-
-// const onion = new Vegetable('onion');
-// console.log('onion > ', onion);
 
 
 
-//  Використайте ключове слово class, щоб створити клас Thermostat.
-// constructor приймає температуру в градусах Фаренгейта.
-// У класі створіть getter, щоб отримати температуру в градусах Цельсія,
-//  та setter, що приймає температуру в градусах Цельсія.
-// - C = 5/9 * (F - 32)
-// - F = C * 9.0 / 5 + 32
-// const thermos = new Thermostat(76); // Налаштування у шкалі Фаренгейта
-// let temp = thermos.temperature; // 24.44 градусів за Цельсієм
-// thermos.temperature = 26;
-// temp = thermos.temperature; // 26 градусів за Цельсієм
 
 
-// class Thermostat {
-//     constructor(F) {
-//         this.F = F;
-//     }
+// function kebabCase(str) {
+//     const lowerCaseStr = str.toLowerCase().split(" ").join("-");
 
-//     static newProperty = 'I am new';
-
-//     static PI = 3.141592653589793;
-
-//     // coolMethod() {
-//     //     console.log('this.newProperty > ', this.newProperty);
-//     // }
-
-//     get temp() {
-//         return Math.floor((this.F - 32) * (5 / 9));
-//     }
-
-//     set temp(C) {
-//         this.F = (C * 9/5) + 32;
-//     }
+//     return lowerCaseStr;
 // }
 
-// const thermos = new Thermostat(90);
 
-// console.log(thermos.F);
 
-// const celsius = thermos.temp;
-// console.log('celsius > ', celsius);
 
-// thermos.temp = 100;
-// console.log(thermos.F);
-
-// 
-// thermos.coolMethod();
-
-// thermos.newProperty = 'XYXXX';
-
-// thermos.coolMethod();
-
-// console.log('thermos.newProperty > ', thermos.newProperty);
-// console.log('thermos.PI > ', thermos.PI);
-
-// console.log('Thermostat.newProperty > ', Thermostat.newProperty);
-// console.log('Thermostat.PI > ', Thermostat.PI);
+// const kebabCase = str => str.toLowerCase().split(" ").join("-");
 
 
 
 
 
+// const result = kebabCase("This Is Spinal Tap");
+// console.log('result > ', result);
+
+//           "this-is-spinal-tap"
 
 
-// Write a JavaScript program that creates a class called 'Shape' 
-// with a method to calculate the area.
-// Create two subclasses, 'Circle' and 'Triangle',
-// that inherit from the 'Shape' class and override the area calculation method. Create an instance of the 'Circle' class and calculate its area. Similarly, do the same for the 'Triangle' class.
-
-
-
-class Shape {
-    area() { }
-}
-
-
-class Circle extends Shape {
-    constructor(radius) {
-        super();
-        this.radius = radius;
-    }
-
-    area() {
-        return Math.floor(Math.PI * Math.pow(this.radius, 2));
-    }
-}
-
-class Triangle extends Shape {
-    constructor(a, b) {
-        super();
-        this.a = a;
-        this.b = b;
-    }
-
-    area() {
-        return (this.a * this.b) / 2;
-    }
-}
-
-
-const circle1 = new Circle(44);
-const circle1Area = circle1.area();
-console.log('circle1Area > ', circle1Area);
-
-
-const triangle2 = new Triangle(34, 25);
-const triangle2Area = triangle2.area();
-console.log('triangle2Area > ', triangle2Area);
+// This
+// Is
+// Spinal
+// Tap
