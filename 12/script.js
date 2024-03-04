@@ -1,94 +1,3 @@
-// console.log(arr.sort());
-
-
-// console.log([-5, 8, 3, -10, 8, 4, 3, 10, 5, 0]);
-// console.log([-5, 3, 8, -10, 8, 4, 3, 10, 5, 0]);
-// console.log([-5, 3, -10, 8, 8, 4, 3, 10, 5, 0]);
-// console.log([-5, 3, -10, 8, 4, 8, 3, 10, 5, 0]);
-// console.log([-5, 3, -10, 8, 4, 3, 8, 10, 5, 0]);
-// console.log([-5, 3, -10, 8, 4, 3, 8, 5, 10, 0]);
-// console.log([-5, 3, -10, 8, 4, 3, 8, 5,  0, 10]);
-
-
-
-// [6, 3, 5, 4]
-// [3, 6, 5, 4]
-// [3, 5, 6, 4]
-// [3, 5, 4, 6]
-
-
-
-// const arr = [-5, 8, 3, -10, 5, 0];
-
-// // console.log('arr    > ', arr);
-
-// function bubbleSort(arr) {
-
-//     for (let j = 0; j < arr.length; j++) {
-
-
-//         for (let i = 0; i < arr.length; i++) {
-
-//             if (arr[i] > arr[i + 1]) {
-//                 let temp = arr[i];
-//                 arr[i] = arr[i + 1];
-//                 arr[i + 1] = temp;
-//             }
-
-//         }
-
-
-//     }
-
-//     return arr;
-// }
-
-
-// const result = bubbleSort(arr);
-
-// console.log('result > ', result); 
-
-
-
-// Вам буде надано масив з двох чисел. Поверніть суму цих двох чисел плюс суму всіх чисел між ними. Найменше число не завжди буде на першому місці.
-
-// [3, 6]
-// [6, 3]
-
-
-
-// два однакових числа
-// порядок чисел
-// вхідні дані: саме масив саме з 2х чисел
-
-
-// function sumAll(arr) {
-
-//     if (!Array.isArray(arr)) {
-//         console.log('Not an array');
-//         return;
-//     }
-
-//     if (arr.length !== 2) {
-//         console.log('Not correct array');
-//         return;
-//     }
-
-//     const arrSorted = bubbleSort(arr);
-//     let sum = 0;
-
-//     for (let i = arrSorted[0]; i <= arrSorted[1]; i++) {
-//         sum += i;
-//     }
-
-//     return sum;
-// }
-
-
-// console.log(sumAll([6, 2]));
-
-
-
 // Рекурсія
 
 // 4! = 1 * 2 * 3 * 4;
@@ -142,32 +51,6 @@
 // factorialRecursive(5) = 5 * 4 * 3 * 2 * 1;
 
 
-
-// function factorialRecursive(n) {
-//     if (n === 1) {
-//         return 1;
-//     }
-
-//     return n * factorialRecursive(n - 1);
-// }
-
-
-// {
-//     a: {
-//         b: {
-//             c: {
-//                 d: {
-//                     ...
-//                 }
-//             }
-//         }
-//     }
-// }
-
-
-
-
-
 // function factorialRecursive(n) {
 
 //     if (n < 0) {
@@ -200,6 +83,127 @@
 
 
 
+// {
+//     a: {
+//         b: {
+//             c: {
+//                 d: {
+//                     ...
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+// Бінарний пошук - це швидкий алгоритм пошуку для впорядкованих масивів, 
+// який шукає певний елемент за допомогою поділу масиву на половини та порівняння елемента з серединою масиву. 
+// Якщо елемент, який ми шукаємо, менший за середній елемент,
+//  пошук продовжується в лівій половині, інакше в правій половині.
+
+
+
+
+function binarySearch(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        console.log(mid);
+        if (arr[mid] === target) {
+            return mid; // Знайдено шуканий елемент, повертаємо його індекс
+        } else if (arr[mid] < target) {
+            left = mid + 1; // Шуканий елемент знаходиться в правій половині
+        } else {
+            right = mid - 1; // Шуканий елемент знаходиться в лівій половині
+        }
+    }
+
+    return -1; // Якщо елемент не знайдено
+}
+
+// Приклад використання
+const sortedArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const targetElement = 8;
+
+const result = binarySearch(sortedArray, targetElement);
+
+if (result !== -1) {
+    console.log(`Елемент ${targetElement} знайдено на позиції ${result}.`);
+} else {
+    console.log(`Елемент ${targetElement} не знайдено.`);
+}
+
+
+
+
+
+
+
+
+// console.log(arr.sort());
+
+
+// console.log([-5, 8, 3, -10, 8, 4, 3, 10, 5, 0]);
+// console.log([-5, 3, 8, -10, 8, 4, 3, 10, 5, 0]);
+// console.log([-5, 3, -10, 8, 8, 4, 3, 10, 5, 0]);
+// console.log([-5, 3, -10, 8, 4, 8, 3, 10, 5, 0]);
+// console.log([-5, 3, -10, 8, 4, 3, 8, 10, 5, 0]);
+// console.log([-5, 3, -10, 8, 4, 3, 8, 5, 10, 0]);
+// console.log([-5, 3, -10, 8, 4, 3, 8, 5,  0, 10]);
+
+
+
+// [6, 3, 5, 4]
+// [3, 6, 5, 4]
+// [3, 5, 6, 4]
+// [3, 5, 4, 6]
+
+
+
+const arr = [-5, 8, 3, -10, 5, 0];
+
+// console.log('arr    > ', arr);
+
+function bubbleSort(arr) {
+
+    for (let j = 0; j < arr.length; j++) {
+
+
+        for (let i = 0; i < arr.length; i++) {
+
+            if (arr[i] > arr[i + 1]) {
+                let temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+
+        }
+
+
+    }
+
+    return arr;
+}
+
+
+const result1 = bubbleSort(arr);
+
+console.log('result1 > ', result1);
+
+
+
+
 
 
 
@@ -210,54 +214,50 @@
 // - spinalCase("This Is Spinal Tap") має повертати рядок this-is-spinal-tap.
 
 
-// function kebabCase(str) {
-//     console.log('str > ', str);
+function kebabCase(str) {
+    console.log('str > ', str);
 
-//     const lowerCaseStr = str.toLowerCase();
+    const lowerCaseStr = str.toLowerCase();
 
-//     console.log('lowerCaseStr > ', lowerCaseStr);
+    console.log('lowerCaseStr > ', lowerCaseStr);
 
-//     const splittedStr = lowerCaseStr.split(" ");
+    const splittedStr = lowerCaseStr.split(" ");
 
-//     console.log('splittedStr > ', splittedStr);
+    console.log('splittedStr > ', splittedStr);
 
-//     const joinedStr = splittedStr.join("-");
+    const joinedStr = splittedStr.join("-");
 
-//     console.log('joinedStr > ', joinedStr);
-// }
-
-
-
-// function kebabCase(str) {
-//     const lowerCaseStr = str.toLowerCase();
-//     const splittedStr = lowerCaseStr.split(" ");
-//     const joinedStr = splittedStr.join("-");
-
-//     return joinedStr;
-// }
+    console.log('joinedStr > ', joinedStr);
+}
 
 
+
+function kebabCase(str) {
+    const lowerCaseStr = str.toLowerCase();
+    const splittedStr = lowerCaseStr.split(" ");
+    const joinedStr = splittedStr.join("-");
+
+    return joinedStr;
+}
 
 
 
 
-// function kebabCase(str) {
-//     const lowerCaseStr = str.toLowerCase().split(" ").join("-");
+function kebabCase(str) {
+    const lowerCaseStr = str.toLowerCase().split(" ").join("-");
 
-//     return lowerCaseStr;
-// }
-
-
+    return lowerCaseStr;
+}
 
 
-// const kebabCase = str => str.toLowerCase().split(" ").join("-");
+const kebabCase = str => str.toLowerCase().split(" ").join("-");
 
 
 
 
 
-// const result = kebabCase("This Is Spinal Tap");
-// console.log('result > ', result);
+const result3 = kebabCase("This Is Spinal Tap");
+console.log('result3 > ', result3);
 
 //           "this-is-spinal-tap"
 
@@ -266,3 +266,4 @@
 // Is
 // Spinal
 // Tap
+
