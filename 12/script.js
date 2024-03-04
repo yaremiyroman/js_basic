@@ -1,67 +1,47 @@
-// Рекурсія
-
-// 4! = 1 * 2 * 3 * 4;
-
-// -n! = error
-// 0! = 1;
-// 1! = 1;
+// # Corner cases та рекурсія
+// factorial
+// 4! = 1 * 2 * 3 * 4
+// Знайти факторіaл від довільного number
 
 // function factorial(n) {
-
-//     if (n < 0) {
-//         console.log('Negative number!!!');
-//         return;
+//     if (typeof n !== 'number') {
+//         return alert('Не число!');
 //     }
 
-//     if (n === 0) {
-//         return 1;
+//     if (n < 0 || n > 20) {
+//         return alert('З таким числов факторіл не обчислюється');
 //     }
 
-//     if (n === 1) {
+//     if (n === 0 || n === 1) {
 //         return 1;
 //     }
 
 //     let fact = 1;
 
-//     for (let i = 1; i <= n; i++) {
-//         fact *= i;
-//     }
+// for (let i = 1; i <= n; i++) {
+//     fact *= i;
+// }
 
 //     return fact;
 // }
 
-// console.log('factorial > ', factorial(4));
+// const result = factorial(1);
+// console.log('result > ', result );
 
+// 1 * 2  3 4
+// 4 * 3 * 2 * 1
 
-// function factorialRecursive(n) {
+// 9!
 
-// }
+// 4!
 
+// factorialRecursive(4) = 4 * factorialRecursive(3)
+// factorialRecursive(3) = 4 * 3 * factorialRecursive(2)
+// factorialRecursive(2) = 4 * 3 * 2 * factorialRecursive(1)
 
-
-
-// 5! = 5 * 4 * 3 * 2 * 1;
-
-// factorialRecursive(5) = 5 * factorialRecursive(4)
-
-// factorialRecursive(5) = 5 * 4 * factorialRecursive(3)
-
-// factorialRecursive(5) = 5 * 4 * 3 * factorialRecursive(2);
-
-// factorialRecursive(5) = 5 * 4 * 3 * 2 * 1;
-
+// factorialRecursive(2) = factorialRecursive(4) * factorialRecursive(3) * factorialRecursive(2) * factorialRecursive(1)
 
 // function factorialRecursive(n) {
-
-//     if (n < 0) {
-//         console.log('Negative number!!!');
-//         return;
-//     }
-
-//     if (n === 0) {
-//         return 1;
-//     }
-
 //     if (n === 1) {
 //         return 1;
 //     }
@@ -69,142 +49,113 @@
 //     return n * factorialRecursive(n - 1);
 // }
 
+// const result = factorialRecursive(5);
+// console.log("result > ", result);
 
+// const a = {
+//     b: 5,
+//     c: {
+//         b: 5,
+//         c: {
+//             b: 5,
+//             c: {},
+//             bg: 5,
+//             cd: {
+//                 b: 5,
+//                 c: {
+//                     b: 5,
+//                     c: [3],
+//                 },
+//             },
+//         },
+//     },
+// };
 
+// bg
 
-// const factorialRecursive = n => n < 0 ? console.log('Negative number!!!') :
-//     (!n || n === 1) ? 1 : n * factorialRecursive(n - 1);
+// const myArr = [4, 3, 6, 6, 4, 36, 6];
+// const toSearch = 36;
 
-
-
-
-// console.log('factorialRecursive > ', factorialRecursive(5));
-
-
-
-
-// {
-//     a: {
-//         b: {
-//             c: {
-//                 d: {
-//                     ...
-//                 }
-//             }
+// function linearSearch(arr, target) {
+//     for (let i = 0; i < arr.length; i++) {
+//         if (target === arr[i]) {
+//             return i;
 //         }
 //     }
+
+//     return -1;
 // }
 
+// const result = linearSearch(myArr, toSearch);
+// console.log(result);
+
+// [3, 4, 6, 7, 8, 9, 36]
+//          [7, 8, 9, 36]
+//                [9, 36]
+//   36
+
+//0  1  2  3  4  5  6
+// const myArr = [3, 4, 6, 7, 8, 9, 36];
+// const toSearch = 9;
+
+// function binarySearch(arr, target) {
+//     let left = 0;
+//     let right = arr.length - 1;
+
+//     while (left <= right) {
+//         const mid = Math.floor((left + right) / 2);
+
+//         if (arr[mid] === target) {
+//             return mid;
+//         } else if (arr[mid] < target) {
+//             left = mid + 1;
+//         } else {
+//             right = mid - 1;
+//         }
+//     }
+
+//     return -1;
+// }
+
+// const result = binarySearch(myArr, toSearch);
+
+// console.log("result >", result);
+
+// .sort();
+
+// const newArr = [
+//     {
+//         id: 11,
+//         name: 'John61',
+//         age: 3,
+//     },
+//     {
+//         id: 53,
+//         name: 'John66',
+//         age: 2754,
+//     },
+//     {
+//         id: 2727,
+//         name: 'John2',
+//         age: 3,
+//     },
+//     {
+//         id: 9845,
+//         name: 'John1',
+//         age: 67,
+//     },
+//     {
+//         id: 6362346,
+//         name: 'John14',
+//         age: 51,
+//     },
+// ];
+
+// // 2727
 
 
 
 
-
-
-
-// Елементи перевіряються послідовно з початку до кінця, поки не буде знайдений шуканий елемент.
-
-function linearSearch(arr, target) {
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === target) {
-            return i; // Повертає індекс, на якому знайдено шуканий елемент
-        }
-    }
-    return -1; // Повертає -1, якщо шуканий елемент не знайдено
-}
-
-// Приклад використання:
-const myArray = [4, 2, 7, 1, 9, 5];
-const targetElement7 = 7;
-
-const result5 = linearSearch(myArray, targetElement7);
-
-if (result5 !== -1) {
-    console.log(`Елемент ${targetElement7} знайдений на позиції ${result5}.`);
-} else {
-    console.log(`Елемент ${targetElement7} не знайдений у масиві.`);
-}
-
-
-
-
-// Бінарний пошук - це швидкий алгоритм пошуку для впорядкованих масивів, 
-// який шукає певний елемент за допомогою поділу масиву на половини та порівняння елемента з серединою масиву. 
-// Якщо елемент, який ми шукаємо, менший за середній елемент,
-//  пошук продовжується в лівій половині, інакше в правій половині.
-
-
-
-
-function binarySearch(arr, target) {
-    let left = 0;
-    let right = arr.length - 1;
-
-    while (left <= right) {
-        const mid = Math.floor((left + right) / 2);
-        console.log(mid);
-        if (arr[mid] === target) {
-            return mid; // Знайдено шуканий елемент, повертаємо його індекс
-        } else if (arr[mid] < target) {
-            left = mid + 1; // Шуканий елемент знаходиться в правій половині
-        } else {
-            right = mid - 1; // Шуканий елемент знаходиться в лівій половині
-        }
-    }
-
-    return -1; // Якщо елемент не знайдено
-}
-
-// Приклад використання
-const sortedArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const targetElement = 8;
-
-const result = binarySearch(sortedArray, targetElement);
-
-if (result !== -1) {
-    console.log(`Елемент ${targetElement} знайдено на позиції ${result}.`);
-} else {
-    console.log(`Елемент ${targetElement} не знайдено.`);
-}
-
-
-
-
-
-function binarySearchRecursive(arr, target, left = 0, right = arr.length - 1) {
-    if (left <= right) {
-        const mid = Math.floor((left + right) / 2);
-        console.log(mid);
-        if (arr[mid] === target) {
-            return mid; // Знайдено шуканий елемент, повертаємо його індекс
-        } else if (arr[mid] < target) {
-            return binarySearchRecursive(arr, target, mid + 1, right); // Шуканий елемент знаходиться в правій половині
-        } else {
-            return binarySearchRecursive(arr, target, left, mid - 1); // Шуканий елемент знаходиться в лівій половині
-        }
-    }
-
-    return -1; // Якщо елемент не знайдено
-}
-
-
-
-
-
-
-
-
-
-// console.log(arr.sort());
-
-
-// console.log([-5, 8, 3, -10, 8, 4, 3, 10, 5, 0]);
-// console.log([-5, 3, 8, -10, 8, 4, 3, 10, 5, 0]);
-// console.log([-5, 3, -10, 8, 8, 4, 3, 10, 5, 0]);
-// console.log([-5, 3, -10, 8, 4, 8, 3, 10, 5, 0]);
-// console.log([-5, 3, -10, 8, 4, 3, 8, 10, 5, 0]);
-// console.log([-5, 3, -10, 8, 4, 3, 8, 5, 10, 0]);
-// console.log([-5, 3, -10, 8, 4, 3, 8, 5,  0, 10]);
 
 
 
@@ -214,100 +165,66 @@ function binarySearchRecursive(arr, target, left = 0, right = arr.length - 1) {
 // [3, 5, 4, 6]
 
 
+// [3, 5, 4, 6]
 
-const arr = [-5, 8, 3, -10, 5, 0];
-
-// console.log('arr    > ', arr);
-
-function bubbleSort(arr) {
-
-    for (let j = 0; j < arr.length; j++) {
+// [3, 4, 5, 6]
 
 
-        for (let i = 0; i < arr.length; i++) {
+// const arr = [6, 5, 3, 9];
 
-            if (arr[i] > arr[i + 1]) {
-                let temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
-            }
+// function bubbleSort(arr) {
+//     for (let j = 0; j < arr.length; j++) {
 
-        }
+//         for (let i = 0; i < arr.length; i++) {
+//             console.log(arr);
+//             if (arr[i] > arr[i + 1]) {
+//                 let temp = arr[i];
+//                 arr[i] = arr[i + 1];
+//                 arr[i + 1] = temp;
+//             }
+//         }
 
+//         console.log('---------------');
+//     }
+// }
 
-    }
-
-    return arr;
-}
-
-
-const result1 = bubbleSort(arr);
-
-console.log('result1 > ', result1);
+// bubbleSort(arr);
 
 
 
 
+// # kebabCase: Перетворіть рядок в шашличний регістр. 
+// У шашличному регістрі 
+// всі-слова-в-нижньому-регістрі-та-розділені-рискою.
+//  Припустимо, що функція на вході отримує одну цілу строку  
+// та лише з літерами латинської абетки.
+
+// -   spinalCase("This Is Spinal Tap") 
+// має повертати рядок this-is-spinal-tap.
+
+const inputString = "This Is Spinal Tap";
+const outputString = "this-is-spinal-tap";
+
+// function toKebabCase(spinal) {
+//     console.log('spinal >', spinal);
+
+//     let kebab = spinal.toLowerCase();
+//     kebab = kebab.split(" ");
+//     kebab = kebab.join("-");
+
+//     return kebab;
+// }
 
 
 
-
-
-// kebabCase: Перетворіть рядок в шашличний регістр. У шашличному регістрі всі-слова-в-нижньому-регістрі-та-розділені-рискою.
-
-// - spinalCase("This Is Spinal Tap") має повертати рядок this-is-spinal-tap.
-
-
-function kebabCase(str) {
-    console.log('str > ', str);
-
-    const lowerCaseStr = str.toLowerCase();
-
-    console.log('lowerCaseStr > ', lowerCaseStr);
-
-    const splittedStr = lowerCaseStr.split(" ");
-
-    console.log('splittedStr > ', splittedStr);
-
-    const joinedStr = splittedStr.join("-");
-
-    console.log('joinedStr > ', joinedStr);
-}
+// const toKebabCase = spinal => {
+//     return spinal.toLowerCase().split(" ").join("-");
+// }
 
 
 
-function kebabCase(str) {
-    const lowerCaseStr = str.toLowerCase();
-    const splittedStr = lowerCaseStr.split(" ");
-    const joinedStr = splittedStr.join("-");
+const toKebabCase = spinal => spinal.toLowerCase().split(" ").join("-");
 
-    return joinedStr;
-}
+const result = toKebabCase(inputString);
 
-
-
-
-function kebabCase(str) {
-    const lowerCaseStr = str.toLowerCase().split(" ").join("-");
-
-    return lowerCaseStr;
-}
-
-
-const kebabCase = str => str.toLowerCase().split(" ").join("-");
-
-
-
-
-
-const result3 = kebabCase("This Is Spinal Tap");
-console.log('result3 > ', result3);
-
-//           "this-is-spinal-tap"
-
-
-// This
-// Is
-// Spinal
-// Tap
-
+console.log('result >', result);
