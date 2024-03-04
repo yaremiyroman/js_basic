@@ -171,6 +171,27 @@ if (result !== -1) {
 
 
 
+function binarySearchRecursive(arr, target, left = 0, right = arr.length - 1) {
+    if (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        console.log(mid);
+        if (arr[mid] === target) {
+            return mid; // Знайдено шуканий елемент, повертаємо його індекс
+        } else if (arr[mid] < target) {
+            return binarySearchRecursive(arr, target, mid + 1, right); // Шуканий елемент знаходиться в правій половині
+        } else {
+            return binarySearchRecursive(arr, target, left, mid - 1); // Шуканий елемент знаходиться в лівій половині
+        }
+    }
+
+    return -1; // Якщо елемент не знайдено
+}
+
+
+
+
+
+
 
 
 
