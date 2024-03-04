@@ -102,6 +102,29 @@
 
 
 
+// Елементи перевіряються послідовно з початку до кінця, поки не буде знайдений шуканий елемент.
+
+function linearSearch(arr, target) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === target) {
+            return i; // Повертає індекс, на якому знайдено шуканий елемент
+        }
+    }
+    return -1; // Повертає -1, якщо шуканий елемент не знайдено
+}
+
+// Приклад використання:
+const myArray = [4, 2, 7, 1, 9, 5];
+const targetElement7 = 7;
+
+const result5 = linearSearch(myArray, targetElement7);
+
+if (result5 !== -1) {
+    console.log(`Елемент ${targetElement7} знайдений на позиції ${result5}.`);
+} else {
+    console.log(`Елемент ${targetElement7} не знайдений у масиві.`);
+}
+
 
 
 
