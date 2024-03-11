@@ -1,192 +1,191 @@
-// // console.log(window)
+// element.addEventListener(event, handler, [options]);
 
-// // DOM
-// // Document
-// // Object
-// // Model
+// const rect = document.getElementById("rect");
 
+// const onRectangleClick = () => {
+//     alert("123");
+// };
 
+// rect.addEventListener("click", onRectangleClick);
+// rect.removeEventListener("click", onRectangleClick);
 
-// // const myElement = document.getElementById('goalID');
-// // myElement.style.backgroundColor = 'red';
-// // console.log('myElement > ', myElement);
 
 
 
-// // const myYellowElements = document.getElementsByClassName('yellow');
-// // console.log('myYellowElements > ', myYellowElements);
-// // for of
-// // for (let element of myYellowElements) {
-// //     element.style.backgroundColor = 'green';
-// // }
+// rect.addEventListener("dblclick", () => {
+//     alert("dblclick");
+// });
 
+// -   mouseenter
+// -   mouseleave
+// -   mousemove
 
-// // const allDivs = document.getElementsByTagName('div');
-// // console.log('allDivs > ', allDivs);
-// // for (let element of allDivs) {
-// //     element.style.backgroundColor = 'purple';
-// // }
+// rect.addEventListener("mouseenter", () => {
+//     console.log("mouse enter");
+// });
 
-// // const allDivs2 = document.querySelectorAll('div.yellow');
-// // console.log('allDivs2 > ', allDivs2);
+// rect.addEventListener("mouseleave", () => {
+//     console.log("mouse LEAVE");
+// });
 
-// // const divYellow = document.querySelector('div.yellow');
-// // console.log('divYellow > ', divYellow);
+// rect.addEventListener("mousemove", () => {
+//     console.log('mousemove > ');
+// });
 
-// // const div44 = document.querySelector('#div44');
-// // console.log('div44 > ', div44);
+// -   mousedown (event.button)
+// -   mouseup
 
-// // const div44All = document.querySelectorAll('#div44');
-// // console.log('div44All > ', div44All);
+// rect.addEventListener("mousedown", event => {
+//     console.log("mousedown", event.button);
+// });
 
 
 
-// // const div3 = document.querySelector('#div3');
 
-// const div3 = document.getElementById('div3');
-// // console.log('div3 > ', div3);
 
-// // div3.style.backgroundColor = 'red';
 
-// const div3Children = div3.children;
-// // console.log('div3Children > ', div3Children);
+// -   scroll
+// -   keydown (event.key)
+// -   keyup
+// -   load
 
-// const div3FirstChild = div3.firstElementChild;
-// // console.log('div3FirstChild > ', div3FirstChild);
+// window.addEventListener("scroll", event => {
+//     // console.log("scroll", event);
+//     const offsetTop = window.pageYOffset;
+//     console.log("offsetTop > ", offsetTop);
+// });
 
-// const div3LastChild = div3.lastElementChild;
-// // console.log('div3LastChild > ', div3LastChild);
+// window.addEventListener("keydown", event => {
+//     console.log("key > ", event.key);
+//     console.log("code > ", event.code);
+// });
 
-// const div3Prev = div3.previousElementSibling;
-// // console.log('div3Prev > ', div3Prev);
+// window.addEventListener("keydown", event => {
+//     console.log("DOWN > ", event.code);
+// });
 
-// const div3Next = div3.nextElementSibling;
-// // console.log('div3Next > ', div3Next);
+// window.addEventListener("keyup", event => {
+//     console.log("UP > ", event.code);
+// });
 
-// const div3Parent = div3.parentElement;
-// // console.log('div3Parent > ', div3Parent);
+// window.addEventListener("keypress", event => {
+//     console.log("PRESS > ", event.code);
+// });
 
+// window.addEventListener("load", () => {
+//     alert('LOAD DONE!');
+// });
 
 
 
-// const newDiv = document.getElementById('goalID');
-// // console.log('newDiv > ', newDiv);
-// console.log('newDiv.innerHTML > ', newDiv.innerHTML);
 
-// // newDiv.innerHTML = 'New cool DIV content';
-// // console.log('newDiv.innerHTML > ', newDiv.innerHTML);
 
 
-// console.log('newDiv.textContent > ', newDiv.textContent);
 
+// const outer = document.getElementById("outer");
+// const inner = document.getElementById("inner");
 
+// outer.addEventListener("click", event => {
+//     console.log("outer > ");
+// });
 
+// inner.addEventListener("click", event => {
+//     console.log("inner > ");
+// }, true);
 
-// const newDiv = document.createElement('div');
-// const outer = document.getElementById('outer');
-// const inner = document.getElementById('inner');
+// rect.addEventListener("click", event => {
+//     // event.stopPropagation();
+//     event.preventDefault();
+//     console.log("rect > ");
+// });
 
-// newDiv.innerHTML = 'Some new content';
-// console.log('newDiv > ', newDiv);
 
 
-// document.body.prepend(newDiv);
-// outer.prepend(newDiv);
-// inner.append(newDiv);
 
 
-// inner.before(newDiv);
-// inner.after(newDiv);
 
+// -   add
+// -   remove
+// -   toggle
+// -   contains
 
-// remove
-// const inner = document.getElementById('inner');
-// inner.remove();
+// rect.classList.add("class1");
+// rect.classList.add("class2");
+// rect.classList.add("class3");
 
+// rect.classList.remove("class2");
 
+// rect.classList.toggle("ImagineClass");
+// rect.classList.toggle("ImagineClass");
+// rect.classList.toggle("ImagineClass");
 
+// const hasClass = rect.classList.contains("class3");
+// console.log("hasClass > ", hasClass);
 
+// rect.addEventListener("click", event => {
+//     console.log("rect > ", event.target);
+//     // event.target.classList.add('active');
+//     event.target.classList.toggle('active');
+// });
 
-// # Створення елемента
-// - Використовуючи JavaScript, створіть новий HTML-елемент (наприклад, <p>).
-// - Встановіть текстовий вміст на "Новий елемент створений!".
-// - Додайте створений елемент до кінця <body>.
 
-{/* <div></div> */}
-{/* <p></p> */}
 
-// const paragraph = document.createElement('p');
-// paragraph.innerHTML = 'Новий елемент створений!';
-// document.body.append(paragraph);
-// console.log(paragraph);
 
 
 
 
 
 
+// # Зміна колірів
 
-// # Додавання атрибутів
-// - Створіть новий HTML-елемент (наприклад, <a>).
-// - Встановіть текстовий вміст на "Нове посилання".
-// - Встановіть атрибут id цього елемента на myNewLink.
-// - Встановіть атрибут href цього елемента на https://www.example.com/.
-// - Додайте створений елемент до кінця <body>.
+// -   створіть блок на сторінці, який змінює свій колір кожен раз, коли користувач
+// наводить вказівник миші на нього
+// -   cтворіть декілька кнопок, кожна з яких додає новий блок з певним коліром
 
+//  Math.floor(Math.random() * 16777215).toString(16);
 
-{/* <a href="www.google.com" id="linkID" class="link-class">Link Content Title</a> */}
+// rect.addEventListener("mouseenter", event => {
+//     event.target.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+// });
 
-// const newLink = document.createElement('a');
-// newLink.innerHTML = 'Нове посилання';
-// newLink.id = 'myNewLink';
-// newLink.href = 'https://www.example.com/';
-// document.body.append(newLink);
-// // console.log(newLink);
+// const btn1 = document.getElementById("btn1");
 
+// const paint = (event, color) => {
+//     const newRect = document.createElement('div');
+//     newRect.classList.add('new-block');
+//     newRect.style.backgroundColor = color;
+//     rect.after(newRect);
+// }
 
+// btn1.addEventListener('click', (event) => paint(event, 'red'));
+// btn2.addEventListener('click', (event) => paint(event, 'blue'));
+// btn3.addEventListener('click', (event) => paint(event, 'violet'));
 
 
 
 
-// # Додавання елемента
-// - Створити порожній <div> з унікальним id.
-// На сторінку !
-// - Використовуючи JavaScript, знайдіть цей елемент за його id і додайте до нього новий елемент (наприклад, <p>Новий елемент доданий!</p>).
 
 
-// const emptyDiv = document.createElement('div');
-// // emptyDiv.innerHTML = 'Unique DIV';
-// emptyDiv.id = 'uniqueID';
-// document.body.append(emptyDiv);
+// # Створіть візуалізацю стека
+// const table = document.getElementById("table");
+// const addElement = document.getElementById("add-element");
+// const removeElement = document.getElementById("remove-element");
 
-// const paragraph = document.createElement('p');
-// paragraph.innerHTML = 'Новий елемент доданий!';
-// emptyDiv.append(paragraph);
+// const handleElementAdding = () => {
+//     const newElem = document.createElement("div");
+//     newElem.classList.add("stack-element");
+//     newElem.style.backgroundColor =
+//         "#" + Math.floor(Math.random() * 16777215).toString(16);
+//     document.body.prepend(newElem);
+// };
 
-// console.log(emptyDiv);
+// const handleElementRemoving = () => {
+//     document.body.firstChild.remove();
+// };
 
+// addElement.addEventListener("click", handleElementAdding);
+// removeElement.addEventListener("click", handleElementRemoving);
 
-
-
-
-
-// # Зміна стилів
-// - Створіть HTML-елемент (наприклад <div>) з унікальним id.
-// - Використовуючи JavaScript, знайдіть цей елемент за його id та змініть його стилі, наприклад, встановіть колір фону на зелений (background-color: green) та шрифту на червоний (color: red).
-
-
-
-// const newDiv = document.createElement('div');
-// newDiv.id = 'uniqueId';
-// newDiv.innerHTML = 'Some Content';
-// document.body.append(newDiv);
-
-// const uniqueId = document.getElementById('uniqueId');
-// uniqueId.style.color = 'green';
-// uniqueId.style.backgroundColor = 'red';
-
-// console.log(uniqueId);
-// newDiv.append(paragraph);
 
 
 
@@ -256,7 +255,7 @@
 //     itemImg.style.width = '125px';
 //     itemWrapper.append(itemImg);
 //     itemWrapper.append(itemTitle);
-    
+
 //     previewsWrapper.append(itemWrapper);
 // });
 // previewsWrapper.style.width = '25%';

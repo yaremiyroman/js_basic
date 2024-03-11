@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lesson</title>
+        <title>Lesson LLL</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        <style>
+            #rect {
+                width: 25px;
+                height: 25px;
+                background-color: blue;
+                cursor: pointer;
+            }
+
+            #inner {
+                width: 50px;
+                height: 50px;
+                background-color: green;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+
+            #outer {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+        </style>
     </head>
+
     <body>
-        <script src="12/script.js"></script>
+        <div id="outer">
+            <div id="inner">
+                <a id="rect" href="#"></a>
+            </div>
+        </div>
+
+        <script src="14/script.js"></script>
     </body>
-</html
+</html>
