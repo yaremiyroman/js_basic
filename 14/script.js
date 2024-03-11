@@ -1,131 +1,90 @@
-// element.addEventListener(event, handler, [options]);
+// const rect = document.getElementById('rect');
 
-// const rect = document.getElementById("rect");
+// // console.log(rect);
 
-// const onRectangleClick = () => {
-//     alert("123");
+// const handleRectClick = function() {
+//   alert('click');
 // };
 
-// rect.addEventListener("click", onRectangleClick);
-// rect.removeEventListener("click", onRectangleClick);
+// rect.addEventListener("click", handleRectClick);
+// rect.removeEventListener("click", handleRectClick);
 
-
-
-
-// rect.addEventListener("dblclick", () => {
-//     alert("dblclick");
-// });
-
-// -   mouseenter
-// -   mouseleave
-// -   mousemove
-
-// rect.addEventListener("mouseenter", () => {
-//     console.log("mouse enter");
-// });
-
-// rect.addEventListener("mouseleave", () => {
-//     console.log("mouse LEAVE");
-// });
-
-// rect.addEventListener("mousemove", () => {
-//     console.log('mousemove > ');
-// });
-
-// -   mousedown (event.button)
-// -   mouseup
-
-// rect.addEventListener("mousedown", event => {
-//     console.log("mousedown", event.button);
+// rect.addEventListener("dblclick", function() {
+//   alert('dbl click');
 // });
 
 
 
+// // -   mouseenter
+// // -   mouseleave
+// // -   mousemove
 
-
-
-// -   scroll
-// -   keydown (event.key)
-// -   keyup
-// -   load
-
-// window.addEventListener("scroll", event => {
-//     // console.log("scroll", event);
-//     const offsetTop = window.pageYOffset;
-//     console.log("offsetTop > ", offsetTop);
+// rect.addEventListener("mouseenter", function() {
+//   console.log('mouseenter');
 // });
 
-// window.addEventListener("keydown", event => {
-//     console.log("key > ", event.key);
-//     console.log("code > ", event.code);
+// rect.addEventListener("mouseleave", function() {
+//   console.log('mouseleave');
 // });
 
-// window.addEventListener("keydown", event => {
-//     console.log("DOWN > ", event.code);
+// // rect.addEventListener("mousemove", function() {
+// //   console.log('mousemove');
+// // });
+
+
+
+// rect.addEventListener("mousedown", function() {
+//   console.log('mousedown');
 // });
 
-// window.addEventListener("keyup", event => {
-//     console.log("UP > ", event.code);
-// });
-
-// window.addEventListener("keypress", event => {
-//     console.log("PRESS > ", event.code);
-// });
-
-// window.addEventListener("load", () => {
-//     alert('LOAD DONE!');
+// rect.addEventListener("mouseup", function() {
+//   console.log('mouseup');
 // });
 
 
-
-
-
-
-
-// const outer = document.getElementById("outer");
-// const inner = document.getElementById("inner");
-
-// outer.addEventListener("click", event => {
-//     console.log("outer > ");
+// document.addEventListener("scroll", function() {
+//   console.log('scroll');
 // });
 
-// inner.addEventListener("click", event => {
-//     console.log("inner > ");
-// }, true);
 
-// rect.addEventListener("click", event => {
-//     // event.stopPropagation();
-//     event.preventDefault();
-//     console.log("rect > ");
+// document.addEventListener("click", function() {
+//   console.log('click document');
 // });
 
 
 
+// document.addEventListener("keydown", function() {
+//   console.log('key down');
+// });
+
+
+// document.addEventListener("keyup", function() {
+//   console.log('key up');
+// });
+
+
+// document.addEventListener("keypress", function() {
+//   console.log('key press');
+// });
 
 
 
-// -   add
-// -   remove
-// -   toggle
-// -   contains
+// window.addEventListener('load', function() {
+//   alert('LOAD DONE');
+// });
 
-// rect.classList.add("class1");
-// rect.classList.add("class2");
-// rect.classList.add("class3");
 
-// rect.classList.remove("class2");
 
-// rect.classList.toggle("ImagineClass");
-// rect.classList.toggle("ImagineClass");
-// rect.classList.toggle("ImagineClass");
+// rect.addEventListener("click", function() {
+//   const newRect = document.createElement('div');
+//   newRect.classList.add('new-rect');
 
-// const hasClass = rect.classList.contains("class3");
-// console.log("hasClass > ", hasClass);
+//   const taskText = prompt('Enter new task');
+//   newRect.textContent = taskText;
 
-// rect.addEventListener("click", event => {
-//     console.log("rect > ", event.target);
-//     // event.target.classList.add('active');
-//     event.target.classList.toggle('active');
+
+//   document.body.prepend(newRect);
+//   console.log(newRect);
 // });
 
 
@@ -136,145 +95,177 @@
 
 
 
-// # Зміна колірів
+// const blue = document.getElementById('blue');
+// const green = document.getElementById('green');
+// const grey = document.getElementById('grey');
 
-// -   створіть блок на сторінці, який змінює свій колір кожен раз, коли користувач
-// наводить вказівник миші на нього
+// addEventListener('eventName', handler() {}, eventCapture - false)
+
+// document.addEventListener('click', function() {
+//   console.log('DOCUMENT');
+// });
+
+// grey.addEventListener('click', function() {
+//   console.log('grey');
+// });
+
+// green.addEventListener('click', function() {
+//   console.log('green');
+//   // alert('!!!!!!!!!!!!');
+// });
+
+// blue.addEventListener('click', function(event) {
+  // event.stopPropagation();
+//   console.log('blue');
+// });
+
+
+
+
+// const myLink = document.getElementById('myLink');
+
+// myLink.addEventListener('click', function(event) {
+//   event.preventDefault();
+//   event.stopPropagation();
+
+//   alert('LINK CLICK');
+// });
+
+
+
+// const blue = document.getElementById('blue');
+// const green = document.getElementById('green');
+// const grey = document.getElementById('grey');
+
+// grey.classList.add('my-new-class');
+// grey.classList.add('one-more-class');
+// grey.classList.remove('my-new-class');
+
+
+// blue.addEventListener('click', function() {
+//   grey.classList.toggle('my-new-class');
+// });
+
+// blue.addEventListener('click', function() {
+//   if (grey.classList.contains('my-new-class')) {
+//     grey.classList.remove('my-new-class');
+//   } else {
+//     grey.classList.add('my-new-class');
+//   }
+// });
+
+
+
+
+
+// -   створіть блок на сторінці, який
+// змінює свій колір кожен раз, коли користувач наводить вказівник миші на нього
 // -   cтворіть декілька кнопок, кожна з яких додає новий блок з певним коліром
 
-//  Math.floor(Math.random() * 16777215).toString(16);
 
-// rect.addEventListener("mouseenter", event => {
-//     event.target.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+// const rect = document.createElement('div');
+// rect.id = 'rect';
+// document.body.prepend(rect);
+// console.log('rect > ', rect);
+
+
+
+// rect.addEventListener('mouseenter', function(event) {
+//   const color = '#' + Math.floor(Math.random() * 16777215).toString(16);
+//   event.target.style.backgroundColor = color;
 // });
 
-// const btn1 = document.getElementById("btn1");
 
-// const paint = (event, color) => {
-//     const newRect = document.createElement('div');
-//     newRect.classList.add('new-block');
-//     newRect.style.backgroundColor = color;
-//     rect.after(newRect);
+// const redBtn = document.createElement('button');
+// redBtn.textContent = 'red';
+// document.body.append(redBtn);
+
+// const blueBtn = document.createElement('button');
+// blueBtn.textContent = 'blue';
+// document.body.append(blueBtn);
+
+
+
+// const setColor = function(event, color) {
+//   console.log('event > ', event);
+//   rect.style.backgroundColor = color;
 // }
 
-// btn1.addEventListener('click', (event) => paint(event, 'red'));
-// btn2.addEventListener('click', (event) => paint(event, 'blue'));
-// btn3.addEventListener('click', (event) => paint(event, 'violet'));
 
+// redBtn.addEventListener('click', (event) => setColor(event, 'red'));
+
+// blueBtn.addEventListener('click', (event) => setColor(event, 'blue'));
 
 
 
 
 
 // # Створіть візуалізацю стека
-// const table = document.getElementById("table");
-// const addElement = document.getElementById("add-element");
-// const removeElement = document.getElementById("remove-element");
-
-// const handleElementAdding = () => {
-//     const newElem = document.createElement("div");
-//     newElem.classList.add("stack-element");
-//     newElem.style.backgroundColor =
-//         "#" + Math.floor(Math.random() * 16777215).toString(16);
-//     document.body.prepend(newElem);
-// };
-
-// const handleElementRemoving = () => {
-//     document.body.firstChild.remove();
-// };
-
-// addElement.addEventListener("click", handleElementAdding);
-// removeElement.addEventListener("click", handleElementRemoving);
 
 
 
 
 
+// const addElem = document.getElementById('add');
+// const removeElem = document.getElementById('remove');
 
 
-
-
-// # Згенеруйте сторінку блога з блог-превью
-
-
-// const blogContent = [
-//     {
-//         title: 'Some title',
-//         body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut repellendus debitis fuga dolorum, quod praesentium, nesciunt magni explicabo beatae eveniet dolore vel. Sed ipsa repellat sit, facilis dicta quae itaque?',
-//         image: 'https://www.wallpapermania.eu/images/lthumbs/2012-04/2466_Various-types-of-pebbles.jpg',
-//         author: 'Peter'
-//     },
-//     {
-//         title: 'Some title 2',
-//         body: 'Ipsum dolor sit amet consectetur adipisicing elit. Ut repellendus debitis fuga dolorum, quod praesentium, nesciunt magni explicabo beatae eveniet dolore vel. Sed ipsa repellat sit, facilis dicta quae itaque?',
-//         image: 'https://www.wallpapermania.eu/images/lthumbs/2012-04/2466_Various-types-of-pebbles.jpg',
-//         author: 'John'
-//     },
-//     {
-//         title: 'Some title 3',
-//         body: 'Sit amet consectetur adipisicing elit. Ut repellendus debitis fuga dolorum, quod praesentium, nesciunt magni explicabo beatae eveniet dolore vel. Sed ipsa repellat sit, facilis dicta quae itaque?',
-//         image: 'https://www.wallpapermania.eu/images/lthumbs/2012-04/2466_Various-types-of-pebbles.jpg',
-//         author: 'Trump'
-//     },
-// ];
-
-// const blogTitle = document.createElement('h1');
-// blogTitle.innerHTML = blogContent[0].title;
-
-// const blogImage = document.createElement('img');
-// blogImage.src = blogContent[0].image;
-
-// const blogBody = document.createElement('p');
-// blogBody.innerHTML = blogContent[0].body;
-
-// const blogAuthor = document.createElement('span');
-// blogAuthor.innerHTML = blogContent[0].author;
-
-// const blogWrapper = document.createElement('article');
-// blogWrapper.append(blogTitle);
-// blogWrapper.append(blogImage);
-// blogWrapper.append(blogBody);
-// blogWrapper.append(blogAuthor);
-// blogWrapper.style.width = '75%';
-// document.body.append(blogWrapper);
-
-
-// document.body.style.display = 'flex';
-
-// console.log(blogContent);
-
-// const previewsWrapper = document.createElement('aside');
-
-
-// blogContent.forEach(item => {
-//     const itemWrapper = document.createElement('div');
-//     const itemTitle = document.createElement('h2');
-//     itemTitle.innerHTML = item.title;
-//     const itemImg = document.createElement('img');
-//     itemImg.src = item.image;
-//     itemImg.style.width = '125px';
-//     itemWrapper.append(itemImg);
-//     itemWrapper.append(itemTitle);
-
-//     previewsWrapper.append(itemWrapper);
+// addElem.addEventListener('click', function() {
+//   const newElem = document.createElement('div');
+//   newElem.classList.add('stack-element');
+//   newElem.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+//   document.body.prepend(newElem);
 // });
-// previewsWrapper.style.width = '25%';
-// document.body.append(previewsWrapper);
+
+// removeElem.addEventListener('click', function() {
+//   document.body.firstChild.remove();
+// });
 
 
 
 
 
 
-// const tasks = [];
+// -   створіть масив рядків (наприклад,
+// ["Пункт 1", "Пункт 2", "Пункт 3"]), запитайте їх promptom
 
-// while (true) {
-//     const task = prompt('Enter task:');
 
-//     if (task === null) break;
+// -   створіть список (<ul>) та додайте
+// кожен елемент(<li>) масиву у вигляді окремого пункту списку
+// -   додайте створений список до <body></body>
 
-//     tasks.push(task);
-// }
 
-// console.log('tasks > ', tasks);
+
+
+
+function collectTasks() {
+  const tasks = [];
+
+  while (true) {
+    const task = prompt('Введіть ваш таск');
+    if (task === null) break;
+    tasks.push(task);
+  }
+
+  return tasks;
+}
+
+
+function render(tasks) {
+  const list = document.createElement('ul');
+  // list.id = 'task-list';
+
+  tasks.forEach((task) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = task;
+    list.append(listItem);
+  });
+
+  document.body.prepend(list);
+}
+
+
+function init() {
+  render(collectTasks());
+}
 
