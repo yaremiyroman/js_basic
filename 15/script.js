@@ -1,230 +1,81 @@
-// const myInput = document.getElementById('my-input');
-// // console.log('myInput > ', myInput);
+let input = document.querySelector('#input');
+let list = document.querySelector('#list');
 
-// myInput.addEventListener('focus', function(event) {
-//     // console.log('focus > ');
-//     event.target.style.background = 'green';
-// });
+input.addEventListener('keypress', function (event) {
 
-// myInput.addEventListener('blur', function() {
-//     // console.log('blur > ');
-//     event.target.style.background = 'transparent';
-// });
+   if (event.key == 'Enter') {
 
-// // myInput.addEventListener('input', function(event) {
-//     // console.log('input > ', event.target.value);
-//     // const currentValue = event.target.value;
-//     // if (currentValue.length > 5) {
-//     //     event.target.value = event.target.value.slice(0, 4);
-//     // }
-// // });
+      let li = document.createElement('li');
 
-// myInput.addEventListener('change', function(event) {
-//     // console.log('change > ', event.target.value);
-// });
+      let task = document.createElement('span');
 
-// const myForm = document.getElementById('my-form');
-// console.log('myForm > ', myForm);
+      task.classList.add('task');
+      task.textContent = this.value;
 
-// myForm.addEventListener('submit', function(event) {
-//     console.log('submit > ', event.target['text-field'].value);
 
-//     const myData = new FormData(event.target);
+      task.addEventListener('dblclick', function () {
+         let text = this.textContent;
+         this.textContent = '';
 
-//     for (let keyValue of myData) {
-//         console.log('keyValue > ', keyValue);
-//     }
+         let edit = document.createElement('input');
+         edit.value = text;
+         this.appendChild(edit);
 
-//     event.preventDefault();
-// });
+         let self = this;
 
-// myForm.addEventListener('submit', function(event) {
-//     console.log('submit > ', event.target['text-field'].value);
-//     console.log('submit > ', event.target['text-field-2'].value);
 
-//     const text1 = event.target['text-field'].value;
-//     const text2 = event.target['text-field-2'].value;
+         edit.addEventListener('keypress', function (event) {
+            if (event.key == 'Enter') {
+               self.textContent = this.value;
+            }
+         });
 
-//     if (text1.length === 0 || text2.length === 0) {
-//         console.log('Текст порожній');
-//         event.preventDefault();
-//     }
-// });
+      });
 
-// window.setTimeout(
-//     function() {
-//         alert ('!');
-//     },
-//     5000
-// );
+      li.appendChild(task);
 
-// window.setInterval(
-//     function() {
-//         console.log('Interval');
-//     },
-//     1000
-// );
+      let remove = document.createElement('span');
+      remove.classList.add('remove');
+      remove.textContent = 'delite';
 
-// window.setTimeout(
-//     function() {
-//         open('https://www.google.com');
-//     },
-//     5000
-// );
+      remove.addEventListener('click', function () {
+         this.parentElement.remove();
+      });
 
-// CRUD
-// create
-// read
-// update
-// delete
+      li.appendChild(remove);
 
-// window.localStorage.setItem('testStorage', 'value');
+      let mark = document.createElement('span');
+      mark.textContent = 'done';
+      mark.classList.add('mark');
 
-// localStorage.setItem('testStorage2', 'value2');
 
-// // console.log('value > ', value);
+      mark.addEventListener('click', function () {
+         this.parentElement.classList.add('done');
 
-// // if (!localStorage.getItem('testStorageError')) {
-//     //     console.log('ERROR');
-//     // }
+      });
+      li.appendChild(mark);
 
-// let value = null;
+      list.appendChild(li);
 
-// if (value = localStorage.getItem('testStorage2')) {
-//     console.log('value > ', value);
-// }
-
-// localStorage.removeItem('testStorage2');
-
-// localStorage.clear();
-
-// // const value2 = localStorage.getItem('testStorageError');
-// // console.log('value2 > ', value2);
-
-// localStorage.setItem('testStorage', 'value');
-// localStorage.setItem('numberStorage', 444);
-
-// const myNumber = localStorage.getItem('numberStorage');
-// console.log('myNumber > ', +myNumber);
-
-// const myTestArray = ['some record', 'another record', 'third record'];
-// console.log('myTestArray > ', myTestArray);
-
-// localStorage.setItem('arrayStorage', myTestArray);
-
-// const readMyArray = localStorage.getItem('arrayStorage');
-// console.log('readMyArray > ', readMyArray.split(','));
-
-// const myTestArray = ['some record', 'another record', 'third record'];
-// console.log('myTestArray > ', myTestArray);
-
-// const testString = '123123';
-// const testNumber = 123123;
-
-// localStorage.setItem('arrayStorage', JSON.stringify(testNumber));
-
-// const readMyArray = JSON.parse(localStorage.getItem('arrayStorage'));
-// console.log('readMyArray > ', readMyArray);
-
-// function showUserName(userName) {
-//     alert('user name: ' + userName);
-// }
-
-// let stateName = null;
-
-// if (localStorage.getItem('userName')) {
-//     stateName = localStorage.getItem('userName');
-// }
-
-// function getData() {
-//     return data; // ['asfsdf', 'asdfsaf']
-// }
-
-// function makeLi(dataArray) {
-
-//     for () {
-//         <div>dataArray[i]</div>
-//     }
-//     // <li></li>
-// }
-
-// if (stateName !== null) {
-//     showUserName(stateName);
-// } else {
-//     localStorage.setItem('userName', prompt('Say your user name: '));
-//     showUserName(localStorage.getItem('userName'));
-// }
+      this.value = '';
+   }
+});
 
 
 
-const storageName = 'tasks';
+const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-function collectTasks() {
-    const tasks = [];
-
-    while (true) {
-        const task = prompt("Введіть ваш таск");
-        if (task === null) break;
-        tasks.push(task);
-    }
-
-    console.log('tasks > ', tasks);
-
-    localStorage.setItem(storageName, JSON.stringify(tasks));
-
-    return tasks;
+function updateLocalStorage() {
+   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-function handleAddTask(list) {
-    const task = prompt("Введіть ваш таск");
-    addListItem(task, list);
+function createTaskElement(taskText) {
+   let li = document.createElement('li');
+
+   let task = document.createElement('span');
+   task.classList.add('task');
+   task.textContent = taskText;
 }
 
-function addListItem(task, listContainer) {
-    const listItem = document.createElement("li");
-    listItem.textContent = task;
 
-    const removeButton = document.createElement("button");
-    removeButton.textContent = '❌';
-    removeButton.addEventListener('click', function(event) {
-        console.log(event.target);
-        event.target.closest("li").remove();
-    });
 
-    listItem.append(removeButton);
-    listContainer.append(listItem);
-}
-
-function render(tasks) {
-    const list = document.createElement("ul");
-    // list.id = 'task-list';
-
-    tasks.forEach(task => {
-        addListItem(task, list);
-    });
-
-    document.body.prepend(list);
-
-    const addButton = document.createElement('button');
-    addButton.textContent = '+';
-    addButton.id = 'add-button';
-
-    document.body.append(addButton);
-
-    addButton.addEventListener('click', function() {
-        return handleAddTask(list);
-    });
-
-    // addButton.addEventListener('click', () => handleAddTask(list));
-}
-
-function init() {
-    if (localStorage.getItem(storageName)) {
-        const storageData = JSON.parse(localStorage.getItem(storageName));
-        render(storageData);
-    } else {
-        render(collectTasks());
-    }
-}
-
-init();
