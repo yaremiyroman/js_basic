@@ -3,8 +3,8 @@ const board = [
     [null, null, null], // data-row 1
     [null, null, null], // data-row 2
 ];
-
 let user = true;
+let counter = 0;
 
 function winner(user) {
     if (!!user) {
@@ -38,7 +38,7 @@ function checkBoard() {
     if (flatBoard[2] === flatBoard[5] && flatBoard[5] === flatBoard[8])
         winner(flatBoard[2]);
 
-    // cols
+    // curve
     if (flatBoard[0] === flatBoard[4] && flatBoard[4] === flatBoard[8])
         winner(flatBoard[0]);
 
@@ -52,6 +52,7 @@ function init() {
     for (field of fields) {
         field.addEventListener("click", function (event) {
             if (!event.target.dataset.marked) {
+                console.log(event.target.dataset);
                 const row = event.target.dataset.row;
                 const col = event.target.dataset.col;
 
@@ -61,9 +62,9 @@ function init() {
 
                 event.target.innerHTML = user ? "X" : "O";
 
-                const filledElements = board.flat().filter(elem => elem !== null);
+                counter++;
 
-                if (filledElements.length >= 5) {
+                if (counter >= 5) {
                     checkBoard();
                 }
 

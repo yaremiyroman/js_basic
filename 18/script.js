@@ -29,6 +29,9 @@
 
 
 
+
+
+
 let tasksInput = prompt("Please, write down a list of tasks to do, separated by commas", " ");
 const tasksArray = tasksInput.split(",");
 
@@ -38,10 +41,10 @@ function createToDoList(arr){
     for (let i = 0; i < arr.length; i++ ) {
         let task = document.createElement('li');
         task.innerHTML = arr[i];
-        tasksList.appendChild(task);
     }
     return tasksList;
 }
+
 
 let bodyPage = createToDoList(tasksArray).body;
 

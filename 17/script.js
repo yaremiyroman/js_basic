@@ -1,249 +1,100 @@
-// Спрощення коду: jQuery надає простий та зрозумілий синтаксис, що дозволяє виконувати багато завдань за допомогою коротших фрагментів коду.
-
-// Кросбраузерність: jQuery вирівнює різницю між різними браузерами, забезпечуючи однакову функціональність на всіх підтримуваних платформах.
-
-// Анімація та ефекти: Існує багато готових анімацій та ефектів, які можна легко застосовувати до елементів за допомогою jQuery, що робить інтерфейси більш привабливими для користувачів.
-
-
-
-// Завантаження jQuery з CDN або встановлення локально.
-
-
-
-// Основні синтаксичні правила jQuery включають наступне:
-
-
-// Вибір елементів: jQuery використовує селектори для вибору елементів в DOM. Селектори дуже схожі на ті, що використовуються в CSS. Наприклад:
-
-
-
-
-// Вибір всіх елементів <p>
-$("p")
-
-// Вибір елементів з класом "example"
-$(".example")
-
-// Вибір елементів з ідентифікатором "myElement"
-$("#myElement")
-
-
-
-// Використання методів: Після вибору елементів ви можете використовувати методи jQuery для взаємодії з ними. Наприклад, для зміни тексту елементу використовуйте text(), для зміни CSS властивостей - css(), для додавання класу - addClass(), тощо.
-
-
-
-
-
-// Обробка подій: jQuery дозволяє додавати обробники подій до вибраних елементів. Наприклад, для обробки події кліку використовуйте click(), для обробки події миші - mouseenter(), mouseleave() тощо.
-
-
-// Обробник події кліку на кнопку
-$("button").click(function() {
-    console.log("Кнопка була натиснута!");
-});
-
-// Обробник події наведення миші на елемент
-$("p").mouseenter(function() {
-    console.log("Мишка наведена на параграф!");
-});
-
-
-
-// Ланцюговість: Методи jQuery можуть бути ланцюжковані, що дозволяє виконувати декілька дій одразу з вибраними елементами.
-
-
-// Зміна тексту і кольору тексту для всіх елементів <p> з класом "example"
-$("p.example").text("Новий текст").css("color", "blue");
-
-
-
-
-
-
-// Вибір елементів є одним із основних аспектів роботи з jQuery, оскільки це дозволяє вам отримати доступ до елементів на веб-сторінці та взаємодіяти з ними. jQuery використовує селектори, які дуже схожі на селектори CSS, для вибору елементів.
-
-
-
-$("p") // Вибирає всі елементи <p>
-
-
-$(".example") // Вибирає всі елементи з класом "example"
-
-$("#myElement") // Вибирає елемент з ідентифікатором "myElement"
-
-$("p.example") // Вибирає всі елементи <p> з класом "example"
-
-
-$("div").first() // Вибирає перший елемент <div> на сторінці
-
-
-
-
-// Зміна властивостей елементів є однією з найпоширеніших операцій у jQuery і використовується для динамічного змінення вигляду або поведінки елементів на сторінці. В jQuery це робиться за допомогою методу .css() для зміни CSS властивостей елементів. Однак, є також інші методи для зміни тексту, класів та інших властивостей.
-
-// Ось декілька прикладів зміни різних властивостей елементів:
-
-// Зміна колір тексту всіх елементів <p>
-$("p").css("color", "blue");
-
-// Зміна розміру шрифту всіх елементів з класом "example"
-$(".example").css("font-size", "20px");
-
-// Зміна тексту:
-
-// Зміна тексту всіх елементів <h1> на "Новий заголовок"
-$("h1").text("Новий заголовок");
-
-// Додавання тексту до існуючого тексту у всіх елементів <p>
-$("p").text(function() {
-    return $(this).text() + " Додатковий текст";
-});
-
-
-
-// Додавання або видалення класів:
-
-
-// // Додавання класу "active" до всіх елементів з класом "button"
-// $(".button").addClass("active");
-
-// // Видалення класу "hidden" у всіх елементів з ідентифікатором "menu"
-// $("#menu").removeClass("hidden");
-
-
-
-
-
-// Зміна атрибутів:
-
-// Зміна значення атрибута "href" у всіх посилань
-$("a").attr("href", "новий посилання.html");
-
-// Видалення атрибута "disabled" у всіх елементів з класом "input"
-$(".input").removeAttr("disabled");
-
-
-// Додавання елементів:
-
-// Додавання елементу до вибраного контейнера:
-
-// Додавання нового елементу <div> в кінець елементу з ідентифікатором "container"
-$("#container").append("<div>Новий елемент</div>");
-
-
-// Додавання елементу перед або після існуючого елементу:
-
-
-// Додавання нового елементу <p> після елементу з класом "existing"
-$(".existing").after("<p>Новий параграф</p>");
-
-// Додавання нового елементу <span> перед елементом з ідентифікатором "existing"
-$("#existing").before("<span>Новий текст</span>");
-
-// Видалення всіх елементів <div> з класом "remove"
-$("div.remove").remove();
-
-
-
-// Видалення вмісту всіх елементів <p> з класом "clear"
-$("p.clear").empty();
-
-
-// Видалення наступного елементу після елементу з класом "delete"
-$(".delete").next().remove();
-
-// Видалення попереднього елементу перед елементом з ідентифікатором "delete"
-$("#delete").prev().remove();
-
-
-
-// В jQuery ви можете додавати обробники подій для різних подій, таких як клік мишею, натискання клавіш та інших подій. Це дозволяє створювати інтерактивні ефекти та реагувати на дії користувача. Ось декілька прикладів використання обробників подій в jQuery:
-
-
-// Обробник кліку на кнопку з класом "btn"
-$(".btn").click(function() {
-    alert("Клікнуто на кнопку!");
-});
-
-
-
-// Обробник наведення миші на елемент з класом "element"
-$(".element").mouseenter(function() {
-    $(this).css("background-color", "blue");
-});
-
-// Обробник відведення миші від елементу з класом "element"
-$(".element").mouseleave(function() {
-    $(this).css("background-color", "white");
-});
-
-
-
-// Обробник натискання клавіші "Enter" у полі введення з класом "input"
-$(".input").keypress(function(event) {
-    if (event.which === 13) {
-        alert("Натиснуто клавішу Enter!");
-    }
-});
-
-
-// Обробник події кліку та події подвійного кліку на елемент з класом "item"
-$(".item").on({
-    click: function() {
-        alert("Клікнуто!");
-    },
-    dblclick: function() {
-        alert("Подвійний клік!");
-    }
-});
-
-
-
-// В jQuery є багато вбудованих функцій для створення анімацій, які дозволяють створювати різні ефекти та анімаційні переходи для елементів на сторінці. Ось декілька прикладів використання анімацій в jQuery:
-
-
-// Збільшення ширини та висоти елементу з класом "box" до 200px за 1 секунду
-$(".box").animate({
-    width: "200px",
-    height: "200px"
-}, 1000);
-
-
-// Зменшення прозорості елементу з класом "element" до 0 за 2 секунди
-$(".element").animate({
-    opacity: 0
-}, 2000);
-
-
-// Зміна положення елементу з ідентифікатором "item" до координат (100, 100) за 1 секунду
-$("#item").animate({
-    left: "100px",
-    top: "100px"
-}, 1000);
-
-
-
-// Комбінована анімація зміни розміру та прозорості елементу
-$(".element").animate({
-    width: "200px",
-    height: "200px",
-    opacity: 0
-}, 1500);
-
-
-// Використання вбудованого ефекту "fadeIn" для з'явлення елементу
-$(".element").fadeIn(1000);
-
-// Використання вбудованого ефекту "slideUp" для згортання елементу
-$(".element").slideUp(1000);
-
-
-$("#app")
-    .html("<div>New HTML</div>")
-    .hide()
-    .show()
-    .fadeOut(1000)
-    .fadeIn(2000)
-    .addClass('SUPER-CLASS')
-    .on("click", () => alert("ME CALLBACK"));
+// const accordionItems = document.querySelectorAll('.accordion-item');
+
+// accordionItems.forEach(item => {
+//     const header = item.querySelector('.accordion-header');
+//     const content = item.querySelector('.accordion-content');
+
+//     header.addEventListener('click', function () {
+//         content.classList.toggle('active');
+
+//         if (content.classList.contains('active')) {
+//             content.style.display = 'block';
+//         } else {
+//             content.style.display = 'none';
+//         }
+//     });
+// });
+
+
+
+
+// // By default, show the first tab
+// document.getElementById("Tab1").style.display = "block";
+
+// // Get all tab buttons
+// const tabButtons = document.querySelectorAll(".tablinks");
+
+// // Function to open a specific tab content
+// function openTab(tabName) {
+//     // Hide all tab content
+//     const tabContent = document.querySelectorAll(".tabcontent");
+//     tabContent.forEach(tab => {
+//         tab.style.display = "none";
+//     });
+
+//     // Remove the 'active' class from all tab links
+//     tabButtons.forEach(button => {
+//         button.classList.remove("active");
+//     });
+
+//     // Show the selected tab content
+//     document.getElementById(tabName).style.display = "block";
+
+//     // Add the 'active' class to the clicked tab link
+//     const activeButton = document.querySelector(`.tablinks[data-tab="${tabName}"]`);
+//     activeButton.classList.add("active");
+// }
+
+// // Add event listeners to tab buttons
+// tabButtons.forEach(button => {
+//     button.addEventListener("click", function () {
+//         const tabName = this.getAttribute("data-tab");
+//         openTab(tabName);
+//     });
+// });
+
+
+
+// const tooltips = document.querySelectorAll(".tooltip");
+
+// tooltips.forEach(tooltip => {
+//     const tooltipText = tooltip.getAttribute("data-tooltip");
+
+//     const tooltipElement = document.createElement("span");
+//     tooltipElement.classList.add("tooltiptext");
+//     tooltipElement.innerText = tooltipText;
+//     tooltip.appendChild(tooltipElement);
+// });
+
+
+// const inputField = document.getElementById("myInput");
+// const autocompleteItems = document.getElementById("autocompleteItems");
+
+// // Mocked data for autocomplete suggestions
+// const suggestions = ["Apple", "Banana", "Bannna", "Orange", "Pear", "Pineapple", "Strawberry", "Grapes"];
+
+// inputField.addEventListener("input", function () {
+//     const inputValue = this.value;
+//     autocompleteItems.innerHTML = "";
+
+//     if (inputValue.length > 0) {
+//         const matchedItems = suggestions.filter(item => item.toLowerCase().startsWith(inputValue.toLowerCase()));
+//         matchedItems.forEach(item => {
+//             const autocompleteItem = document.createElement("div");
+//             autocompleteItem.classList.add("autocomplete-item");
+//             autocompleteItem.textContent = item;
+//             autocompleteItem.addEventListener("click", function () {
+//                 inputField.value = item;
+//                 autocompleteItems.innerHTML = "";
+//             });
+//             autocompleteItems.appendChild(autocompleteItem);
+//         });
+//     }
+// });
+
+// // Close the autocomplete dropdown when clicking outside
+// document.addEventListener("click", function (event) {
+//     if (!event.target.matches('#myInput')) {
+//         autocompleteItems.innerHTML = "";
+//     }
+// });
