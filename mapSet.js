@@ -18,6 +18,11 @@ console.log(Object.fromEntries(entries));
 
 // Map — колекція для зберігання даних будь-якого типу у вигляді пар [key, value] і запам'ятовує початковий порядок вставки ключів. Будь-яке значення (як об'єкти, так і примітивні значення) можна використовувати як ключ або значення.
 
+const mapX = new Map([
+    ['asdf', 'afafagf'],
+    ['asdf2', 'afafagf'],
+])
+
 // - Відсутність неоголошених властивостей
 // - Безпека
 // - Упорядкованість записів
@@ -426,15 +431,12 @@ const data = [
 
 // With iterator
 
-const msgsCollection = new Map();
-
 const mapMessagesToSource = msgs => {
     const groupedMessages = Object.groupBy(msgs, (msg, i) => {
-        msgsCollection.set(msg.source + i, msg);
         return msg.source;
     });
 
-    groupedMessages[Symbol.iterator] = function () {
+    return groupedMessages[Symbol.iterator] = function () {
         let index = 0;
         const keys = Object.keys(this);
 
@@ -448,8 +450,6 @@ const mapMessagesToSource = msgs => {
             },
         };
     };
-
-    return groupedMessages;
 }
 
 // Call
