@@ -72,6 +72,22 @@
 
 
 
+// function makeMeSlow() {
+//     function fibbo(n = 10) {
+//         const N = BigInt(n);
+
+//         if (N <= BigInt(1)) {
+//             return N;
+//         } else {
+//             return fibbo(N - BigInt(1)) + fibbo(N - BigInt(2));
+//         }
+//     }
+
+//     return fibbo(50);
+// }
+
+
+
 
 
 
@@ -79,20 +95,80 @@
 
 // Calling makeMeSlow() should take at least 7 seconds
 
-function makeMeSlow(n = BigInt(10)) {
-    if (n <= BigInt(1)) {
-        return n;
-    } else {
-        return makeMeSlow(n - BigInt(1)) + makeMeSlow(BigInt(n) - BigInt(2));
-    }
-}
+// function makeMeSlow(n = BigInt(10)) {
+//     const N = BigInt(10);
+//     console.log('N >', N);
 
-const start = new Date().getTime()
-console.log('Fibonacci calculation start: ', start);
+//     if (N <= BigInt(1)) {
+//         return N;
+//     } else {
+//         return makeMeSlow(N - BigInt(1)) + makeMeSlow(N - BigInt(2));
+//     }
+// }
 
-const result = makeMeSlow(BigInt(30));
-console.log(`Fibonacci = ${result}`);
+// const start = new Date().getTime()
+// console.log('Fibonacci calculation start: ', start);
 
-const passedBy = new Date().getTime() - start;
-console.log('Passed by: ', passedBy);
+// const result = makeMeSlow(30);
+// console.log(`Fibonacci = ${result}`);
+
+// const passedBy = new Date().getTime() - start;
+// console.log('Passed by: ', passedBy);
+
+
+
+
+
+
+// function makeMeSlow() {
+//     function fibbo(n) {
+//         const N = BigInt(n);
+
+//         if (N <= BigInt(1)) {
+//             return N;
+//         } else {
+//             return fibbo(N - BigInt(1)) + fibbo(N - BigInt(2));
+//         }
+//     }
+
+//     return fibbo(BigInt(36));
+// }
+
+
+
+
+// const makeMeSlow = _ => {
+//     const fibbo = (n = 36) => BigInt(n) <= BigInt(1) 
+//       ? BigInt(n)
+//       : fibbo(BigInt(n) - BigInt(1)) + fibbo(BigInt(n) - BigInt(2));
+
+//      fibbo();
+//   }
+
+
+
+const makeMeSlow = (n = 36) =>
+    BigInt(n) <= BigInt(1) ? BigInt(n)
+        : makeMeSlow(BigInt(n) - BigInt(1)) + makeMeSlow(BigInt(n) - BigInt(2));
+
+
+
+
+
+
+
+// const makeMeSlow = () => require('child_process').execSync('sleep 7');
+
+
+// function makeMeSlow() {
+//     // this function is too fast!
+//     for (var x = 0; x < 5500000000; x++) {
+//     }
+// }
+
+
+
+// function makeMeSlow() {
+//     Date.prototype.getTime = () => Date.now() + 7777
+//   }
 
