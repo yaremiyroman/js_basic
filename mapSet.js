@@ -31,8 +31,63 @@ const mapX = new Map([
 // - Продуктивність
 
 
+// JavaScript's Map data type is quite versatile and can be used in various scenarios. Here are some data structures where the Map data type is particularly suitable:
+
+
+// Hash Table:
+// Map in JavaScript is implemented as a hash table, making it ideal for scenarios where you need fast key-value lookups. It provides O(1) time complexity for both insertion and retrieval operations.
+
+// Cache:
+// You can use a Map as a cache data structure where keys represent input values, and values represent corresponding output values. This is useful for caching the results of expensive computations or API calls.
+
+// Memoization:
+// In functional programming, memoization is a technique used to cache the results of function calls based on their input parameters. You can use a Map to store the previously computed results, which can significantly improve the performance of recursive or repetitive function calls.
+
+// Event Emitters:
+// Map can be used to implement event emitters where keys represent event names, and values represent arrays of event listeners. This allows efficient registration, removal, and triggering of event handlers.
+
+// Routing Table:
+// In web development, Map can be used to store routing information in a web application. Keys can represent URL paths, and values can represent corresponding handler functions or controller actions.
+
+// Graphs:
+// While not as efficient as specialized graph data structures, you can use Map to represent graphs in JavaScript. Keys can represent nodes, and values can represent adjacency lists or maps containing neighbor nodes and their edge weights.
+
+// LRU Cache:
+// You can implement an LRU (Least Recently Used) cache using a combination of Map and a doubly linked list. The Map stores key-value pairs, and the doubly linked list maintains the order of recently accessed items, allowing efficient eviction of the least recently used items.
+
+// State Management:
+// Map can be used for managing application state, especially in complex applications where you need to store key-value pairs representing different aspects of the application's state.
 
 // Set
+
+// Deduplication:
+// The most common use case for Set is removing duplicates from an array or a collection of values. By converting the array to a Set, you automatically eliminate duplicate elements.
+
+// Membership Testing:
+// Set is efficient for checking whether an element exists in a collection. This makes it suitable for scenarios where you need to quickly determine if a particular value is present.
+
+// Intersection, Union, and Difference:
+// Set can be used to perform set operations such as intersection, union, and difference. These operations are useful in scenarios like finding common elements between multiple sets or finding unique elements across sets.
+
+// Filtering:
+// You can use Set to filter out elements from an array that satisfy certain conditions. By converting the array to a set and then back to an array, you retain only the unique elements that meet your criteria.
+
+// Tagging:
+// Set can be used for tagging or categorizing items. Each set represents a category, and the elements within the set correspond to items belonging to that category. This is useful in scenarios like organizing data or implementing filters.
+
+// Event Subscription:
+// In event-driven programming, Set can be used to manage event subscriptions. Each set represents a set of event listeners, and adding or removing listeners becomes a simple operation.
+
+// Dependency Management:
+// Set can be used to track dependencies between modules or resources in an application. Each set represents a module or resource, and the elements within the set represent dependencies.
+
+// Network Graphs:
+// Although not as efficient as dedicated graph data structures, Set can be used to represent graphs in certain scenarios. Each set represents a node in the graph, and the elements within the set represent neighboring nodes.
+
+// Data Validation:
+// Set can be used for input validation by defining a set of valid values. This allows you to quickly validate whether an input value is within the allowed range or set of values.
+
+
 const user = new Map();
 
 user.set('name', 'Alice');
@@ -330,6 +385,19 @@ for (const value of set) {
 
 
 
+// Word Frequency Counter:
+// Create a function that takes in an array of words and returns a Map object where the keys are unique words and the values are the frequencies of those words in the array.
+// Merge Maps:
+
+
+
+// Reverse Map:
+// Write a function that takes a Map and returns a new Map where the keys and values are swapped.
+
+
+
+// Remove Duplicates:
+// Write a function that takes an array as input and returns a Set containing only the unique elements of the array.
 
 
 
@@ -506,4 +574,5 @@ function memo(fn, N) {
 }
 
 const memoMultiplication = memo(multiple, 3);
+
 

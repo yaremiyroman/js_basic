@@ -147,14 +147,46 @@
 
 
 
-const makeMeSlow = (n = 36) =>
-    BigInt(n) <= BigInt(1) ? BigInt(n)
-        : makeMeSlow(BigInt(n) - BigInt(1)) + makeMeSlow(BigInt(n) - BigInt(2));
+
+
+// Reset ANSI styles
+const reset = "\x1b[0m";
+
+const red = "\x1b[31m";
+const green = "\x1b[32m";
+const blue = "\x1b[34m";
+
+const bgRed = "\x1b[41m";
+const bgGreen = "\x1b[42m";
+const bgBlue = "\x1b[44m";
+
+
+const fibonacciLimit = 40;
+
+const makeMeSlow = n => n <= 1 ? n : makeMeSlow(n - 1) + makeMeSlow(n - 2);
+
+const init = () => {
+    const start = new Date().getTime()
+    const result = makeMeSlow(fibonacciLimit);
+    const passedBy = new Date().getTime() - start;
+
+    console.log('--- --- --- --- --- --- --- --- --- --- --- --- --- ---');
+    console.log(`💾 ${bgBlue}Fibonacci${reset}[${blue}${fibonacciLimit}${reset}] = ${blue}${result}${reset}`);
+    console.log(`🕙 ${bgGreen}Passed by${reset} ${red}${passedBy}ms${reset}. Approx ${red}${Math.floor(passedBy / fibonacciLimit)}ms${reset} per digit.${reset}`);
+    console.log('--- --- --- --- --- --- --- --- --- --- --- --- --- ---');
+
+}
+
+init();
 
 
 
 
 
+
+
+// const makeMeSlow = (n = 43) =>
+//   n <= 1 ? n : makeMeSlow(n - 1) + makeMeSlow(n - 2);
 
 
 // const makeMeSlow = () => require('child_process').execSync('sleep 7');
