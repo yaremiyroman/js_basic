@@ -149,6 +149,27 @@
 
 
 
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// // 1 --------------------------------------------------------------------------------------------------------------------------------------------
+// const makeMeSlow = (n = 36) =>
+//   BigInt(n) <= BigInt(1) ? BigInt(n)
+//     : makeMeSlow(BigInt(n) - BigInt(1)) + makeMeSlow(BigInt(n) - BigInt(2));
+
+// // 2 --------------------------------------------------------------------------------------------------------------------------------------------
+
+// const makeMeSlow = (n = 43) =>
+//   n <= 1 ? n : makeMeSlow(n - 1) + makeMeSlow(n - 2);
+
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 // Reset ANSI styles
 const reset = "\x1b[0m";
 
@@ -160,21 +181,48 @@ const bgRed = "\x1b[41m";
 const bgGreen = "\x1b[42m";
 const bgBlue = "\x1b[44m";
 
+const fibonacciLimit = 46;
+let cache = new Map();
 
-const fibonacciLimit = 40;
+const makeMeSlow = n => {
+    if (n <= 1) {
+        return n;
+    } else {
+        return makeMeSlow(n - 1) + makeMeSlow(n - 2);
+    }
+}
 
-const makeMeSlow = n => n <= 1 ? n : makeMeSlow(n - 1) + makeMeSlow(n - 2);
+function memo(fn) {
+    return function (limit) {
+        for (let i = limit; i > 0;) {
+            if (!cache.has(i)) {
+                cache.set(i, fn(--i));
+            }
+        }
+    };
+}
 
-const init = () => {
-    const start = new Date().getTime()
-    const result = makeMeSlow(fibonacciLimit);
+const memoSlow = memo(makeMeSlow);
+
+function init() {
+    const start = new Date().getTime();
+
+    if (!cache.has(fibonacciLimit)) {
+        memoSlow(fibonacciLimit);
+    } else {
+        return cache.get(fibonacciLimit);
+    }
+
     const passedBy = new Date().getTime() - start;
+    [...cache.entries()].forEach(([key, value]) => console.log(`💾 ${blue}${key}${reset} > ${blue}${value}${reset}`));
 
-    console.log('--- --- --- --- --- --- --- --- --- --- --- --- --- ---');
-    console.log(`💾 ${bgBlue}Fibonacci${reset}[${blue}${fibonacciLimit}${reset}] = ${blue}${result}${reset}`);
-    console.log(`🕙 ${bgGreen}Passed by${reset} ${red}${passedBy}ms${reset}. Approx ${red}${Math.floor(passedBy / fibonacciLimit)}ms${reset} per digit.${reset}`);
-    console.log('--- --- --- --- --- --- --- --- --- --- --- --- --- ---');
-
+    console.log(`
+- -- --- --- --- --- --- --- --- -- -
+    📲 ${bgBlue}Fibonacci${reset}[${blue}${fibonacciLimit}${reset}] = ${blue}${cache.get(fibonacciLimit)}${reset}
+    ⏱️  ${bgGreen}Passed by${reset} ${red}${passedBy}ms${reset}.
+    💻 Approx ${red}${Math.floor(passedBy / fibonacciLimit)}ms${reset} per digit.${reset}
+- -- --- --- --- --- --- --- --- -- -
+    `);
 }
 
 init();
