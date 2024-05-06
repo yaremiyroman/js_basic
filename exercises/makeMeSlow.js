@@ -53,13 +53,13 @@
 // function makeMeSlow(n) {
 //     console.log('-start-');
 
-//     return function fibonacci(n = 10) {
-//         if (n <= 1) {
-//             return n;
-//         } else {
-//             return fibonacci(n - 1) + fibonacci(n - 2);
-//         }
-//     }
+    // return function fibonacci(n = 10) {
+    //     if (n <= 1) {
+    //         return n;
+    //     } else {
+    //         return fibonacci(n - 1) + fibonacci(n - 2);
+    //     }
+    // }
 // }
 
 // console.time('Fibonacci calculation start');
