@@ -130,12 +130,12 @@ function memo(fn, N) {
         const newKey = args.join('-');
 
         if (cache.has(newKey)) {
-            console.log("CACHED", cache);
+            // console.log("CACHED", cache);
             return cache.get(newKey);
         }
 
         if (cache.size === N) {
-            console.log("cache.size === N", cache.size, ' = ', N);
+            // console.log("cache.size === N", cache.size, ' = ', N);
             const entries = [...cache.entries()];
             const keys = [...cache.keys()];
             const cacheItemIndex = entries.findIndex(entry => entry.includes(keys[counter]));
@@ -148,12 +148,12 @@ function memo(fn, N) {
                 entries[cacheItemIndex][0] = newKey;
                 cache = new Map(entries);
                 cache.set(newKey, fn(...args));
-                console.log("cacheItemIndex");
+                // console.log("cacheItemIndex");
                 return cache.get(newKey);
             }
         }
 
-        console.log("SET");
+        // console.log("SET");
         cache.set(newKey, fn(...args));
 
         return cache.get(newKey);

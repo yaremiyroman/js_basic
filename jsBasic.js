@@ -3071,21 +3071,418 @@ const emptyCat = {};
 // Вам необхідно написати функцію, яка приймає на вхід масив і повністю повторює поведінку методу масиву group
 
 
-const data = [
-    { type: 'food', name: 'Pizza' },
-    { type: 'drink', name: 'Coffee' },
-    { type: 'food', name: 'Hot Dog' },
-    { type: 'drink', name: 'Coca-Cola' },
-    { type: 'food', name: 'Canned meat' },
-];
+// const data = [
+//     { type: 'food', name: 'Pizza' },
+//     { type: 'drink', name: 'Coffee' },
+//     { type: 'food', name: 'Hot Dog' },
+//     { type: 'drink', name: 'Coca-Cola' },
+//     { type: 'food', name: 'Canned meat' },
+// ];
 
-const result = Object.groupBy(data, item => item.type);
+// const result = Object.groupBy(data, item => item.type);
 
-console.log('result > ', result);
+// console.log('result > ', result);
 
 
-function customGroup(array, groupBy) {
-    return {};
+// function customGroup(array, groupBy) {
+//     return {};
+// }
+
+// customGroup(data, 'type');
+
+
+
+// const myObject = {
+//     'source': 'unian.ua',
+//     'text': 'Вам необхідно перетворити цей масив на об\'єкт3',
+//     'date': '05.12.2024',
+// };
+
+// const myEntries = Object.entries(myObject);
+
+// console.log(myEntries);
+
+// const backToObject = Object.fromEntries(myEntries);
+
+// console.log(backToObject);
+
+
+
+// const mapCityToCode = {
+//     'kyiv': '044',
+//     'mykolaiv': '0512',
+//     'odesa': '405',
+// };
+
+// const mapCityToCode = new Map();
+
+// mapCityToCode.set('kyiv', '044').set('mykolaiv', '0512');
+// mapCityToCode.set('odesa', '405');
+
+// console.log('mapCityToCode > ', mapCityToCode);
+
+
+// const keyToGet = 'kyiv';
+// const value = mapCityToCode.get(keyToGet);
+// // const value = mapCityToCode.get('sdfgsdfgdsfgdsfgdsfgds');
+// console.log('value > ', value);
+
+
+// console.log('has > ', mapCityToCode.has('rivno'));
+
+
+// for (let value of mapCityToCode) {
+//     console.log('value > ', value);
+// }
+
+// console.log('mapCityToCode > ', mapCityToCode);
+// // mapCityToCode.forEach((value, key) => {
+// //     console.log('value > ', value);
+// //     console.log('key > ', key);
+// //     console.log('-----------------------------');
+// // });
+
+
+// function swapKeysAndValues(map) {
+//     const swappedMap = new Map();
+
+//     map.forEach((value, key) => {
+//         swappedMap.set(value, key);
+//     });
+
+//     return swappedMap;
+
+// }
+
+// const swappedCities = swapKeysAndValues(mapCityToCode);
+// console.log('swappedCities > ', swappedCities);
+
+
+// console.log('mapCityToCode > ', mapCityToCode);
+
+// mapCityToCode.delete('kyiv');
+// mapCityToCode.clear();
+
+// console.log('mapCityToCode > ', mapCityToCode);
+
+
+
+// const mapCityToCode = new Map();
+
+// mapCityToCode.set('kyiv', '044').set('mykolaiv', '0512');
+// mapCityToCode.set('odesa', '405');
+
+// mapCityToCode.forEach((value, key) => {
+//     console.log('value > ', value);
+//     console.log('key > ', key);
+//     console.log('-----------------------------');
+// });
+
+// const citiesKeys = mapCityToCode.keys();
+// console.log('citiesKeys > ', citiesKeys);
+
+// const citiesValues = mapCityToCode.values();
+// console.log('citiesValues > ', citiesValues);
+
+// const citiesEntries = mapCityToCode.entries();
+// // console.log('citiesEntries > ', citiesEntries);
+
+// for (let [key, value] of citiesEntries) {
+//     console.log('key >', key);
+//     console.log('value >', value);
+// }
+
+
+
+
+
+
+// const mapCityToCode = new Map();
+
+// mapCityToCode.set('kyiv', '044').set('mykolaiv', '0512');
+// mapCityToCode.set('odesa', '405');
+
+
+
+
+
+// const mapCityToCode = new Map();
+
+// mapCityToCode.set('odesa', '405');
+// mapCityToCode.set('odesa2', '4050');
+
+// [
+//     [key, value],
+//     [key, value],
+//     [key, value],
+//     [key, value],
+//     [key, value],
+// ]
+
+
+// const [
+//     [city, code],
+//     [city2, code2],
+// ] = mapCityToCode;
+
+// console.log('city >', city);
+// console.log('code >', code);
+// console.log('city2 >', city2);
+// console.log('code2 >', code2);
+
+
+
+// const dataArray = [
+//     {
+//         'source': 'ukr.net',
+//         'text': 'Вам необхідно написати функцію 1 1 1 1',
+//         'date': '23.11.1989',
+//     },
+//     {
+//         'source': 'google.com',
+//         'text': 'Кожен об\'єкт описує сповіщення та має поля 1 1 1 1',
+//         'date': '01.01.2022',
+//     },
+//     {
+//         'source': 'unian.ua',
+//         'text': 'Вам необхідно перетворити цей масив на об\'єкт 1 1 1 1',
+//         'date': '05.12.2024',
+//     },
+// ];
+
+// let data = dataArray[1];
+
+// console.log(data);
+
+// // const objectMap = new Map();
+// const objectMap = new WeakMap();
+// objectMap.set(data, 3);
+// data = null;
+// console.log('objectMap > ', objectMap.get(data));
+
+
+// const newMap = new Map([
+//     ['key', 'value'],
+//     ['key2', 'value2'],
+//     ['key3', 'value3'],
+// ]);
+
+// console.log('newMap > ', newMap);
+// console.log('newMap > ', newMap.size);
+
+
+
+
+
+
+// const newSet = new Set();
+
+// console.log('newSet >', newSet);
+
+
+// newSet.add('orange').add('apple');
+// newSet.add('cherry');
+// newSet.add('cherry');
+// newSet.add('apple');
+// console.log('newSet >', newSet);
+
+
+// const fruits = ['cherry', 'orange', 'apple', 'cherry', 'orange', 'apple', 'cherry', 'orange'];
+
+// console.log('fruits >', fruits);
+
+
+// const uniqueFruits = [...new Set(fruits)];
+
+// console.log('uniqueFruits >', uniqueFruits);
+
+
+
+
+
+
+// const fruitsSet = new Set();
+
+// fruitsSet.add('orange').add('apple');
+// fruitsSet.add('cherry');
+// fruitsSet.add('cherry');
+// fruitsSet.delete('apple');
+// console.log('fruitsSet >', fruitsSet);
+
+
+// console.log('fruitsSet.size >', fruitsSet.size);
+
+
+// fruitsSet.delete('cherry');
+// fruitsSet.clear();
+
+// console.log('cherry? > ', fruitsSet.has('cherry'));
+
+// console.log('fruitsSet >', fruitsSet);
+// console.log('fruitsSet.keys() >', fruitsSet.keys());
+// console.log('fruitsSet.values() >', fruitsSet.values());
+// console.log('fruitsSet.entries() >', fruitsSet.entries());
+
+
+// fruitsSet.forEach(value => {
+//     console.log('value >', value);
+// });
+
+
+
+// const setA = new Set([1, 2, 3]);
+// const setB = new Set([3, 4, 5]);
+
+// const unionSet = new Set([...setA, ...setB]);
+// const intersectionSet = new Set(
+//     [...setA].filter(x => setB.has(x))
+// );
+// const differenceSet = new Set(
+//     [...setA].filter(x => !setB.has(x))
+// );
+// const symmetricDifferenceSet = new Set(
+//     [...setA]
+//         .filter(x => !setB.has(x))
+//         .concat([...setB].filter(x => !setA.has(x)))
+// );
+
+// console.log(unionSet);
+// console.log('intersectionSet > ', intersectionSet);
+// console.log('differenceSet > ', differenceSet);
+// console.log('symmetricDifferenceSet > ', symmetricDifferenceSet);
+
+
+// const myString = 'myString';
+
+// for (let char of myString) {
+//     console.log('char > ', char);
+// }
+
+// const myArray = 'myArray'.split('');
+
+// for (let item of myArray) {
+//     // console.log('item > ', item);
+// }
+
+
+// const mapCityToCode = new Map();
+
+// mapCityToCode.set('odesa', '405');
+// mapCityToCode.set('odesa2', '4050');
+
+// for (let map of mapCityToCode) {
+//     console.log('map > ', map);
+// }
+
+// const fruitsSet = new Set(['orange', 'apple', 'banana']);
+// for (let fruit of fruitsSet) {
+//     console.log('fruit > ', fruit);
+// }
+
+
+// const user = {
+//     name: 'Roman',
+//     secondName: 'Y',
+//     permissions: 'admin',
+//     id: 1,
+
+//     [Symbol.iterator]: function () {
+//         const keys = Object.keys(this);
+
+//         let index = 0;
+
+//         return {
+//             next: () => {
+//                 return ({
+//                     value: keys[index++],
+//                     done: index < keys.length ? false : true
+//                 })
+//             }
+//         }
+//     }
+
+
+// };
+
+// for (let entry of user) {
+//     console.log('entry > ', entry);
+// }
+
+
+
+
+// const naturalIntegers = {
+//     [Symbol.iterator]: function () {
+//         return ({
+//             counter: 0,
+//             next() {
+//                 return ({
+//                     value: ++this.counter,
+//                     done: this.counter > 5 ? true : false
+//                 });
+//             }
+//         });
+//     },
+// }
+
+// for (let count of naturalIntegers) {
+//     console.log('count > ', count);
+// }
+
+
+
+// // HOF
+// // High Order Function
+
+
+// const multiple = (a, b) => +a * +b;
+
+// function memo(fn) {
+//     const map = new Map();
+
+//     return function(...args) {
+//         if (map.has(key)) {}
+//         return fn(...args);
+//     }
+
+
+// }
+
+// const memoMultiplication = memo(multiple);
+
+// console.log(memoMultiplication(3, 4));
+
+
+
+
+
+let worker = {
+    someMethod() {
+        return 1;
+    },
+
+    slow(x) {
+        // alert("Викликана з " + x);
+        return x * this.someMethod(); // (*)
+    }
+};
+
+function cachingDecorator(func) {
+    let cache = new Map();
+    return function (x) {
+        if (cache.has(x)) {
+            return cache.get(x);
+        }
+
+        console.log('this > ', this);
+        // let result = func.call(this, x); // "this" зараз передано правильно
+        let result = func(x);
+        cache.set(x, result);
+        return result;
+    };
 }
 
-customGroup(data, 'type');
+worker.slow = cachingDecorator(worker.slow); // тепер зробимо цьому методу кешування
+
+console.log('> ', worker.slow(2)); // працює
+console.log('> ', worker.slow(2));
