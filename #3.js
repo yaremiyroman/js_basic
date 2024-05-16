@@ -3454,35 +3454,194 @@ const emptyCat = {};
 
 
 
+// const me = {
+//     name: 'Roman',
+// };
+
+// const you = {
+//     name: 'Ivan',
+// };
+
+// function identify(context) {
+//     return context.name.toUpperCase();
+// }
+
+// function speak(context) {
+//     const greetings = `I am ${identify(context)}`;
+
+//     return greetings;
+// }
+
+// console.log('you > ', identify(you));
+// console.log(speak(me));
 
 
-let worker = {
-    someMethod() {
-        return 1;
-    },
 
-    slow(x) {
-        // alert("Викликана з " + x);
-        return x * this.someMethod(); // (*)
-    }
-};
 
-function cachingDecorator(func) {
-    let cache = new Map();
-    return function (x) {
-        if (cache.has(x)) {
-            return cache.get(x);
-        }
+// foo
+// foobar
 
-        console.log('this > ', this);
-        // let result = func.call(this, x); // "this" зараз передано правильно
-        let result = func(x);
-        cache.set(x, result);
-        return result;
-    };
-}
 
-worker.slow = cachingDecorator(worker.slow); // тепер зробимо цьому методу кешування
+// function baz() {
+//     console.log('BAZ >');
 
-console.log('> ', worker.slow(2)); // працює
-console.log('> ', worker.slow(2));
+//     bar();
+// }
+
+// function bar() {
+//     console.log('BAR >');
+
+//     foo();
+// }
+
+// function foo() {
+//     console.log('FOO >');
+// }
+
+// baz();
+
+
+
+// var a = 101;
+
+// function foo() {
+//     // console.log(this);
+//     console.log(this.a);
+// }
+
+// a = 505;
+
+// foo();
+
+// a = 707;
+
+// foo();
+
+
+
+
+// function addOne() {
+//     console.log(this.value + 1);
+// }
+
+// const example = {
+//     value: 55,
+//     anyMethod: function() {
+//         alert(this.value);
+//     },
+//     addOne: addOne,
+// };
+
+
+// example.anyMethod();
+
+// example.addOne();
+
+
+// function add(x, y) {
+//     console.log('this > ', this);
+//     return x + y;
+// }
+
+// add();
+
+
+// const myObject = {
+//     value: 555,
+// }
+
+// function showProperty(x, y) {
+//     // console.log('args > ', args);
+//     // console.log('x > ', x);
+//     // console.log('y > ', y);
+//     // console.log(this.value);
+//     console.log('arguments > ', arguments);
+// }
+
+
+// showProperty.call(myObject, 9, 10);
+// showProperty.apply(myObject, [9, 10]);
+
+
+
+
+// function Foo(a) {
+//     this.a = a;
+// }
+
+// const newObject = new Foo(10);
+
+// console.log('newObject > ', newObject);
+
+
+
+
+// function foo() {
+//     console.log('this > ', this);
+//     // повертаємо стрілочну функцію
+//     return a => {
+//         // Тут `this` лексично запозичено з `foo()`
+//         console.log('inner this > ', this);
+//         console.log(this.a);
+//     };
+// }
+
+// const exampleA = {
+//     a: 42,
+// };
+
+// const exampleB = {
+//     a: 23,
+// };
+
+// // foo();
+// const baz = foo.call(exampleA);
+// baz();
+// // baz.call(exampleB);
+
+
+
+
+// function square(a) {
+//     return a * a;
+// }
+
+// const myObject = {
+//     addSome: function () {
+//         return 12;
+//     },
+//     square: function (a) {
+//         // console.log('this  > ', this);
+//         return a * a + this.addSome();
+//     }
+// };
+
+// function cache(fn) {
+//     let cache = new Map();
+
+//     return function (a) {
+//         if (cache.has(a)) {
+//             return cache.get(a);
+//         }
+
+//         // let result = fn(a);
+//         console.log('myObject > ', myObject);
+//         let result = fn.call(myObject, a);
+//         cache.set(a, result);
+
+//         return result;
+//     }
+// }
+
+// myObject.square = cache(myObject.square);
+
+// console.log(myObject.square(3));
+// // // throw new Error('Parameter is not a number!');
+
+// try {
+//     aert('1');
+// } catch (exception) {
+//     alert('123');
+// }
+
+
