@@ -3645,3 +3645,150 @@ const emptyCat = {};
 // }
 
 
+
+// function test() {
+//     console.log(this);
+// }
+
+
+
+
+// function new1() {
+//     alert('234');
+//     console.log(this);
+// }
+
+// new1();
+
+
+
+
+// const a = 100;
+
+// function go() {
+//     console.log(a);
+// }
+
+// go();
+
+
+
+
+
+// const globalVar = 'GLOBAL';
+
+
+
+// function main() {
+//     const mainVar = 'MAIN';
+
+
+//     function inner() {
+//         const innerVar = 'INNER';
+//         const mainVar = 'MAIN111';
+
+//         console.log('mainVar > ', mainVar);
+//         console.log('innerVar > ', innerVar);
+//         console.log('globalVar > ', globalVar);
+//     }
+
+//     inner();
+// }
+
+
+
+// main();
+
+
+
+
+// function main() {
+//     // const text = 'Hello World!';
+
+//     return function inner() {
+//         // return  console.log(text);
+//     }
+// }
+
+// const callFunction = main();
+
+// callFunction();
+
+
+// const important = 'Important text';
+
+// let counter = 0;
+
+// function makeCount(message) {
+//     let counter = 0;
+//     // console.log('Message in makeCount', message);
+
+//     return function() {
+//         // console.log('Message in counter++', message);
+//         return counter++;
+//     }
+// }
+
+// const goCount = makeCount(important);
+// const goCount2 = makeCount(important);
+
+
+// console.log('goCount > ', goCount());
+// console.log('goCount > ', goCount());
+// console.log('goCount2 > ', goCount2());
+// console.log('goCount2 > ', goCount2());
+// console.log('goCount2 > ', goCount2());
+// console.log('goCount2 > ', goCount2());
+
+
+
+
+
+
+
+
+// function sum(a, b) {
+//     console.log('a + b =', a + b);
+// }
+
+// sum(2, 3);
+
+// // closureSum(2)(3);
+// function closureSum(a) {
+//     return function (b) {
+//         return function (c) {
+//             return function (d) {
+//                 console.log('closure a + b + c =', a + b + c + d);
+//             }
+//         }
+//     }
+// }
+
+// closureSum(2)(3)(true)(10);
+
+// // carrying
+
+// const msg = 'Hello World!';
+
+
+
+
+// (function (message) {
+//     alert(message);
+// })(msg)
+
+
+
+
+// console.log(
+//     ((10 + 20))
+// );
+
+
+
+
+
+
+
+
+
