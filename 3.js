@@ -3791,4 +3791,191 @@ const emptyCat = {};
 
 
 
+// !4 = 1 * 2 * 3 * 4
+// corners cases
+// edge cases
+// кутові випадки
+
+
+// Не число
+// відʼємне число не рахуємо
+// верхня межа 20
+// !0 = 1;
+// !1 = 1;
+
+// function factorialFor(n) {
+//     if (typeof n !== 'number') return alert('Не число!');
+//     if (n < 0 || n > 20) return alert('Погане число!');
+// //     if (n === 0 || n === 1) return console.log('fact >', 1);
+
+// //     let fact = 1;
+
+// //     for (let i = 1; i <= n; i++) {
+// //         fact *= i;
+// //     }
+
+// //     console.log('fact >', fact);
+// // }
+
+
+// // factorialFor('sdfgsdfgsdfg');
+// // factorialFor(true);
+// // factorialFor(-234535);
+// // factorialFor(0);
+// // factorialFor(1);
+// // factorialFor(10);
+// // factorialFor(15);
+
+
+
+
+
+
+// // function factorialWhile(n) {
+// //     let result = 1;
+
+// //     while (n > 0) {
+// //         result *= n;
+// //         n--;
+// //     }
+
+// //     return result;
+// // }
+
+// // console.log(factorialWhile(5));
+
+
+// // function factorialRecursive(n) {
+// //     if (n === 0) {
+// //         return 1;
+// //     }
+
+// //     return n * factorialRecursive(n - 1);
+// // }
+
+// // console.log(factorialRecursive(4));
+
+
+// // factorialRecursive(4) =  4 * factorialRecursive(3)
+// // factorialRecursive(3) =  4 * 3 * factorialRecursive(2)
+// // factorialRecursive(2) =  4 * 3 * 2 * factorialRecursive(1)
+// // factorialRecursive(1) =  4 * 3 * 2 * 1 * factorialRecursive(0)
+// // factorialRecursive(0) =  4 * 3 * 2 * 1 * 1
+
+
+
+// function countdown(i) {
+//     // Базовий випадок
+//     // Термінальна гілка
+//     if (i <= 0) {
+//         return;
+//     }
+
+//     // рекурсивний випадок
+//     // рекурсивний виклик
+//     countdown(i - 1);
+// }
+
+// countdown(7);
+
+
+
+
+
+// const factorialRecursive = n =>
+//     n === 0 ? 1 : n * factorialRecursive(n - 1);
+
+
+// function factorialTrailRecursion(n, acc = 1) {
+
+//     if (n === 0) {
+//         return acc;
+//     }
+
+//     return factorialTrailRecursion(n - 1, n * acc);
+// }
+
+// console.log(factorialTrailRecursion(5));
+
+
+
+// const testArray = [6, 3, 7, 2, 8, 9, 6, 4, 3, 7, 7, 2, 17];
+
+// function findMax(arr) {
+//     if (arr.length === 1) {
+//         return arr[0];
+//     }
+
+//     const subMax = findMax(arr.slice(1));
+
+//     return arr[0] > subMax ? arr[0] : subMax;
+// }
+
+// console.log(findMax(testArray));
+
+
+
+
+
+
+// quickSort
+// [6, 3, 7, 2, 8, 9, 6, 4, 3, 7, 7, 2, 17]
+// Math.ceil(testArray.length / 2)
+// [6, 3, 7, 2, 8, 9, 6, 4, 3, 7, 7, 2, 17]
+// [1,4, 5]   6  [ 9, 8, 11]
+// [1] 4 [5]  6    []  8 [9, 11]
+//                       9, [11]
+
+// const testArray = [6, 3, 7, 2, 8, 9, 6, 4, 3, 7, 7, 2, 17];
+
+
+// function quickSort(arr) {
+//     if (arr.length <= 1) {
+//         return arr;
+//     }
+
+//     const pivot = arr[Math.ceil(arr.length / 2)];
+//     const left = [];
+//     const right = [];
+
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] < pivot) {
+//             left.push(arr[i]);
+//         } else if (arr[i] > pivot) {
+//             right.push(arr[i]);
+//         }
+//     }
+
+//     return [
+//         ...quickSort(left),
+//         pivot,
+//         ...quickSort(right),
+//     ];
+// }
+
+// console.log('testArray > ', testArray);
+// console.log('quickSort > ', quickSort(testArray));
+
+
+// closureSum(2)(3);
+// function closureSum(a) {
+//     return function (b) {
+//         return function (c) {
+//             return function (d) {
+//                 console.log('closure a + b + c + d =', a + b + c + d);
+//             }
+//         }
+//     }
+// }
+
+// const closureArrowSum = a => b => c => d => a + b + c + d;
+
+// console.log(closureArrowSum(2)(3)(5)(10));
+
+
+
+
+//  1 2 3 4 5
+
+//  5!
 
