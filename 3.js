@@ -3979,3 +3979,407 @@ const emptyCat = {};
 
 //  5!
 
+
+// const cat = {
+//     numOfLegs: 4,
+//     isHungry: true,
+
+//     sayMeow: function() {
+//         alert(this.name + 'Meow!');
+//     }
+// };
+
+
+// console.log('cat.numOfLegs > ', cat.numOfLegs);
+// // cat.sayMeow();
+
+
+
+// const myCat = {
+//     name: 'Tome',
+//     color: 'red',
+//     age: 4,
+//     __proto__: null,
+// };
+
+
+// // Object.setPrototypeOf(myCat, null);
+
+// console.log('myCat > ', myCat);
+
+// console.log('myCat.name > ', myCat.name);
+// // myCat.sayMeow();
+
+
+
+
+
+
+
+
+// const cat = {
+//     numOfLegs: 4,
+//     isHungry: true,
+//     name: 'CAT MAIN',
+
+//     sayMeow: function() {
+//         alert(this.name + 'Meow!');
+//     }
+// };
+
+// const catParent = {
+//     breed: 'sphinx',
+//     color: 'red',
+//     name: 'Father',
+//     __proto__: cat,
+// };
+
+// const catChild = {
+//     name: 'Tom',
+//     __proto__: catParent,
+// };
+
+// console.log('catChild >', catChild);
+// console.log('catChild.name >', catChild.name);
+
+
+// // Механізм [[Get]]
+// // Механізм [[Set]]
+
+// catChild.newProp = 'NEW';
+// console.log('catChild.newProp >', catChild.newProp);
+
+
+
+
+// const cat = {
+//     numOfLegs: 4,
+//     isHungry: true,
+//     name: 'CAT MAIN',
+
+//     sayMeow: function() {
+//         alert(this.name + 'Meow!');
+//     }
+// };
+
+// const catParent = {
+//     breed: 'sphinx',
+//     color: 'red',
+//     name: 'Father',
+//     __proto__: cat,
+// };
+
+
+
+
+
+// const cat = {
+//     numOfLegs: 4,
+//     isHungry: true,
+//     name: 'CAT MAIN',
+
+//     sayMeow: function () {
+//         alert(this.name + 'Meow!');
+//     }
+// };
+
+// const catChild = {
+//     breed: 'sphinx',
+//     color: 'red',
+//     name: 'Child',
+//     __proto__: cat,
+// };
+
+
+// for (const key in catChild) {
+//     console.log('key > ', key);
+//     // console.log('value > ', catChild[key]);
+// }
+
+// for (const key in catChild) {
+// if (catChild.hasOwnProperty(key)) {
+//         console.log('OWN key > ', key);
+//     } else {
+//         console.log('PROTO key > ', key);
+//     }
+// }
+
+// for (const key in catChild) {
+//     if (Object.hasOwn(catChild, key)) {
+//         console.log('OWN key > ', key);
+//     } else {
+//         console.log('PROTO key > ', key);
+//     }
+// }
+
+
+// const cat = {
+//     numOfLegs: 4,
+//     isHungry: true,
+//     name: 'CAT MAIN',
+
+//     sayMeow: function () {
+//         alert(this.name + 'Meow!');
+//     }
+// };
+
+// const catChild = {
+//     breed: 'sphinx',
+//     color: 'red',
+//     name: 'Child',
+//     __proto__: cat,
+// };
+
+
+// const props = Object.getOwnPropertyNames(catChild);
+
+// console.log(props);
+
+
+
+// const symbolA = Symbol('Symbol1');
+// const symbolB = Symbol('Symbol2');
+
+
+// const cat = {
+//     numOfLegs: 4,
+//     isHungry: true,
+//     name: 'CAT MAIN',
+//     [symbolA]: 'Symbol 1',
+//     [symbolB]: 'Symbol 2',
+
+//     sayMeow: function () {
+//         alert(this.name + 'Meow!');
+//     }
+// };
+
+// const symbols = Object.getOwnPropertySymbols(cat);
+
+// console.log(symbols);
+
+
+
+
+// const cat = {
+//     numOfLegs: 4,
+//     isHungry: true,
+//     name: 'CAT MAIN',
+
+//     sayMeow: function () {
+//         alert(this.name + 'Meow!');
+//     }
+// };
+
+// const catChild = {
+//     breed: 'sphinx',
+//     color: 'red',
+//     name: 'Child',
+//     __proto__: cat,
+// };
+
+// const catChild2 = {
+//     breed: 'sphinx',
+//     color: 'red',
+//     name: 'Child',
+//     __proto__: cat,
+// };
+
+// console.log('getPrototypeOf >', Object.getPrototypeOf(catChild));
+
+// console.log('is proto of >', cat.isPrototypeOf(catChild));
+// console.log('is proto of >', cat.isPrototypeOf(catChild2));
+
+
+
+
+
+
+
+// const cat = {
+//     numOfLegs: 4,
+//     isHungry: true,
+//     name: 'CAT MAIN',
+
+//     sayMeow: function () {
+//         alert(this.name + 'Meow!');
+//     }
+// };
+
+// const catChild = {
+//     breed: 'sphinx',
+//     color: 'red',
+//     name: 'Child',
+// };
+
+
+
+// console.log('is proto of >', cat.isPrototypeOf(catChild));
+// Object.setPrototypeOf(catChild, cat);
+// console.log('catChild ?> ', catChild);
+// console.log('is proto of >', cat.isPrototypeOf(catChild));
+
+
+// const catChild2 = Object.create(
+//     cat,
+//     {
+//         breed: 'sphinx',
+//         color: 'blue',
+//         name: 'Child2',
+//     }
+// );
+
+
+// const cat = {
+//     numOfLegs: 4,
+//     isHungry: true,
+//     name: 'CAT MAIN',
+
+//     sayMeow: function () {
+//         alert(this.name + 'Meow!');
+//     }
+// };
+
+// const catChild = {
+//     breed: 'sphinx',
+//     color: 'red',
+//     name: 'Child',
+// };
+
+// console.log(Object.assign({}, cat, catChild, catChild));
+
+// const catChild3 = {
+//     ...cat,
+//     ...{
+//         breed: 'sphinx',
+//         color: 'blue',
+//         name: 'Child2',
+//     }
+// };
+
+
+
+
+
+// // console.log('catChild2 ?> ', catChild2);
+// console.log('catChild3 ?> ', catChild3);
+
+
+
+
+// const cat = {
+//     numOfLegs: 4,
+//     isHungry: true,
+//     name: 'Main',
+//     sayMeow: function () {
+//         alert(this.name + 'Meow!');
+//     }
+// };
+
+
+// function makeCat() {
+//     const cat = {};
+
+//     cat.numOfLegs = 4;
+//     cat.isHungry = true;
+//     cat.name = 'Main';
+//     cat.sayMeow = function() {
+//         alert('Meow!');
+//     }
+
+//     return cat;
+// }
+
+
+
+// function MakeCat() {
+//     const $this = {};
+
+//     $this.numOfLegs = 4;
+//     $this.isHungry = true;
+//     $this.name = 'Main';
+//     $this.sayMeow = function() {
+//         alert('Meow!');
+//     }
+
+//     return $this;
+// }
+
+
+
+
+// function MakeCat() {
+//     this.numOfLegs = 4;
+//     this.isHungry = true;
+//     this.name = 'Main';
+//     this.sayMeow = function() {
+//         alert('Meow!');
+//     }
+// }
+
+// const cat = new MakeCat();
+
+
+
+// function MakeCat(numOfLegs, isHungry, name = 'Tom') {
+//     this.numOfLegs = numOfLegs;
+//     this.isHungry = isHungry;
+//     this.name = name;
+//     this.sayMeow = function () {
+//         alert('Meow!');
+//     }
+// }
+
+
+// const cat = new MakeCat(6, false, 'Super');
+// const cat2 = new MakeCat(9, true, 'Super2');
+// const cat3 = new MakeCat(3, true);
+
+
+// console.log('cat > ', cat);
+// console.log('cat2 > ', cat2);
+// console.log('cat3 > ', cat3);
+
+
+
+
+
+
+
+
+// function MakeCat(numOfLegs, isHungry, name = 'Tom') {
+//     this.numOfLegs = numOfLegs;
+//     this.isHungry = isHungry;
+//     this.name = name;
+// }
+
+
+// const cat = new MakeCat(6, false, 'Super');
+// const cat2 = new MakeCat(6, false, 'Super');
+// const cat3 = new MakeCat(6, false, 'Super');
+// console.log('cat > ', cat);
+
+// MakeCat.prototype.sayMeow = function () {
+//     alert('Meow ' + this.name);
+// };
+
+// MakeCat.prototype.anyProp = 'Hello World';
+
+// cat.sayMeow();
+// cat2.sayMeow();
+// cat3.sayMeow();
+// console.log(cat3.anyProp);
+
+
+
+// String.prototype.sayMeow = function () {
+//     alert('Meow!');
+// };
+
+
+
+// const student = {
+//     course: 'Math',
+// }
+
+// student.prototype.courses = new Set(['Math', 'Biology']);
+
