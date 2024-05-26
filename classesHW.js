@@ -4,63 +4,106 @@
 
 // Вам необхідно додати кожній нотатці дату її створення і редагування, а також розширити можливості пошуку і сортування, включивши в них можливість роботи з датою.
 
-class Todo {
+class Task {
     constructor(task) {
-        this.task = task;
+        this.text = task;
         this.status = false;
+        this.created = new Date();
+        this.edited = null;
     }
 }
 
 class TodoList {
-    constructor(taskList) {
-        this._taskList = taskList;
+    constructor(taskList = null) {
+        this._taskList = !taskList
+            ? this.collectTasks()
+            : taskList.map((task, i) => ({ ...new Task(task), index: i + 1 }));
     }
 
     get taskList() {
-        this._taskList.forEach(({ task, status }, i) => {
-            console.log(`%c#${i + 1}: ${task}`, `color: ${!status ? 'red' : 'green'}`);
-        });
-
-        return this._taskList.map(({ task, status }, i) => ({
-            index: i + 1,
-            text: task,
-            status
-        }));
+        return this._taskList;
     }
 
     set taskList(taskList) {
         this._taskList = taskList;
     }
 
-    addTask(task) {
-        this.taskList = [...this._taskList, task];
+    collectTasks() {
+        const tasks = [];
+
+        while (true) {
+            const taskText = prompt('Enter task:');
+
+            if (taskText === null) break;
+
+            if (taskText.length > 0) {
+                const newTask = new Task(taskText);
+                tasks.push(newTask);
+            }
+        }
+
+        return tasks;
+    }
+
+    sortTasksByStatus(finishedFirst = true) {
+        this.taskList = this._taskList.sort((a, b) => finishedFirst ? b.status - a.status : a.status - b.status);
+    }
+
+    sortTasksByDate(newestFirst = true) {
+        this.taskList = this._taskList.sort((a, b) => newestFirst ? b.date - a.date : a.date - b.date);
+    }
+
+    findTasks(sample) {
+        return this._taskList.filter(task => task.text.includes(sample));
+    }
+
+    getTasksInfo() {
+        const undone = this._taskList.reduce((undone, { text, status }, i) => {
+            console.log(`%c#${i + 1}: ${text}`, `color: ${!status ? 'red' : 'green'}`);
+
+            return status === false ? undone += 1 : undone;
+        }, 0);
+
+        console.log(`${this._taskList.length} tasks / ${undone} active`);
+    }
+
+    getLastIndex() {
+        return this._taskList
+            .reduce((index, task) => index = task.index > index ? task.index : index, 0);
+    }
+
+    getTask(index) {
+        return this._taskList.find(task => task.index === index);
+    }
+
+    addTask(taskText) {
+        const newTask = new Task(taskText);
+        newTask.index = this.getLastIndex() + 1;
+        this.taskList = [...this._taskList, newTask];
     }
 
     deleteTask(index) {
         if (index >= 0 && index < this._taskList.length) {
-            this.taskList = this._taskList.slice(0, index).concat(this._taskList.slice(index + 1));
+            this.taskList = this.taskList.filter(task => task.index + 1 !== index);
         }
     }
 
     setTaskDone(index) {
-        if (index >= 0 && index < this._taskList.length) {
-            this._taskList[index].status = true;
-        }
+        this._taskList.find(task => task.index === index).status = true;
+    }
+
+    editTask(index) {
+        const editedTask = this._taskList.find(task => task.index === index);
+
+        editedTask.text = prompt('', editedTask.text);
+        editedTask.edited = new Date();
     }
 }
 
+const APP = new TodoList(['task1', 'task22', 'task1333', 'task1444', 'task155555', 'task1666666']);
 
-const todos = [];
-
-while (true) {
-    const todoText = prompt('Enter task:');
-
-    if (todoText === null) break;
-
-    const newTask = new Todo(todoText);
-    todos.push(newTask);
-}
-
-const APP = new TodoList(todos);
-
-APP.taskList
+APP.getTasksInfo();
+APP.setTaskDone(4);
+APP.getTasksInfo();
+APP.sortTasksByStatus();
+APP.getTasksInfo();
