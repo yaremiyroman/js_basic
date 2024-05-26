@@ -110,6 +110,15 @@ class CatChildClass extends CatClass {
 
 const catChild3 = new CatChildClass('123', '1231313', 'Tom');
 
+// The body of a class is executed in strict mode even without the "use strict" directive.
+
+// A class element can be characterized by three aspects:
+
+// Kind: Getter, setter, method, or field
+// Location: Static or instance
+// Visibility: Public or private
+
+
 
 
 
@@ -279,6 +288,41 @@ const catChild3 = new CatChildClass('123', '1231313', 'Tom');
 
 
 // Оголошення властивостей, методів, обчислювальні значення
+
+//  fields
+//  methods
+//  static fields
+//  static methods
+//  getters
+//  setters
+//  static getters
+//  static setters
+
+// Private fields
+// Use Case: Encapsulating Internal State
+
+// Private methods
+// Private methods are useful for implementing helper functions that are only relevant to the internal workings of a class.
+
+// Private static fields
+// Private static fields can store shared state or constants that are not intended to be accessed outside the class.
+
+// Private static methods
+// Private static methods can be used for utility functions that are relevant to the class itself rather than to any instance.
+
+// Private getters
+// Private getters can control access to private fields, providing read-only access to some properties.
+
+// Private setters
+// Private setters can be used to validate or process data before setting it.
+
+// Private static getters
+// Private static getters can compute values that depend on private static fields.
+e
+// Private static setters
+// Private static setters can ensure proper validation or handling when setting static properties.
+
+
 
 // Віднедавна зʼявилася можливість оголошувати властивості поза межами конструктору. Це стає у нагоді, коли ми маємо якісь властивості із заздалегідь відомими значеннями, або коли вони ініціалізуються поза конструктором. 
 
@@ -761,62 +805,50 @@ console.log(child instanceof Parent);
 
 
 
-//  Використайте ключове слово class, щоб створити клас Thermostat.
-// constructor приймає температуру в градусах Фаренгейта.
-// У класі створіть getter, щоб отримати температуру в градусах Цельсія,
-//  та setter, що приймає температуру в градусах Цельсія.
-// - C = 5/9 * (F - 32)
-// - F = C * 9.0 / 5 + 32
-// const thermos = new Thermostat(76); // Налаштування у шкалі Фаренгейта
-// let temp = thermos.temperature; // 24.44 градусів за Цельсієм
-// thermos.temperature = 26;
-// temp = thermos.temperature; // 26 градусів за Цельсієм
-
-
-// class Thermostat {
-//     constructor(F) {
-//         this.F = F;
-//     }
-
-//     static newProperty = 'I am new';
-
-//     static PI = 3.141592653589793;
-
-//     // coolMethod() {
-//     //     console.log('this.newProperty > ', this.newProperty);
-//     // }
-
-//     get temp() {
-//         return Math.floor((this.F - 32) * (5 / 9));
-//     }
-
-//     set temp(C) {
-//         this.F = (C * 9/5) + 32;
-//     }
-// }
-
-// const thermos = new Thermostat(90);
-
-// console.log(thermos.F);
-
-// const celsius = thermos.temp;
-// console.log('celsius > ', celsius);
-
-// thermos.temp = 100;
-// console.log(thermos.F);
-
-// thermos.coolMethod();
-
-// thermos.newProperty = 'XYXXX';
-
-// thermos.coolMethod();
-
-// console.log('thermos.newProperty > ', thermos.newProperty);
-// console.log('thermos.PI > ', thermos.PI);
-
-// console.log('Thermostat.newProperty > ', Thermostat.newProperty);
-// console.log('Thermostat.PI > ', Thermostat.PI);
 
 
 
+class Thermostat {
+    constructor(celsius) {
+        this.celsius = celsius;
+    }
 
+    setCelsius(value) {
+        this.celsius = value;
+    }
+
+    getCelsius() {
+        return this.celsius;
+    }
+
+    getFarengheit() {
+        return (this.celsius * 9 / 5) + 32;
+    }
+}
+
+class ThermostatSecured {
+    #celsius;
+
+    set #celsius(value) {
+        if (value < -273.15) {
+            throw new Error("Temperature cannot be below absolute zero");
+        }
+        this.#celsius = value;
+    }
+
+    constructor(celsius) {
+        this.#celsius = celsius;
+    }
+
+    setCelsius(value) {
+        this.#celsius = value;
+    }
+
+    getCelsius() {
+        return this.#celsius;
+    }
+
+    getFarengheit() {
+        return (this.#celsius * 9 / 5) + 32;
+    }
+}
