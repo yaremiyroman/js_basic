@@ -522,6 +522,191 @@ john.age = 21;
 
 
 
+class Vehicle {
+    static staticMethod() {
+        console.log("Static method in ParentClass");
+    }
+
+    constructor(make, model) {
+        this.make = make;
+        this.model = model;
+    }
+
+    getInfo() {
+        return `${this.make} ${this.model}`;
+    }
+}
+
+class Car extends Vehicle {
+    constructor(make, model, year) {
+        super(make, model);
+        this.year = year;
+    }
+
+    getInfo() {
+        return `${super.getInfo()} (${this.year})`;
+    }
+
+    static staticMethod() {
+        super.staticMethod(); // викликаємо статичний метод батьківського класу
+        console.log("Static method in ChildClass");
+    }
+}
+
+const myCar34 = new Car("Toyota", "Camry", 2022);
+console.log(myCar34.getInfo()); // Output: Toyota Camry (2022)
+
+
+
+
+
+
+
+
+
+
+
+
+// Порядок конструювання
+// Субкласи при визначенні конструктору, вимагають обов'язкового використання super. Якщо ви не зробите цього, то отримаєте помилку. Якщо ж ви не будете використовувати конструктор, то super буде викликатися автоматично з усіма аргументами при створенні нового екземпляру класу. Наприклад, наступні два класі є ідентичними:
+
+// class Child extends Parent {
+//     // без конструктора
+// }
+
+// // Те ж саме, що й:
+// class Child extends Parent {
+//     constructor(...args) {
+//         super(...args);
+//     }
+// }
+
+// const Child = new Child(10);
+
+
+
+
+
+
+
+
+
+
+
+// Успадкування властивостей і методів
+
+// ця поведінка не стосується членів суперкласу, які є приватними, вони доступні виключно у класі де були оголошені.
+
+// class Parent {
+//     #privateField = 'Parent Private Field';
+
+//     #privateMethod() {
+//         return 'Parent Private Method';
+//     }
+
+//     accessPrivateField() {
+//         return this.#privateField;
+//     }
+
+//     callPrivateMethod() {
+//         return this.#privateMethod();
+//     }
+// }
+
+// class Child extends Parent {
+//     constructor(name, studentId) {
+//         super();
+//         this.name = name;
+//         this.studentId = studentId;
+//     }
+
+//     getInfo() {
+//         return `
+//             ${this.name}
+//             (ID: ${this.studentId}),
+//             Private Field: ${this.accessPrivateField()},
+//             Private Method: ${this.callPrivateMethod()}
+//         `;
+//     }
+// }
+
+
+// Статичні властивості та методи можуть бути успадковані та використані в дочірніх класах, але вони успадковуються через клас, а не через його екземпляри.
+
+// class Parent {
+//     static staticProperty = 'I am a static property';
+
+//     static staticMethod() {
+//         console.log('I am a static method');
+//     }
+
+//     constructor(name) {
+//         this.name = name;
+//     }
+// }
+
+// class Child extends Parent {
+//     constructor(name, age) {
+//         super(name); // Викликаємо конструктор батьківського класу
+//         this.age = age;
+//     }
+// }
+
+// console.log(Parent.staticProperty); // "I am a static property"
+// Parent.staticMethod(); // "I am a static method"
+
+// console.log(Child.staticProperty); //  "I am a static property"
+// Child.staticMethod(); // "I am a static method"
+
+
+
+
+
+
+
+
+
+
+
+
+// Перевизначення методів та [[HomeObject]]
+
+// class Rectangle {
+//     constructor(a, b) {
+//       this.a = a;
+//       this.b = b;
+//     }
+
+//     getArea() {
+//       return this.length * this.width;
+//     }
+//   }
+
+//   class Square extends Rectangle {
+//     constructor(length) {
+//       super(length, length);
+//     }
+
+//     // переписуємо, перекриваємо, і викликаємо Rectangle.prototype.getArea()
+//     getArea() {
+//       console.log(`Area is equal to - ${super.getArea()}`);
+//     }
+//   }
+
+//   const square = new Square(5);
+//   square.getArea(); //Area is equal to - 25
+
+
+
+// + приклад з лекції
+
+
+
+
+
+
+
+
 
 
 
@@ -534,19 +719,39 @@ john.age = 21;
 
 // Оператор instanceof. Duck typing
 
+// Оператор instanceof
+// Оператор instanceof надає можливість перевірити, чи належить об'єкт до певного класу або його суперклассу. Він повертає true, якщо об'єкт є екземпляром зазначеного класу або його суперклассу, і false якщо ні.
 
 
 
+// object instanceof Class
+
+class Parent {
+    static staticProperty = 'I am a static property';
+
+    static staticMethod() {
+        console.log('I am a static method');
+    }
+
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+class Child extends Parent {
+    constructor(name, age) {
+        super(name); // Викликаємо конструктор батьківського класу
+        this.age = age;
+    }
+}
 
 
+const parent = new Parent('Parent');
+const child = new Child(19);
 
 
-
-
-
-
-
-
+console.log(child instanceof Child);
+console.log(child instanceof Parent);
 
 
 
@@ -600,7 +805,6 @@ john.age = 21;
 // thermos.temp = 100;
 // console.log(thermos.F);
 
-// 
 // thermos.coolMethod();
 
 // thermos.newProperty = 'XYXXX';
