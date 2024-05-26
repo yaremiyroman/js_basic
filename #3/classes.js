@@ -36,6 +36,10 @@
 
 
 
+
+
+
+
 // Визначення класу
 
 // A class is a type of object template.
@@ -168,11 +172,102 @@ const catChild3 = new CatChildClass('123', '1231313', 'Tom');
 
 
 
+
+
+
+
+
+
+
+
 // Екземпляр класу. Метод сonstructor
 
 // Екземпляр класу — це об'єкт, який створений на основі визначеного класу. Клас визначає структуру та поведінку об'єктів, а екземпляр класу є конкретним представником цього класу, який має доступ до властивостей та методів, визначених у класі. Іншими словами, екземпляр класу є конкретним втіленням класу, який може містити свої власні значення і мати доступ до методів, визначених у класі. Екземпляри створюються за допомогою оператора new.
 
 // Метод constructor — це спеціальний метод, який використовується для ініціалізації об'єктів, створених за допомогою класу. Він виконується автоматично під час створення нового екземпляра класу за допомогою оператора new. Конструктор визначає початкові значення властивостей об'єкта. Саме тут відбувається ініціалізація нашого нового обʼєкту та привʼязка this, а також є доступ до аргументів, які будуть передані під час створення нового екземпляра класу.
+
+
+
+// Definition:
+// MyClass constructors are part of the ES6 class syntax. They are special methods for creating and initializing an object created with a class
+
+// Syntax:
+// A class constructor is defined using the constructor keyword inside a class.
+// The constructor method can take parameters and is used to set up the properties of the class.
+
+// Using new Keyword:
+// Similar to constructor functions, instances of a class are created using the new keyword.
+
+
+// class Person {
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+
+//     greet() {
+//         return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+//     }
+// }
+
+// const person1 = new Person("Mohi", 25);
+// console.log(person1.greet()); // "Hello, my name is Mohi and I am 25 years old."
+
+
+
+// Key Differences:
+
+// Pre-ES6 constructors are regular functions, while class constructors are specific methods within a class.
+// Class constructors can access and utilize class features like inheritance through super keyword.
+// Additional Points:
+
+// Both types of constructors can receive arguments, which are used to initialize the object’s properties.
+// Constructors can also be used with built-in objects like Array and Object.
+// Examples:
+// new Array(3) creates an array with 3 empty slots. [ <3 empty items> ]
+// new Array('a', 'b', 'c') creates an array with elements 'a', 'b', and 'c'. ['a', 'b', 'c']
+// Not all classes need an explicit constructor; a default constructor is provided if no custom one is defined.
+
+
+// додамо довільну проперть
+// class Tape {
+//     constructor() {
+//         this.cassette = "Nice Calm Music";
+//     }
+// }
+
+// console.log(Tape.cassette); // undefined
+// const tape = new Tape();
+// console.log(tape.cassette); // "Nice Calm Music"
+
+
+// Метод constructor не є обовʼязковим і у випадку його відсутності, він буде викликатися неявно для створення нового обʼєкту.
+
+// class Tape {}
+
+// const tape = new Tape(); // {}
+
+
+// без конструктора можна ставити проперть
+
+// class Tape {
+//     setCassette() {
+//         this.cassette = "Nice Calm Music";
+//     }
+// }
+
+// const tape = new Tape();
+
+// tape.setCassette();
+// console.log(tape.cassette); // "Nice Calm Music"
+
+
+
+
+
+
+
+
 
 
 
@@ -185,60 +280,130 @@ const catChild3 = new CatChildClass('123', '1231313', 'Tom');
 
 // Оголошення властивостей, методів, обчислювальні значення
 
+// Віднедавна зʼявилася можливість оголошувати властивості поза межами конструктору. Це стає у нагоді, коли ми маємо якісь властивості із заздалегідь відомими значеннями, або коли вони ініціалізуються поза конструктором. 
+
+class CarProps {
+    model = 'New';
+
+    setModel(model) {
+        this.model = model;
+    }
+}
+
+// Public Access Modifier: Public access is the default access modifier in JavaScript classes, which means that all properties and methods are accessible from outside the class, as well as from within the class. Public members can be accessed using the dot notation, like this:
+class Car {
+    constructor(make, model) {
+        this.make = make;
+        this.model = model;
+    }
+    start() {
+        console.log("Starting the car...");
+    }
+}
+
+let myCar = new Car("Toyota", "Corolla");
+console.log(myCar.make); // "Toyota"
+myCar.start(); // "Starting the car..."
+
+
+
+// In July 2021, the last of the major browsers shipped private class members, bringing platform-protected private capabilities to the language. Private members are designated by prefixing them with # (pound) and can only be statically invoked directly against the host class. Here’s a version of the Person class that uses a couple of private fields:
+// Private Access Modifier: Private access allows class members to be accessed only from within the class itself. This can be useful for hiding implementation details or sensitive information, and preventing unintended modification or access by external code. In JavaScript, private members are indicated by using a # prefix before the member name, like this:
+
+class BankAccount {
+    #balance = 0;
+    #accountNumber;
+
+    constructor(accountNumber) {
+        this.#accountNumber = accountNumber;
+    }
+
+    deposit(amount) {
+        this.#balance += amount;
+    }
+
+    withdraw(amount) {
+        if (this.#balance >= amount) {
+            this.#balance -= amount;
+        } else {
+            console.log("Insufficient balance!");
+        }
+    }
+
+    getAccountNumber() {
+        return this.#accountNumber;
+    }
+}
+
+let myAccount = new BankAccount("123456");
+console.log(myAccount.getAccountNumber()); // "123456"
+myAccount.deposit(1000);
+myAccount.withdraw(500);
+// console.log(myAccount.#balance); // Error: SyntaxError: Private field '#balance' must be declared in an enclosing class
 
 
 
 
-// Гетери й сетери для управління доступом до об’єкта
 
-// class CatClass {
-//     constructor(catColor, catSecondName) {
-//         this.color = catColor;
-//         this.secondName = catSecondName;
-//         this.eyes = 2;
-//     }
+// Protected Access Modifier: Protected access allows class members to be accessed from within the class itself, as well as from within any subclass that inherits from the class. This can be useful for sharing common functionality or state between related classes, while still maintaining encapsulation and preventing external modification. In JavaScript, protected members are indicated by using a _ prefix before the member name, like this
 
-//     sayMeow() {
-//         console.log(' Meow ');
-//     }
+class Vehicle {
+    _speed = 0;
+    accelerate(amount) {
+        this._speed += amount;
+    }
+    brake(amount) {
+        this._speed -= amount;
+        if (this._speed < 0) {
+            this._speed = 0;
+        }
+    }
+    get speed() {
+        return this._speed;
+    }
+}
 
-//     get eyesGetSet() {
-//         console.log('Getter started > ');
-//         return this.eyes - 1;
-//     }
+class Car2 extends Vehicle {
+    #make;
+    constructor(make) {
+        super();
+        this.#make = make;
+    }
+    get make() {
+        return this.#make;
+    }
+    honk() {
+        console.log("Beep beep!");
+    }
+}
 
-//     set eyesGetSet(eyesNumber) {
-//         console.log('Setter started > ');
-//         this.eyes = eyesNumber * 3;
-//         console.log('Setter finished > ');
-//     }
-// }
+let myCar2 = new Car2("Toyota");
+console.log(myCar2.make); // "Toyota"
+myCar2.accelerate(50);
+console.log(myCar2.speed); // 50
+myCar2.brake(20);
+console.log(myCar2.speed); // 30
+myCar2.honk();  // "Beep beep!"
+console.log(myCar2._speed); // 30 (protected member)
 
-// const cat3 = new CatClass('red', 'red');
+// Обчислювані значення
+const methodModel = 'sayModel';
 
-// console.log('cat3.eyes > ', cat3.eyes);
+class Car {
+    constructor(model) {
+        this.model = model;
+    }
 
-// cat3.eyes = 1000;
-// console.log('cat3.eyes > ', cat3.eyes);
+    [methodModel]() {
+        console.log(this.model);
+    }
+}
 
-// const getterResult = cat3.eyesGetSet;
+const car = new Car('John');
+console.log(car[methodModel]());
 
-// console.log('getterResult > ', getterResult);
 
-// cat3.eyesGetSet = 5;
 
-// cat3.eyesGetSet = 7;
-// cat3.eyesGetSet = 30;
-// cat3.eyesGetSet = 30;
-// cat3.eyesGetSet = 30;
-// cat3.eyesGetSet = 30;
-// cat3.eyesGetSet = 30;
-// cat3.eyesGetSet = 30;
-
-// const getterResult2 = cat3.eyesGetSet;
-// console.log('getterResult2 > ', getterResult2);
-
-// cat3.sayMeow();
 
 
 
@@ -250,9 +415,123 @@ const catChild3 = new CatChildClass('123', '1231313', 'Tom');
 
 
 // Статичні властивості та методи
+// Статичні властивості — це члени класу, які не прив'язані до екземплярів класу, а належать самому класу. Вони доступні лише на рівні класу, та не доступні його екземплярам і це означає, що їх можна використовувати без створення екземпляра. Для оголошення статичних членів класу використовується ключове слово static.
+// Статичні методи так само не прив'язані до екземплярів класу, а належать самому класу. Навідміну від звичайних методів вони не потрапляють до прототипу. Статичні методи часто використовуються для створення допоміжних функцій програми.
+
+class Person {
+    age = 0; // public field syntax
+    #firstName; // private field
+    #lastName; // private field
+    static typeName = "Person"; // public static field syntax
+    static DEFAULT_AGE = 42; // public static field syntax
+    // static #INFO = 42; // private static field syntax
+    // _speed = 0; // protected field syntax
+    // accessor age = 0; // public getter/setter with auto backing private field
+
+    constructor(firstName, lastName, age = Person.DEFAULT_AGE) {
+        this.firstName = firstName; // public field
+        this.lastName = lastName; // public field
+        this.#firstName = firstName; // private field
+        this.#lastName = lastName; // private field
+        this.age = age; // private field
+    }
+
+    // public getter
+    get fullName() { return `${this.firstName} ${this.lastName}`; }
+
+    get firstName() { return this.#firstName; }
+
+    get lastName() { return this.#lastName; }
+
+    get fullName() { return `${this.firstName}${this.lastName}`; }
+
+    // public setter
+    set fullName(value) {
+        const parts = value.split(" ");
+        this.firstName = parts[0];
+        this.lastName = parts[1];
+    }
+
+    // public static getter
+    static get typeName() {
+        return "Person";
+    }
+
+    // public static setter
+    static set typeName(name) {
+        this.typeName = name;
+    }
+
+    // public method
+    introduceYourselfTo(other) {
+        const name = other.firstName ?? other;
+        console.log(`Hello ${name}! My name is ${this.fullName}.`);
+    }
+
+    // public static method
+    static fromJSON(json) {
+        return new Person(json.firstName, json.lastName);
+    }
+
+    // private method
+    #calcStatus(json) {
+        return new Person(json.firstName, json.lastName);
+    }
+
+    // private static method
+    static #calcStatus(json) {
+        return new Person(json.firstName, json.lastName);
+    }
+}
+
+const john = new Person("John", "Doe");
+const jane = Person.fromJSON({ firstName: "Jane", lastName: "Doe" });
+john.introduceYourselfTo(jane);
+john.age;
+john.age = 21;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Успадкування на класах, Доступ до успадкованих методів
+// Успадкування — це механізм, який надає можливість створення нового класу на основі існуючого класу, при цьому новий клас отримує властивості та методи від батьківського класу. Властивість або метод, успадкований від батьківського класу, можна використовувати в новому класі, а також розширювати або змінювати за потребою. Успадкування в класах є однією з ключових концепцій об'єктно-орієнтованого програмування.
+
+// В успадкуванні є дві важливі складові:
+
+// Суперкласс (базовий / батьківський) — це клас, який визначає загальну структуру та функціональність, яку успадкують інші класи. Він є базовим класом для створення ієрархії класів.
+// Субклас (нащадковий / дочірній) — це клас, який успадковує властивості та методи з базового класу та може додавати до них свої власні властивості та методи, або змінювати успадковані.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Оператор instanceof. Duck typing
 
 
@@ -274,43 +553,6 @@ const catChild3 = new CatChildClass('123', '1231313', 'Tom');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Використайте ключове слово class та напишіть constructor, щоб створити клас Vegetable. 
-
-// Клас Vegetable дозволяє створити об’єкт-овоч із властивістю name, що передається до constructor.
-
-// const carrot = new Vegetable('carrot');
-// console.log(carrot.name); // Повинно показувати 'carrot'
-
-
-// class Vegetable {
-//     constructor(name) {
-//         this.name = name;
-//     }
-// }
-
-// const potato = new Vegetable('potato');
-// console.log('potato > ', potato);
-
-// const carrot = new Vegetable('carrot');
-// console.log('carrot > ', carrot);
-
-// const onion = new Vegetable('onion');
-// console.log('onion > ', onion);
 
 
 
@@ -374,50 +616,3 @@ const catChild3 = new CatChildClass('123', '1231313', 'Tom');
 
 
 
-
-
-
-// Write a JavaScript program that creates a class called 'Shape' 
-// with a method to calculate the area.
-// Create two subclasses, 'Circle' and 'Triangle',
-// that inherit from the 'Shape' class and override the area calculation method. Create an instance of the 'Circle' class and calculate its area. Similarly, do the same for the 'Triangle' class.
-
-
-
-class Shape {
-    area() { }
-}
-
-
-class Circle extends Shape {
-    constructor(radius) {
-        super();
-        this.radius = radius;
-    }
-
-    area() {
-        return Math.floor(Math.PI * Math.pow(this.radius, 2));
-    }
-}
-
-class Triangle extends Shape {
-    constructor(a, b) {
-        super();
-        this.a = a;
-        this.b = b;
-    }
-
-    area() {
-        return (this.a * this.b) / 2;
-    }
-}
-
-
-const circle1 = new Circle(44);
-const circle1Area = circle1.area();
-console.log('circle1Area > ', circle1Area);
-
-
-const triangle2 = new Triangle(34, 25);
-const triangle2Area = triangle2.area();
-console.log('triangle2Area > ', triangle2Area);
