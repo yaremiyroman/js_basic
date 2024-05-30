@@ -4388,3 +4388,355 @@ const emptyCat = {};
 
 
 
+
+
+// "use strict";
+
+// const a = 1005;
+
+
+
+// let x = 100;
+// delete x;
+// console.log('x > ', x);
+
+
+// "use strict";
+// function sdfgsdfg(a, a, a, a) {
+
+// }
+
+
+
+// class microClass {
+//     constructor() {
+//         "use strict";
+//         asdfasdfasdfsa
+//     }
+// }
+
+
+
+// function Cat(breed, color, name) {
+//     this.breed = breed;
+//     this.color = color;
+//     this.name = name;
+//     this.sayMeow = function () {
+//         alert('meow');
+//     }
+// }
+
+// const newCat = new Cat('sphinx', 'red', 'Tom');
+// console.log('newCat > ', newCat);
+
+
+
+
+// class CatClass {
+//     constructor(breed, color, name) {
+//         this.breed = breed;
+//         this.color = color;
+//         this.name = name;
+//     }
+
+//     sayMeow() {
+//         alert('meow');
+//     }
+// }
+
+// const newCatClass = new CatClass('sphinx', 'red', 'Tom');
+// console.log('newCatClass > ', newCatClass);
+
+// console.log('3 >> ', a);
+
+// function fDeclaration() { }
+
+// const fExpression = () => { };
+
+
+// class ClassDeclaration {
+
+// }
+
+// const classExpression = class {
+
+// };
+
+// const classExpressionNamed = class ClassName {
+//     // className
+// };
+
+
+
+
+// const condition = true;
+// let classHolder = null;
+
+// if (condition) {
+//     classHolder = class trueClass { }
+// } else {
+//     classHolder = class falseClass { }
+// }
+
+
+
+
+
+
+// class Person {
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+
+//     greet() {
+//         console.log('say great');
+//     }
+// }
+
+// const iAm = new Person('Roman', 34);
+// console.log('iAm > ', iAm);
+
+
+
+
+
+
+
+// class Person {
+//     greet() {
+//         console.log('say great');
+//     }
+// }
+
+// const iAm = new Person();
+// console.log('iAm > ', iAm);
+
+
+
+// iAm.greet();
+
+
+
+
+
+// class Person {
+//     setDummyProperty() {
+//         this.dummy = 'Dummy';
+//     }
+
+//     greet() {
+//         console.log('say great');
+//     }
+// }
+
+// const iAm = new Person();
+// console.log('iAm > ', iAm);
+// iAm.setDummyProperty();
+// console.log('iAm > ', iAm.dummy);
+
+
+
+// iAm.greet();
+
+
+
+
+
+
+
+// class CarProps {
+//     model = 'New';
+//     #driverName = 'Tom';
+//     #vinCode = 123;
+//     // _vinCode = 123;
+
+//     static engineSerial = 98457023;
+
+//     static settings;
+
+//     static {
+//         const fetchedData = { some: 'data', any: 'value' };
+//         this.settings = fetchedData;
+//     }
+
+//     setModel(model) {
+//         this.model = model;
+//     }
+
+//     #getDriverName() {
+//         return this.#driverName;
+//     }
+
+//     sayDriverName() {
+//         console.log('name > ', this.#getDriverName());
+//     }
+
+//     sayStatic() {
+//         console.log(CarProps.engineSerial);
+//         console.log(CarProps.settings);
+//     }
+// }
+
+
+
+// const car = new CarProps();
+
+// console.log('car > ', car);
+// car.setModel('X');
+// car.sayDriverName();
+// car.model = 'OWKEGJOHGWEIORNG';
+// console.log('car > ', car.model);
+// console.log('static > ', car.engineSerial);
+// console.log('static > ', CarProps.engineSerial);
+// // console.log('car > ', car.#driverName);
+
+
+// console.log('static > ', car.sayStatic());
+
+
+
+// Оголошення властивостей, методів, обчислювальні значення
+
+//  fields
+//  methods
+//  static fields
+//  static methods
+//  getters
+//  setters
+//  static getters
+//  static setters
+
+// Private fields
+// Use Case: Encapsulating Internal State
+
+// Private methods
+// Private methods are useful for implementing helper functions that are only relevant to the internal workings of a class.
+
+// Private static fields
+// Private static fields can store shared state or constants that are not intended to be accessed outside the class.
+
+// Private static methods
+// Private static methods can be used for utility functions that are relevant to the class itself rather than to any instance.
+
+// Private getters
+// Private getters can control access to private fields, providing read-only access to some properties.
+
+// Private setters
+// Private setters can be used to validate or process data before setting it.
+
+// Private static getters
+// Private static getters can compute values that depend on private static fields.
+
+// Private static setters
+// Private static setters can ensure proper validation or handling when setting static properties.
+
+
+
+
+
+// class Vehicle {
+//     #vehicleType = '4 wheels';
+
+//     #sayCar = function() {
+//         alert('car');
+//     }
+
+//     static staticMethod() {
+//         alert('Static');
+//     }
+
+//     constructor(mark, model) {
+//         this.mark = mark;
+//         this.model = model;
+//     }
+
+//     getInfo() {
+//         return `${this.mark} ${this.model}`;
+//     }
+// }
+
+
+// class Car extends Vehicle {
+//     constructor(mark, model, color) {
+//         super(mark, model);
+//         this.color = color;
+//     }
+
+//     getInfo() {
+//         console.log(super.getInfo());
+//         // this.#sayCar();
+//         return console.log('New Info');
+//     }
+
+//     // static newStatic() {
+//     //     super.staticMethod();
+//     // }
+
+//     // static {
+//     //     super.staticMethod();
+//     // }
+// }
+
+// // Vehicle.staticMethod();
+// // Car.newStatic();
+// const newCar = new Car('Toyo', 'Camry', 'red');
+// // const newCar = new Car('red');
+// // newCar.getInfo();
+// // console.log('newCar > ', newCar);
+
+// class Parent {}
+// console.log(newCar instanceof Car);
+// console.log(newCar instanceof Vehicle);
+// console.log(newCar instanceof Parent);
+
+
+
+
+
+
+// class Parent {}
+
+// class Child extends Parent {
+//     constructor(var1, ...args) {
+//         super(var1, ...args);
+//     }
+// }
+
+// const child = new Child();
+
+
+
+
+
+// interface PersonInterface(setDummyProperty(), greet());
+
+
+// class Person implements PersonImnterface {
+//     setDummyProperty() {
+//         this.dummy = 'Dummy';
+//     }
+
+//     greet() {
+//         console.log('say great');
+//     }
+// }
+
+// class Person2 implements PersonImnterface {
+//     setDummyProperty() {
+//         this.dummy = 'adfgdsfgsdfgdsfg';
+//     }
+
+//     greet() {
+//         console.log('sdsfgsdfgdsfgdg');
+//     }
+// }
+
+
+
+
+
+
+
+
+
