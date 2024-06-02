@@ -24,7 +24,6 @@
 
 // const debounced = debounce(eventHandler, 1000);
 // debounced();
-// debounced();
 
 
 
@@ -32,23 +31,28 @@
 
 // Створіть функцію intervalRace, яка прийматиме масив функцій та інтервал часу t у мілісекундах. Функція intervalRace має викликати кожну функцію з масиву по черзі через заданий інтервал часу t.Коли всі функції виконано, intervalRace має повернути масив із результатами.
 
-function test1() { return 'test_1'; }
-function test2() { return 'test_2'; }
-function test3() { return 'test_3'; }
+const test1 = _ => 'test_1';
+const test2 = _ => 'test_2';
+const test3 = _ => 'test_3';
 
-function intervalRace(fns, t) {
-    const results = [];
-
-    return timer = window.setInterval(function () {
-        results.push(fns.shift()());
-
-        if (!fns.length) {
-            clearInterval(timer);
-            return results;
-        }
-    }, t);
+function callback(results) {
+    console.log('[results] >', results);
 }
 
-const result = intervalRace([test1, test2, test3], 500);
+function intervalRace(fns, t, callback = console.log) {
+    let results = [];
+    let index = 0;
 
-console.log('result >', result);
+    function callFunction() {
+        if (index < fns.length) {
+            results.push(fns[index++]());
+            setTimeout(callFunction, t);
+        } else {
+            callback(results);
+        }
+    }
+
+    return callFunction();
+}
+
+intervalRace([test1, test2, test3, test3], 500, callback);
