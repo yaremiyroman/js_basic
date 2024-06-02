@@ -1,3 +1,4 @@
+////////////////////////////////////////////////////////////////////////////////////////////////
 // Object.create — це потужний метод у JavaScript, який дозволяє створювати новий об'єкт з певним прототипом. Це дозволяє вам створювати об'єкти, які наслідують від іншого об'єкта, встановлюючи прототип нового об'єкта на певний існуючий об'єкт.
 
 // const person = {
@@ -51,7 +52,7 @@
 
 
 
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // // Ось приклад використання Object.defineProperty() для визначення властивості з configurable: false. Це означає, що властивість не можна буде видалити або змінити її дескриптори (за винятком значення, якщо writable: true)
 
 // const person4 = {};
@@ -92,10 +93,108 @@
 
 
 
-
-
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Що таке асинхронний код
+
+// Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
+
+// fetch
+// getUserMedia
+// Asking a user to select files using showOpenFilePicker()
+
+
+
+// Synchronous programming
+// const name = "Miriam";
+// const greeting = `Hello, my name is ${name}!`;
+// console.log(greeting);
+// // "Hello, my name is Miriam!"
+
+// // Declares a string called name.
+// // Declares another string called greeting, which uses name.
+// // Outputs the greeting to the JavaScript console.
+
+
+// // At each point, the browser waits for the line to finish its work before going on to the next line. It has to do this because each line depends on the work done in the preceding lines.
+
+// // That makes this a synchronous program. It would still be synchronous even if we called a separate function, like this:
+// function makeGreeting(name) {
+//     return `Hello, my name is ${name}!`;
+// }
+
+// // Here, makeGreeting() is a synchronous function because the caller has to wait for the function to finish its work and return a value before the caller can continue.
+
+
+// window.setTimeout(function () {
+//     console.log(makeGreeting('Hi!'))
+// }, 1000);
+
+
+
+// The reason for this is that this JavaScript program is single-threaded. A thread is a sequence of instructions that a program follows. Because the program consists of a single thread, it can only do one thing at a time: so if it is waiting for our long-running synchronous call to return, it can't do anything else.
+
+// What we need is a way for our program to:
+
+// Start a long-running operation by calling a function.
+// Have that function start the operation and return immediately, so that our program can still be responsive to other events.
+// Have the function execute the operation in a way that does not block the main thread, for example by starting a new thread.
+// Notify us with the result of the operation when it eventually completes.
+
+
+
+
+// // SYNC
+// function toughFn(i = 1, top = 100) {
+//     console.log('counter >', i);
+//     return i >= top ? false : toughFn(i + 1, top);
+// }
+
+// toughFn(1, 1000);
+
+// console.log('21');
+
+
+// // ASYNC
+// function toughFn(i = 1, top = 100) {
+//     console.log('counter >', i);
+//     return i >= top ? false : setTimeout(() => toughFn(i + 1), 100);
+// }
+
+// toughFn(1, 1000);
+
+// console.log('21');
+
+
+
+
+
+
+
+// Code example: synchronous callback
+
+// const arr = [1, 2, 3]
+// const doubler = x => x * 2
+// const doubled = arr.map(doubler)
+
+
+
+// Code example: asynchronous callback
+
+// const addButton = document.querySelector("#add");
+// addButton.addEventListener("click", () => {
+//     console.log("You clicked #addButton")
+// })
+// The addEventListener method attaches an event handler to a DOM element. The details of this method is not important here; all we need to know is that the second parameter is treated as an asynchronous callback function which is only executed when the particular event is triggered on the target node. So, in this case, the async callback function is called every time we click on the #add element.
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Загальний огляд механізму EventLoop
 
 
@@ -110,28 +209,34 @@
 
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ///////////Функції зворотного виклику
+////// звичайний колбек
 
-// Функції зворотного виклику
-
-// звичайний колбек
-
-// function myF(cb) {
-//     console.log('myF starts');
-//     cb();
-//     console.log('myF ends');
+// A callback is a function passed as an argument when calling a function (high-order function) that will start executing a task in the background.
+// And when this background task is done running, it calls the callback function to let you know about the changes
+// function callBackTech(callback, tech) {
+//     console.log("Calling callBackTech!");
+//     if (callback) {
+//         callback(tech);
+//     }
+//     console.log("Calling callBackTech finished!");
 // }
 
-// function callback() {
-//     console.log('callback');
+// function logTechDetails(tech) {
+//     if (tech) {
+//         console.log("The technology used is: " + tech);
+//     }
 // }
 
-// myF(callback);
+// callBackTech(logTechDetails, "HTML5");
 
 
 
 
 
-// асинхронна підгрузка
+
+//////// асинхронна підгрузка
 
 // function iFrameLoaded(msg = null) {
 //     console.log(`%c${msg}`);
@@ -157,8 +262,23 @@
 
 
 
+//////////// Використання колбеків всередині колбеків
 
-// // Використання колбеків всередині колбеків
+
+// setTimeout(() => {
+//     console.log('First operation completed!');
+
+//     setTimeout(() => {
+//         console.log('Second operation completed!');
+
+//         setTimeout(() => {
+//             console.log('Third operation completed!');
+//         }, 4000);
+//     }, 3000);
+// }, 2000);
+
+
+
 
 // function firstOperation(callback) {
 //     setTimeout(() => {
@@ -192,15 +312,31 @@
 
 
 
+////////////////////////////////////
+// async function getMedia() {
+//     let stream = null;
+
+//     try {
+//         stream = await navigator.mediaDevices.getUserMedia({
+//             audio: true,
+//             video: true,
+//         });
+
+//         console.log('stream > ', stream);
+//         /* use the stream */
+//     } catch (err) {
+//         /* handle the error */
+//     }
+// }
+
+// getMedia();
 
 
-
-
-
-
-
-
-
+////////////////////////////////////////////////
+// navigator.geolocation.getCurrentPosition(location => {
+//     coordinates = location.coords;
+//     console.log(`coordinates > ${coordinates.latitude}, ${coordinates.longitude}`);
+// });
 
 
 
@@ -230,10 +366,123 @@
 
 
 // setTimeout / clearTimeout
+// The setTimeout() is executed only once.
+
+// If you need repeated executions, use setInterval() instead.
+
+// Use the clearTimeout() method to prevent the function from starting.
+
+// To clear a timeout, use the id returned from setTimeout():
+
+// myTimeout = setTimeout(function, milliseconds);
+// Then you can to stop the execution by calling clearTimeout():
+
+// clearTimeout(myTimeout);
+
+
+
+
+
+
 // setInterval / clearInterval
 // Рекурсивний setTimeout
 
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Callback hell
+
+
+// const frameURL = 'https://lms.ithillel.ua/';
+
+// function iFrameLoaded(msg = '') {
+//     console.log(`%c${msg}`, `color: green;`);
+// }
+
+// function loadIFrame(src, callback) {
+//     let iframe = document.createElement('iframe');
+
+//     try {
+//         iframe.src = src;
+//         iframe.onload = () => callback('Frame loaded');
+//         iframe.onerror = () => callback(new Error(`Помилка завантаження фрейма для ${src}`));
+//         document.body.append(iframe);
+//     } catch (e) {
+//         callback(new Error(`Помилка завантаження фрейма для ${src}`))
+//     }
+// }
+
+// loadIFrame(frameURL, iFrameLoaded);
+
+
+
+
+
+// function handleError(error) {
+//     if (!!error) throw new Error('Error happened!');
+// }
+
+// loadIFrame(frameURL, function (msg, error) {
+//     if (!!error) {
+//         handleError(error);
+//     } else if (!!msg) {
+//         iFrameLoaded(msg);
+//         loadIFrame(frameURL, function (msg, error) {
+//             if (!!error) {
+//                 handleError(error);
+//             } else if (!!msg) {
+//                 iFrameLoaded(msg);
+//                 loadIFrame(frameURL, function (msg, error) {
+//                     if (!!error) {
+//                         handleError(error);
+//                     } else if (!!msg) {
+//                         iFrameLoaded(msg);
+//                         iFrameLoaded('IFrames Loaded!')
+//                     }
+//                 });
+//             }
+//         });
+//     }
+// });
+
+
+
+
+
+
+// loadIFrame(frameURL, step1);
+
+// function step1(msg, error) {
+//     if (!!error) {
+//         handleError(error);
+//     } else {
+//         iFrameLoaded(msg);
+//         loadIFrame(frameURL, step2);
+//     }
+// }
+
+// function step2(msg, error) {
+//     if (!!error) {
+//         handleError(error);
+//     } else {
+//         iFrameLoaded(msg);
+//         loadIFrame(frameURL, step3);
+//     }
+// }
+
+// function step3(msg, error) {
+//     if (!!error) {
+//         handleError(error);
+//     } else {
+//         iFrameLoaded(msg);
+//     }
+// }
+
 
 
 
