@@ -364,28 +364,162 @@
 
 
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // setTimeout / clearTimeout
+// let timeoutID = setTimeout(function, delay, [arg1, arg2, ...]);
+
 // The setTimeout() is executed only once.
-
 // If you need repeated executions, use setInterval() instead.
-
 // Use the clearTimeout() method to prevent the function from starting.
-
 // To clear a timeout, use the id returned from setTimeout():
-
 // myTimeout = setTimeout(function, milliseconds);
 // Then you can to stop the execution by calling clearTimeout():
-
 // clearTimeout(myTimeout);
 
+// function: The function to be executed.
+// delay: The time, in milliseconds, the timer should wait before the specified function is executed.
+// arg1, arg2, ...: Additional arguments to pass to the function (optional).
+
+
+
+// timeoutID: The identifier of the timeout you want to cancel. This ID is returned by the setTimeout function.
+// clearTimeout is a function that cancels a timeout that was previously established by calling setTimeout.
+
+// clearTimeout(timeoutID);
+
+// Here's a practical example of using both setTimeout and clearTimeout:
+// Set a timeout to execute a function after 5 seconds
+
+let timeoutID = setTimeout(() => {
+    console.log('This message will appear after 5 seconds.');
+}, 5000);
+
+// Clear the timeout before it completes, preventing the function from executing
+clearTimeout(timeoutID);
 
 
 
 
 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // setInterval / clearInterval
+
+// let intervalID = setInterval(function, delay, [arg1, arg2, ...]);
+let intervalID = setInterval(() => {
+    console.log('This message is displayed every 2 seconds.');
+}, 2000);
+
+
+clearInterval(intervalID);
+
+
+
+
+
+
+// interval + timeout
+let intervalID5 = setInterval(() => {
+    console.log('This message will be displayed every 2 seconds until the interval is cleared.');
+}, 2000);
+
+// Clear the interval after 10 seconds
+setTimeout(() => {
+    clearInterval(intervalID5);
+    console.log('The interval has been cleared.');
+}, 10000);
+
+
+
+
+
+// Here's a practical example of using both setInterval and clearInterval:
+let counter = 0;
+
+// Set an interval to execute a function every 1 second
+let intervalID6 = setInterval(() => {
+    console.log('Counter:', ++counter);
+
+    // Clear the interval after 5 counts
+    if (counter === 5) {
+        clearInterval(intervalID6);
+        console.log('The interval has been cleared after 5 counts.');
+    }
+}, 1000);
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Рекурсивний setTimeout
+
+// ноді виникає необхідність дочекатися кінця виконання функції для того, щоб запланувати новий таймер. У такому випадку нам допоможить рекурсивний виклик setTimeout
+// Рекурсивний setTimeout — це метод, який дозволяє виконувати функцію з затримкою, подібно до setInterval, але з більшою гнучкістю в управлінні інтервалами між викликами. Він дозволяє виконувати функцію через певні інтервали часу, але кожен новий виклик планується після завершення попереднього.
+
+// Переваги рекурсивного setTimeout
+// Гнучкість у встановленні інтервалів: можна змінювати інтервал між викликами функції в залежності від умов.
+// Уникнення накопичення викликів: виклик наступного setTimeout відбувається після завершення поточної функції, що знижує ймовірність накопичення невиконаних викликів у випадку, коли функція виконується довше, ніж інтервал.
+
+
+function recursiveTimeout() {
+    console.log('This message is displayed every 2 seconds.');
+
+    setTimeout(recursiveTimeout, 2000);
+}
+
+// Запуск рекурсивного setTimeout
+setTimeout(recursiveTimeout, 2000);
+
+
+
+
+
+
+
+// Умовне припинення рекурсії
+
+let counter5 = 0;
+
+function recursiveTimeout() {
+    counter5++;
+    console.log('Counter5:', counter5);
+
+    if (counter5 < 5) {
+        setTimeout(recursiveTimeout, 1000);
+    } else {
+        console.log('Recursion stopped.');
+    }
+}
+
+// Запуск рекурсивного setTimeout
+setTimeout(recursiveTimeout, 1000);
+
+
+
+
+
+
+// Динамічне управління інтервалами
+function recursiveTimeout(delay) {
+    console.log('This message is displayed with a dynamic delay:', delay);
+
+    // Наступний інтервал затримки може бути змінений
+    let nextDelay = delay + 1000;
+
+    setTimeout(() => recursiveTimeout(nextDelay), nextDelay);
+}
+
+// Запуск рекурсивного setTimeout з початковою затримкою 1 секунда
+setTimeout(() => recursiveTimeout(1000), 1000);
+
+
+
+
 
 
 
@@ -500,7 +634,7 @@
 
 
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // function async1() {
 //     console.log('async1 start');
 //     async2();
@@ -546,7 +680,7 @@
 
 
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // console.log('A');
 
 // setTimeout(() => {
