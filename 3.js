@@ -4737,6 +4737,452 @@ const emptyCat = {};
 
 
 
+// const user = {
+//     name: 'John',
+//     age: 264
+// };
+
+// console.log('user >', user);
+
+// user.name = 'Biden';
+// console.log('user >', user);
+
+
+// // Object.preventExtensions
+
+// Object.preventExtensions(user);
+// user.lastName = 'Joseph';
+// delete user.age;
+// console.log('user >', user);
+
+
+// console.log(Object.isExtensible(user));
 
 
 
+
+
+
+
+
+// const user = {
+//     name: 'John',
+//     age: 264
+// };
+
+// console.log('user >', user);
+
+// user.name = 'Biden';
+// console.log('user >', user);
+
+
+// // // Object.seal
+
+// Object.seal(user);
+// user.lastName = 'Joseph';
+// delete user.age;
+// console.log('user >', user);
+
+
+// console.log(Object.isSealed(user));
+
+
+
+
+
+
+
+
+
+// const user = {
+//     name: 'John',
+//     age: 264
+// };
+
+// Object.freeze(user);
+
+// console.log('user >', user);
+
+// user.name = 'Biden';
+// delete user.age;
+// user.newProp = 123;
+// console.log('user >', user);
+
+// // console.log('user >', user);
+
+
+// // // // Object.seal
+
+
+// // user.lastName = 'Joseph';
+
+// // console.log('user >', user);
+
+
+// // console.log(Object.isSealed(user));
+
+
+
+
+
+// const user = {
+//     name: 'John',
+//     age: 264
+// };
+
+
+// value
+// writable
+// enumerable
+// configurable
+
+
+// const nameProps = Object.getOwnPropertyDescriptor(user, 'name');
+// console.log('nameProps > ', nameProps);
+
+// const ageProps = Object.getOwnPropertyDescriptor(user, 'age');
+// console.log('ageProps > ', ageProps);
+
+// const allProps = Object.getOwnPropertyDescriptors(user);
+// console.log('allProps > ', allProps);
+
+
+
+
+
+// const user = {
+//     name: 'John',
+//     age: 264
+// };
+
+// user.lastName = 'Biden';
+
+// Object.defineProperty(
+//     user,
+//     'lastName',
+//     {
+//         value: 'Biden',
+//         writable: true,
+//         enumerable: false,
+//         configurable: true,
+//     }
+// );
+
+
+// Object.defineProperty(
+//     user,
+//     'lastName',
+//     {
+//         value: 'Biden',
+//         writable: true,
+//         enumerable: true,
+//         configurable: false,
+//     }
+// );
+
+// user.lastName = '123new';
+
+// Object.defineProperty(
+//     user,
+//     'lastName',
+//     {
+//         value: 'true',
+//         // configurable: true,
+//     }
+// );
+
+// for (const key in user) {
+//     console.log('key > ', key);
+// }
+
+// user.lastName = '123';
+// console.log('user.lastName > ', user.lastName);
+
+// user.lastName = 'Trump';
+// console.log('user > ', user);
+
+
+
+
+
+
+
+
+
+
+// class Cat {
+//     constructor(name, color) {
+//         this.name = name;
+//         this.color = color;
+//     }
+
+//     getCatName() {
+//         return this.name;
+//     }
+
+//     get catName() {
+//         return this.name;
+//     }
+
+//     set catName(nameValue) {
+//         this.name = nameValue;
+//     }
+// }
+
+
+
+// class Cat {
+//     constructor(name, color) {
+//         this.name = name;
+//         this.color = color;
+//     }
+
+//     get catName() {
+//         return this.name.toUpperCase();
+//     }
+
+//     set catName(nameValue) {
+//         this.name = nameValue + '_addition';
+//     }
+// }
+
+
+// const newCat = new Cat('Tom', 'red');
+// // console.log('newCat > ', newCat);
+// // console.log('newCat > ', newCat.color);
+
+// console.log('get catName > ', newCat.catName);
+
+// newCat.catName = 'New Cat Name';
+
+// console.log('get catName > ', newCat.catName);
+
+
+
+
+// class Person {
+//     #firstName;
+//     #lastName;
+
+//     get firstName() {
+//         return this.#firstName;
+//     }
+
+//     set firstName(value) {
+//         this.#firstName = value;
+//     }
+
+//     get lastName() {
+//         return this.#lastName;
+//     }
+
+//     set lastName(value) {
+//         this.#lastName = value;
+//     }
+
+//     get fullName() {
+//         return `${this.#firstName} ${this.#lastName}`;
+//     }
+
+//     // value = Name Lastname
+//     set fullName(value) {
+//         const names = value.split(' ');
+//         this.#firstName = names[0];
+//         this.#lastName= names[1];
+//     }
+// }
+
+
+// const person1 = new Person();
+
+// person1.firstName = "First";
+// person1.lastName = "Last";
+// console.log('person1.firstName > ', person1.firstName);
+// console.log('person1.lastName > ', person1.lastName);
+// console.log('person1.fullName > ', person1.fullName);
+// // person1.fullName = "Full Name";
+// console.log('person1 > ', person1);
+// console.log('person1.fullName > ', person1.fullName);
+
+
+
+
+
+
+
+
+
+// const user = {
+//     name: 'John',
+//     age: 264
+// };
+
+// const user2 = {
+//     name: 'John',
+//     age: 264
+// };
+
+
+// const userCopy = user;
+
+// console.log(user === userCopy);
+// console.log(user === user2);
+
+
+
+
+// const user = {
+//     name: 'John',
+//     age: 264
+// };
+
+
+
+// const userInfo = {
+//     lastName: 'Biden',
+//     job: 'president'
+// };
+
+// userInfo.newObject = {
+//     someProp: 1,
+//     someProp2: 2,
+// }
+
+// const userInfoAdditional = {
+//     dogName: 'Patron',
+// };
+
+
+// // const united = {...user, ...userInfo, ...userInfoAdditional};
+// const united = {
+//     ...user,
+//     ...userInfo,
+//     ...userInfoAdditional,
+//     ...{
+//         someProp: 'newProp'
+//     }
+// };
+
+// console.log('united > ', united);
+
+
+
+// const user = {
+//     name: 'John',
+//     age: 264,
+//     objectProp: {
+//         someProp: 123,
+//         anotherProp: {
+//             first: 1,
+//             seconde: 2,
+//         }
+//     }
+// };
+
+
+
+
+
+
+// const newUser = { ...user };
+
+
+
+
+
+
+
+// const user = {
+//     name: 'John',
+//     age: 264
+// };
+
+// const userInfo = {
+//     lastName: 'Biden',
+//     job: 'president'
+// };
+
+
+// const assignedObject = Object.assign(
+//     {},
+//     user,
+//     userInfo,
+//     {
+//         new: 123123123
+//     }
+// );
+
+
+// console.log('assignedObject > ', assignedObject);
+
+
+
+
+
+
+
+// const user = {
+//     name: 'John',
+//     age: 264,
+//     objectProp: {
+//         someProp: 123,
+//         anotherProp: {
+//             first: 1,
+//             seconde: 2,
+//         }
+//     }
+// };
+
+
+
+// const userCopy = { ...user };
+// userCopy.objectProp.anotherProp.first = 'FIRST';
+// userCopy.name = 'NEW NAME';
+
+// console.log('user.objectProp.anotherProp.first >', user.objectProp.anotherProp.first);
+// console.log('userCopy.objectProp.anotherProp.first >', userCopy.objectProp.anotherProp.first);
+
+// console.log('user.name >', user.name);
+// console.log('userCopy.name >', userCopy.name);
+// console.log('userCopy >', userCopy.objectProp.anotherProp.seconde);
+
+
+
+// const clonedUser = structuredClone(user);
+// clonedUser.objectProp.anotherProp.first = 'FIRST';
+// console.log('user.objectProp.anotherProp.first >', user.objectProp.anotherProp.first);
+// console.log('clonedUser.objectProp.anotherProp.first >', clonedUser.objectProp.anotherProp.first);
+
+
+// console.log('clonedUser >', clonedUser);
+
+
+
+const firstObject = {
+    prop: 'new prop',
+    newObj: {
+        1: 234,
+    }
+};
+
+
+
+const secondObject = {
+    prop: 'new prop',
+    newObj: {
+        1: 234,
+    }
+};
+
+
+// const mergedObject = secondObject;
+const mergedObject = { ...firstObject, ...secondObject };
+
+// firstObject
+
+
+const a = 5;
+const b = a;
+
+const obj1 = {};
+const obj2 = obj1;
