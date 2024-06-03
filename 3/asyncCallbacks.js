@@ -8,6 +8,7 @@
 // };
 
 // const john = Object.create(person);
+
 // john.name = 'John';
 // john.greet();  // Hello, my name is John
 
@@ -16,6 +17,8 @@
 // // Властивість name додається до john, і метод greet успадковується від person.
 
 
+
+// // Другий аргумент Object.create використовується для додавання властивостей name та age до john.
 
 // const person2 = {
 //     greet: function () {
@@ -40,12 +43,6 @@
 
 // john.greet();  // Hello, my name is John
 // console.log(john.age);  // 30
-// // Другий аргумент Object.create використовується для додавання властивостей name та age до john.
-// // Ці властивості мають атрибути writable, configurable та enumerable, які можуть бути налаштовані.
-
-
-
-
 
 
 
@@ -55,37 +52,37 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // // Ось приклад використання Object.defineProperty() для визначення властивості з configurable: false. Це означає, що властивість не можна буде видалити або змінити її дескриптори (за винятком значення, якщо writable: true)
 
-// const person4 = {};
+const person4 = {};
 
-// Object.defineProperty(person4, 'name', {
-//     configurable: false, // Властивість не можна видалити або змінити її дескриптори
-//     enumerable: true, // Властивість буде перераховуватися в циклах
-//     writable: true, // Значення властивості можна змінювати
-//     value: 'John' // Початкове значення властивості
-// });
+Object.defineProperty(person4, 'name', {
+    configurable: false, // Властивість не можна видалити або змінити її дескриптори
+    enumerable: true, // Властивість буде перераховуватися в циклах
+    writable: true, // Значення властивості можна змінювати
+    value: 'John' // Початкове значення властивості
+});
 
-// console.log(person4.name); // Виведе 'John'
+console.log(person4.name); // Виведе 'John'
 
 // // Спроба змінити значення властивості
-// person4.name = 'Jane';
-// console.log(person4.name); // Виведе 'Jane'
+person4.name = 'Jane';
+console.log(person4.name); // Виведе 'Jane'
 
-// // Спроба видалити властивість (не вдасться через configurable: false)
-// delete person4.name;
-// console.log(person4.name); // Виведе 'Jane', властивість не видалена
+// Спроба видалити властивість (не вдасться через configurable: false)
+delete person4.name;
+console.log(person4.name); // Виведе 'Jane', властивість не видалена
 
-// // Спроба змінити дескриптори властивості (викличе помилку через configurable: false)
-// try {
-//     Object.defineProperty(person4, 'name', {
-//         writable: false
-//     });
-// } catch (e) {
-//     console.error(e); // TypeError: Cannot redefine property: name
-// }
-// // configurable: false: Властивість name не можна видалити або змінити її дескриптори (наприклад, зробити її не writable або змінити геттери/сеттери).
-// // enumerable: true: Властивість буде перераховуватися в циклах, таких як for...in.
-// // writable: true: Значення властивості можна змінювати.
-// // value: 'John': Початкове значення властивості.
+// Спроба змінити дескриптори властивості (викличе помилку через configurable: false)
+try {
+    Object.defineProperty(person4, 'name', {
+        writable: false
+    });
+} catch (e) {
+    console.error(e); // TypeError: Cannot redefine property: name
+}
+// configurable: false: Властивість name не можна видалити або змінити її дескриптори (наприклад, зробити її не writable або змінити геттери/сеттери).
+// enumerable: true: Властивість буде перераховуватися в циклах, таких як for...in.
+// writable: true: Значення властивості можна змінювати.
+// value: 'John': Початкове значення властивості.
 
 
 
@@ -98,95 +95,42 @@
 
 // Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
 
-// fetch
+
+// fetch api
 // getUserMedia
-// Asking a user to select files using showOpenFilePicker()
+// timers
+// get browser location
+// event listeners
 
 
 
 // Synchronous programming
-// const name = "Miriam";
-// const greeting = `Hello, my name is ${name}!`;
-// console.log(greeting);
-// // "Hello, my name is Miriam!"
+// Синхронно строка виконується одразу
+const name1 = "Michael";
+console.log(`Hello, my name1 is ${name1}!`);
 
-// // Declares a string called name.
-// // Declares another string called greeting, which uses name.
-// // Outputs the greeting to the JavaScript console.
+// Після неї строка виконується одразу
+const name2 = "Michael";
+console.log(`Hello, my name2 is ${name2}!`);
+
+
+// як зробити асинхронно?
+// set timeout є саме в бразуерному API (window.api)
+
+// window.setTimeout(cb, delay)
+window.setTimeout(function () {
+    console.log('Inside timeout 2s');
+}, 2000)
+
+
+// що цікаво, цей код викличеться до таймаута
+// Після неї строка виконується одразу
+const name3 = "Michael";
+console.log(`Hello, my name3 is ${name3}!`);
 
 
 // // At each point, the browser waits for the line to finish its work before going on to the next line. It has to do this because each line depends on the work done in the preceding lines.
-
-// // That makes this a synchronous program. It would still be synchronous even if we called a separate function, like this:
-// function makeGreeting(name) {
-//     return `Hello, my name is ${name}!`;
-// }
-
-// // Here, makeGreeting() is a synchronous function because the caller has to wait for the function to finish its work and return a value before the caller can continue.
-
-
-// window.setTimeout(function () {
-//     console.log(makeGreeting('Hi!'))
-// }, 1000);
-
-
-
 // The reason for this is that this JavaScript program is single-threaded. A thread is a sequence of instructions that a program follows. Because the program consists of a single thread, it can only do one thing at a time: so if it is waiting for our long-running synchronous call to return, it can't do anything else.
-
-// What we need is a way for our program to:
-
-// Start a long-running operation by calling a function.
-// Have that function start the operation and return immediately, so that our program can still be responsive to other events.
-// Have the function execute the operation in a way that does not block the main thread, for example by starting a new thread.
-// Notify us with the result of the operation when it eventually completes.
-
-
-
-
-// // SYNC
-// function toughFn(i = 1, top = 100) {
-//     console.log('counter >', i);
-//     return i >= top ? false : toughFn(i + 1, top);
-// }
-
-// toughFn(1, 1000);
-
-// console.log('21');
-
-
-// // ASYNC
-// function toughFn(i = 1, top = 100) {
-//     console.log('counter >', i);
-//     return i >= top ? false : setTimeout(() => toughFn(i + 1), 100);
-// }
-
-// toughFn(1, 1000);
-
-// console.log('21');
-
-
-
-
-
-
-
-// Code example: synchronous callback
-
-// const arr = [1, 2, 3]
-// const doubler = x => x * 2
-// const doubled = arr.map(doubler)
-
-
-
-// Code example: asynchronous callback
-
-// const addButton = document.querySelector("#add");
-// addButton.addEventListener("click", () => {
-//     console.log("You clicked #addButton")
-// })
-// The addEventListener method attaches an event handler to a DOM element. The details of this method is not important here; all we need to know is that the second parameter is treated as an asynchronous callback function which is only executed when the particular event is triggered on the target node. So, in this case, the async callback function is called every time we click on the #add element.
-
-
 
 
 
@@ -198,6 +142,72 @@
 // Загальний огляд механізму EventLoop
 
 
+// все в стек
+// асинки улетают в очередь
+// в очереди бежит цикл и когда видит что собітие состоялось, закидіваєт задание из очереди обратно в стек
+
+
+
+// http://latentflip.com/loupe
+
+
+
+
+
+
+
+
+
+//  як застосувати напррактиці наприклад
+// SYNC
+function toughFn(i = 1, top = 100) {
+    console.log('counter >', i);
+    return i >= top ? false : toughFn(i + 1, top);
+}
+
+toughFn(1, 1000);
+
+alert('21');
+
+
+
+
+
+// ASYNC
+function toughFn(i = 1, top = 100) {
+    console.log('counter >', i);
+    return i >= top ? false : setTimeout(() => toughFn(i + 1), 100);
+}
+
+toughFn(1, 1000);
+
+alert('21');
+
+
+
+
+
+// hard
+function toughFnHard(i = 1, top = 100) {
+    console.log('counter >', i);
+    const result = i + 1 * 2 / 3 + 100 - 1000 / 2 * 9 + 1;
+    return i >= top ? false : toughFnHard(result, top);
+}
+
+toughFnHard(1, 1000);
+
+alert('21');
+
+
+function toughFnHard(i = 1, top = 100) {
+    console.log('counter >', i);
+    const result = i + 1 * 2 / 3 + 100 - 1000 / 2 * 9 + 1;
+    return i >= top ? false : setTimeout(() => toughFnHard(result), 100);
+}
+
+toughFnHard(1, 1000);
+
+alert('21');
 
 
 
@@ -211,51 +221,27 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ///////////Функції зворотного виклику
+
 ////// звичайний колбек
 
 // A callback is a function passed as an argument when calling a function (high-order function) that will start executing a task in the background.
 // And when this background task is done running, it calls the callback function to let you know about the changes
-// function callBackTech(callback, tech) {
-//     console.log("Calling callBackTech!");
+
+// function iWillGetCallBack(callback, msg) {
+//     console.log("Calling iWillGetCallBack!");
 //     if (callback) {
-//         callback(tech);
+//         callback(msg);
 //     }
-//     console.log("Calling callBackTech finished!");
+//     console.log("Calling iWillGetCallBack finished!");
 // }
 
-// function logTechDetails(tech) {
-//     if (tech) {
-//         console.log("The technology used is: " + tech);
+// function log(msg) {
+//     if (msg) {
+//         console.log("The technology used is: " + msg);
 //     }
 // }
 
-// callBackTech(logTechDetails, "HTML5");
-
-
-
-
-
-
-//////// асинхронна підгрузка
-
-// function iFrameLoaded(msg = null) {
-//     console.log(`%c${msg}`);
-//     console.log('iframe LOADED ');
-// }
-
-// function loadIFrame(src, callback) {
-//     let iframe = document.createElement('iframe');
-//     iframe.src = src;
-
-//     iframe.onload = () => callback();
-//     iframe.onerror = () => callback(new Error(`Помилка завантаження скрипту для ${src}`));
-
-//     document.body.append(iframe);
-// }
-
-// loadIFrame('https://lms.ithillel.ua/', iFrameLoaded);
-
-
+// iWillGetCallBack(log, "HTML5");
 
 
 
@@ -312,24 +298,30 @@
 
 
 
-////////////////////////////////////
-// async function getMedia() {
-//     let stream = null;
 
-//     try {
-//         stream = await navigator.mediaDevices.getUserMedia({
-//             audio: true,
-//             video: true,
-//         });
 
-//         console.log('stream > ', stream);
-//         /* use the stream */
-//     } catch (err) {
-//         /* handle the error */
-//     }
+//////// асинхронна підгрузка
+
+// function iFrameLoaded(msg = null) {
+//     console.log(`%c${msg}`);
+//     console.log('iframe LOADED ');
 // }
 
-// getMedia();
+// function loadIFrame(src, callback) {
+//     let iframe = document.createElement('iframe');
+//     iframe.src = src;
+
+//     iframe.onload = () => callback();
+//     iframe.onerror = () => callback(new Error(`Помилка завантаження скрипту для ${src}`));
+
+//     document.body.append(iframe);
+// }
+
+// loadIFrame('https://lms.ithillel.ua/', iFrameLoaded);
+
+
+
+
 
 
 ////////////////////////////////////////////////
@@ -399,10 +391,6 @@ clearTimeout(timeoutID);
 
 
 
-
-
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // setInterval / clearInterval
 
@@ -420,13 +408,14 @@ clearInterval(intervalID);
 
 
 // interval + timeout
-let intervalID5 = setInterval(() => {
-    console.log('This message will be displayed every 2 seconds until the interval is cleared.');
-}, 2000);
+// set some interval
+const intervalID_1 = setInterval(() => {
+    console.log('This message will be displayed every 0.5 seconds until the interval is cleared.');
+}, 500);
 
-// Clear the interval after 10 seconds
+// Clear this interval after 10 seconds
 setTimeout(() => {
-    clearInterval(intervalID5);
+    clearInterval(intervalID_1);
     console.log('The interval has been cleared.');
 }, 10000);
 
@@ -447,6 +436,9 @@ let intervalID6 = setInterval(() => {
         console.log('The interval has been cleared after 5 counts.');
     }
 }, 1000);
+
+
+
 
 
 
@@ -632,8 +624,6 @@ setTimeout(() => recursiveTimeout(1000), 1000);
 
 
 
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // function async1() {
 //     console.log('async1 start');
@@ -651,13 +641,22 @@ setTimeout(() => recursiveTimeout(1000), 1000);
 //     console.log('Timeout 1');
 // }, 0);
 
+// setTimeout(() => {
+//     console.log('Timeout 1');
+// }, 1);
+
 // Promise.resolve().then(() => {
 //     console.log('Promise 1');
 // });
 
 // setTimeout(() => {
-//     console.log('Timeout 2');
+//     console.log('Timeout 0');
+// }, 0);
+
+// setTimeout(() => {
+//     console.log('Timeout 100');
 // }, 100);
+
 
 // async1();
 
@@ -667,55 +666,19 @@ setTimeout(() => recursiveTimeout(1000), 1000);
 
 // console.log('End');
 
+
+
 // Пояснення
-// Синхронні операції: Всі синхронні операції виконуються спочатку.В цьому випадку, console.log('Start') і console.log('End') виконуються послідовно.
 
-//     Мікротаски: Проміси додаються в чергу мікротасків.Мікротаски виконуються після завершення всіх синхронних операцій.Тому Promise.resolve().then(() => { console.log('Promise 1'); }) і Promise.resolve().then(() => { console.log('Promise 2'); }) виконуються після синхронних операцій, але перед макротасками.
-
-//         Макротаски: Таймери(в цьому випадку setTimeout) додаються в чергу макротасків.Макротаски виконуються після мікротасків.Тому setTimeout(() => { console.log('Timeout 1'); }, 0) виконається після всіх мікротасків, навіть якщо затримка становить 0 мілісекунд.setTimeout(() => { console.log('Timeout 2'); }, 100) виконається після Timeout 1, так як його затримка більша.
+// Всі синхронні операції виконуються спочатку.
+// одна зв одною
 
 
+// Мікротаски виконуються в порядку їх додавання
+// Проміси додаються в чергу мікротасків
+// Мікротаски виконуються після завершення всіх синхронних операцій
+// але перед макротасками.
 
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// console.log('A');
-
-// setTimeout(() => {
-//     console.log('B');
-// }, 0);
-
-// Promise.resolve().then(() => {
-//     console.log('C');
-// }).then(() => {
-//     console.log('D');
-// });
-
-// console.log('E');
-
-// setTimeout(() => {
-//     console.log('F');
-// }, 0);
-
-// Promise.resolve().then(() => {
-//     console.log('G');
-// });
-
-// Синхронні операції: console.log('A') і console.log('E') виконуються спочатку.
-
-// Мікротаски:
-
-// Promise.resolve().then(() => { console.log('C'); }) додає мікротаск для виведення C.
-// Promise.resolve().then(() => { console.log('G'); }) додає мікротаск для виведення G.
-// then(() => { console.log('D'); }) додає мікротаск для виведення D після виконання попереднього промісу.
-// Мікротаски виконуються в порядку їх додавання:
-
-// C виконується першим.
-// G виконується другим.
-// D виконується останнім з мікротасків, оскільки він був доданий під час виконання першого промісу.
-// Макротаски:
-
-// setTimeout(() => { console.log('B'); }, 0) виконається після всіх мікротасків.
-// setTimeout(() => { console.log('F'); }, 0) виконається після B, оскільки був доданий пізніше.
+// Таймери(в цьому випадку setTimeout) додаються в чергу макротасків.
+// Макротаски виконуються після мікротасків.
+// Тому setTimeout(() => { console.log('Timeout 1'); }, 0) виконається після всіх мікротасків, навіть якщо затримка становить 0 мілісекунд

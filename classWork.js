@@ -1,3 +1,5 @@
+'use strict';
+
 // // 'sdfgsdfgsdfg';
 // // 'string';
 // // '';
@@ -5158,31 +5160,44 @@ const emptyCat = {};
 
 
 
-const firstObject = {
-    prop: 'new prop',
-    newObj: {
-        1: 234,
-    }
-};
+// const firstObject = {
+//     prop: 'new prop',
+//     newObj: {
+//         1: 234,
+//     }
+// };
 
 
 
-const secondObject = {
-    prop: 'new prop',
-    newObj: {
-        1: 234,
-    }
-};
+// const secondObject = {
+//     prop: 'new prop',
+//     newObj: {
+//         1: 234,
+//     }
+// };
 
 
-// const mergedObject = secondObject;
-const mergedObject = { ...firstObject, ...secondObject };
+// // const mergedObject = secondObject;
+// const mergedObject = { ...firstObject, ...secondObject };
 
-// firstObject
+// // firstObject
 
 
-const a = 5;
-const b = a;
+// const a = 5;
+// const b = a;
 
-const obj1 = {};
-const obj2 = obj1;
+// const obj1 = {};
+// const obj2 = obj1;
+
+
+
+
+
+
+
+
+
+
+
+
+
