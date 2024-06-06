@@ -5481,33 +5481,33 @@ const emptyCat = {};
 
 
 
-console.log('5');
+// console.log('5');
 
-function fn1() {
-    console.log('1');
-    fn2();
-    console.log('2');
-}
+// function fn1() {
+//     console.log('1');
+//     fn2();
+//     console.log('2');
+// }
 
-function fn2() { console.log('3'); }
+// function fn2() { console.log('3'); }
 
-console.log('4');
+// console.log('4');
 
-setTimeout(() => { console.log('7'); }, 1);
+// setTimeout(() => { console.log('7'); }, 1);
 
-setTimeout(() => { console.log('8'); }, 0);
+// setTimeout(() => { console.log('8'); }, 0);
 
-setTimeout(() => { console.log('6'); }, 100);
+// setTimeout(() => { console.log('6'); }, 100);
 
-Promise.resolve().then(() => { console.log('10'); });
+// Promise.resolve().then(() => { console.log('10'); });
 
-setTimeout(() => { console.log('80'); }, 0);
+// setTimeout(() => { console.log('80'); }, 0);
 
-Promise.resolve().then(() => { console.log('9'); });
+// Promise.resolve().then(() => { console.log('9'); });
 
-fn1();
+// fn1();
 
-console.log('4');
+// console.log('4');
 
 
 //  всі синхронні операції виконуються спочатку, одна за однією

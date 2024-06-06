@@ -300,7 +300,7 @@ alert('21');
 
 
 
-//////// асинхронна підгрузка
+// ////// асинхронна підгрузка
 
 // function iFrameLoaded(msg = null) {
 //     console.log(`%c${msg}`);
