@@ -5201,3 +5201,331 @@ const emptyCat = {};
 
 
 
+// const person = {
+//     greet: function() {
+//         console.log(`Hello, ${this.name}`);
+//     }
+// };
+
+// const john = Object.create(person);
+
+// console.log('john > ', john);
+
+// john.name = 'John';
+// john.greet();
+
+
+
+// const person = {
+//     greet: function () {
+//         console.log(`Hello, ${this.name}`);
+//     }
+// };
+
+// const john = Object.create(person, {
+//     name: {
+//         value: 'John',
+//         writable: true,
+//         configurable: true,
+//         enumerable: true,
+//     },
+//     age: {
+// value: 243234,
+// writable: true,
+// configurable: true,
+// enumerable: true,
+//     }
+// });
+
+// console.log('john > ', john);
+
+
+
+// const person = {};
+
+// Object.defineProperty(person, 'name', {
+//     configurable: false,
+//     value: 'N A M E',
+//     writable: true,
+//     enumerable: true,
+// });
+
+// console.log('person > ', person);
+// console.log('person.name > ', person.name);
+// person.name = 'Biden';
+// console.log('person.name > ', person.name);
+
+// // delete person.name;
+
+// for (10000;;) {
+//     2 + 3 / 10 + 3 / 3 * 7 % 2 * 1.33 + 1;
+// }
+
+// Object.defineProperty(person, 'name', {
+//     writable: false,
+// });
+
+// console.log('Object >', Object.getOwnPropertyDescriptors(person));
+
+
+
+
+
+// const name1 = 'My Name 1';
+// console.log(name1);
+
+// const name2 = 'My Name 2';
+// console.log(name2);
+
+// window.setTimeout(function() {
+//     console.log('I am TimeOut');
+// }, 1000);
+
+// window.setTimeout(function() {
+//     console.log('I am TimeOut');
+// }, 2000);
+
+// const name3 = 'My Name 3';
+// console.log(name3);
+
+
+
+
+
+// спочатку всі виклики потрапляють в стек
+
+// потім зі стеку асинхронні операції стають у чергу
+
+// в черзі працює цикл, який повертаж операцію обратно до стеку на виконання, коли бачить, що подія відбулася
+
+// alert();
+
+
+
+
+
+// function iWillGetMessage(callback, msg) {
+//     console.log('call iWillGetMessage');
+
+//     if (callback) {
+//         callback(msg);
+//     }
+
+//     console.log('call iWillGetMessage END');
+// }
+
+// function log(msg) {
+//     console.log("Message: ", msg);
+// }
+
+// iWillGetMessage(log, 'Message texxt');
+
+
+// setTimeout(callback, timeoutTime);
+// setTimeout(function () {
+//     console.log('1000');
+
+//     setTimeout(function () {
+//         console.log('2000');
+
+//         setTimeout(function () {
+//             console.log('4000');
+//         }, 4000);
+//     }, 2000);
+// }, 1000);
+
+
+
+
+// function firstOperation(callback) {
+//     setTimeout(() => {
+//         console.log('1000');
+//         callback();
+//     }, 1000)
+// }
+
+// function secondOperation(callback) {
+//     setTimeout(() => {
+//         console.log('2000');
+//         callback();
+//     }, 2000)
+// }
+
+// function thirdOperation(callback) {
+//     setTimeout(() => {
+//         console.log('4000');
+//         callback();
+//     }, 4000)
+// }
+
+// firstOperation(() =>
+//     secondOperation(() =>
+//         thirdOperation(() => {
+//             console.log('Completed!!!');
+//         }))
+// );
+
+
+
+
+// const timeoutId = setTimeout(
+//     function () {
+//         console.log('100');
+//     },
+//     3000
+// );
+
+// clearTimeout(timeoutId);
+
+
+
+
+// const intervalID = setInterval(
+//     function () {
+//         console.log('100');
+//     },
+//     1000
+// );
+
+// clearInterval(intervalID);
+
+
+// const myInterval = setInterval(
+//     function() { console.log('0.5'); },
+//     500
+// );
+
+// setTimeout(function() {
+//     clearInterval(myInterval);
+// }, 8000)
+
+
+
+
+// let counter = 0;
+
+// const myInterval = setInterval(function() {
+//     console.log('counter > ', ++counter);
+
+//     if (counter === 5) {
+//         clearInterval(myInterval);
+//         console.log('Interval cleared');
+//     }
+// }, 500);
+
+
+// let counter = 0;
+
+
+// function recursiveTimeout() {
+//     counter++;
+
+//     if (counter < 10) {
+//         console.log('counter >', counter);
+//         setTimeout(recursiveTimeout, 100 * counter);
+//     } else {
+//         console.log('Recursion end');
+//         return;
+//     }
+
+// }
+
+// setTimeout(recursiveTimeout, 1000);
+
+
+
+
+
+
+
+
+
+// function toughFn(i = 1, top = 100) {
+//     console.log('i >', i);
+
+//     if (i >= top) {
+//         return false;
+//     } else {
+//         setTimeout(() => toughFn(i + 1, top), 100);
+//         // toughFn(i + 1, top)
+//     }
+// }
+
+// toughFn(1, 5000);
+
+// alert('ALERT');
+
+
+
+// navigator.geolocation.getCurrentPosition(function (location) {
+//     const coordinates = location.coords;
+
+//     console.log(`coordinates > ${coordinates.latitude}, ${coordinates.longitude}`);
+// });
+
+
+// function happyMessage() {
+//     console.log('IFrame loaded!!!');
+// }
+
+// function loadIFrame(src, callback) {
+//     const iframe = document.createElement('iframe');
+
+//     iframe.src = src;
+//     iframe.onload = () => callback();
+
+//     document.body.append(iframe);
+// }
+
+// loadIFrame('https://lms.ithillel.ua/', happyMessage);
+
+
+
+console.log('5');
+
+function fn1() {
+    console.log('1');
+    fn2();
+    console.log('2');
+}
+
+function fn2() { console.log('3'); }
+
+console.log('4');
+
+setTimeout(() => { console.log('7'); }, 1);
+
+setTimeout(() => { console.log('8'); }, 0);
+
+setTimeout(() => { console.log('6'); }, 100);
+
+Promise.resolve().then(() => { console.log('10'); });
+
+setTimeout(() => { console.log('80'); }, 0);
+
+Promise.resolve().then(() => { console.log('9'); });
+
+fn1();
+
+console.log('4');
+
+
+//  всі синхронні операції виконуються спочатку, одна за однією
+// 5
+// 4
+// 1
+// 3
+// 2
+// 4
+
+
+//  асинхронні мікротаски
+// 10
+// 9
+
+
+//  асинхронні макротаски
+// 8
+// 80
+// 7
+// 6
