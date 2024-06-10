@@ -5529,3 +5529,309 @@ const emptyCat = {};
 // 80
 // 7
 // 6
+
+
+
+// let promise = new Promise(function (resolve, reject) {
+//     // executor
+// });
+
+
+// pending
+// fulfilled
+// rejected
+
+// let promise = new Promise(function (resolve, reject) {
+//     setTimeout(() => resolve("Done"), 2000);
+// });
+
+// let promise = new Promise(function (resolve, reject) {
+//     setTimeout(() => reject(new Error('Error happened')), 2000);
+// });
+
+// console.log('promise > ', promise);
+// // promise.then(result => console.log('res >'));
+// promise.catch(err => console.log('err >', err));
+// console.log('promise > ', promise);
+
+// let newPromise = new Promise(function(resolve) {
+//     resolve('Done');
+// });
+
+// newPromise.then(result => console.log('result >', result));
+
+
+
+// promise.then(
+//     function() {}, // success
+//     function() {}, // error
+// );
+
+
+// let promise = new Promise(function (resolve, reject) {
+//     setTimeout(() => reject(new Error('Error happened')), 2000);
+//     // setTimeout(() => resolve('Promise done'), 2000);
+// });
+
+// // promise.then(
+//     result => console.log('result > ', result),
+//     error =>  console.log('error > ', error),
+// );
+
+
+
+// promise
+//     .then(result => console.log('result > ', result))
+//     .catch(error => console.log('error > ', error))
+//     .finally(() => console.log('Finally'));
+
+
+
+
+
+// let delay = new Promise(resolve => {
+//     setTimeout(() => resolve('Promise done'), 1000);
+// });
+
+
+// delay
+//     .then(response => {
+//         console.log('response 1 ', response);
+
+//         return new Promise(resolve => {
+//             setTimeout(() => resolve('Promise 1 done'), 2000);
+//         });
+//     })
+//     .then(response => {
+//         console.log('response 2 ', response);
+
+//         return new Promise(resolve => {
+//             setTimeout(() => resolve('Promise 2 done'), 2000);
+//         });
+//     })
+//     .then(response => {
+//         console.log('response 3 ', response);
+
+//         return new Promise(resolve => {
+//             setTimeout(() => resolve('Promise 3 done'), 2000);
+//         });
+//     }).then(response => {
+//         console.log('response 4 ', response);
+//     });
+
+
+
+
+
+
+// function happyMessage() {
+//     console.log('IFrame loaded!!!');
+// }
+
+// function loadIFrame(src, callback) {
+//     const iframe = document.createElement('iframe');
+
+//     iframe.src = src;
+//     iframe.onload = () => callback();
+
+//     document.body.append(iframe);
+// }
+
+// function loadIFrameAsync(src) {
+//     return new Promise(function (resolve, reject) {
+//         const iframe = document.createElement('iframe');
+
+//         iframe.src = src;
+//         iframe.onload = () => resolve("Iframe loaded: ", iframe);
+//         iframe.onerror = () => reject(new Error('Bad request'));
+
+//         document.body.append(iframe);
+//     });
+// }
+
+// const iframe = loadIFrameAsync('https://lms.ithillel.ua/');
+
+// iframe.then(result => console.log('result > ', result));
+
+
+
+
+// const newPromise = new Promise();
+// const newPromise2 = new Promise();
+// const newPromise3 = new Promise();
+// const newPromise4 = new Promise();
+
+
+
+
+// const promises = [
+//     new Promise(resolve => setTimeout(() => resolve(1111), 2000)),
+//     new Promise((resolve, reject) => setTimeout(() => reject(new Error('some message')), 3000)),
+//     new Promise(resolve => setTimeout(() => resolve(333), 4500)),
+// ];
+
+// Promise.all(promises).then(res => console.log(res));
+
+
+
+
+
+// fetch('https://jsonplaceholder.typicode.com/todos/1')
+// .then(response => response.json())
+//     .then(json => console.log(json))
+
+
+
+// const todosUrls = [
+//     'https://jsonplaceholder.typicode.com/todos/1',
+//     'https://jsonplaceholder.typicode.com/todos/2',
+//     'https://jsonplaceholder.typicode.com/todos/3',
+//     'https://jsonplaceholder.typicode.com/todos/4',
+// ];
+
+
+// const todosPromises = todosUrls.map(url => fetch(url).then(response => response.json()));
+
+// Promise.all(todosPromises).then(responses => {
+//     responses.forEach(response => {
+//         console.log('response > ', response);
+//     });
+// });
+
+
+
+
+
+// const todosUrls = [
+//     'https://jsonplaceholder.typicode.com/todos/1',
+//     'https://jsonplaceholder.typicode.com/todos/2',
+//     'https://jsonplacesdfgsdfgholder.typicode.com/todos/3',
+//     'https://jsonplaceholder.typicode.com/todos/4',
+// ];
+
+
+// const todosPromises = todosUrls.map(url => fetch(url).then(response => response.json()));
+
+// Promise.allSettled(todosPromises).then(responses => {
+//     responses.forEach(response => {
+//         console.log('response > ', response);
+//     });
+// });
+
+
+
+
+// const todosUrls = [
+//     new Promise((resolve, reject) => setTimeout(() => resolve(1), 3000)),
+//     new Promise((resolve, reject) => setTimeout(() => resolve(2), 1000)),
+//     new Promise((resolve, reject) => setTimeout(() => reject(new Error('REJECT')), 500)),
+// ];
+
+// Promise.race(todosUrls).then(result => console.log('result >', result));
+
+
+
+
+// const todosUrls = [
+//     new Promise((resolve, reject) => setTimeout(() => resolve(1), 100)),
+//     new Promise((resolve, reject) => setTimeout(() => resolve(2), 1000)),
+//     new Promise((resolve, reject) => setTimeout(() => reject(new Error('REJECT')), 500)),
+// ];
+
+// Promise.any(todosUrls).then(result => console.log('result >', result));
+
+
+
+
+
+// Promise.resolve('any value').then(result => console.log('result >', result));
+// Promise.reject(new Error('any value')).catch(err => console.log('err >', err));
+
+
+// async function f() {
+//     return 1;
+// }
+
+// async function f() {
+//     return Promise.resolve(21);
+// }
+
+// f().then(res => console.log('res >', res));
+
+
+// async function f() {
+//     console.log('f start > ');
+
+//     const promise = new Promise((resolve) => {
+//         console.log('Promise > ');
+//         setTimeout(() => resolve('Done'), 3000)
+//     });
+
+//     // promise.then(result => alert(result));
+//     let result = await promise;
+
+//     console.log('result > ', result);
+// }
+
+// f();
+
+
+
+
+
+
+
+// const todosUrl = 'http://jsonplaceholder.typicode.com/todos';
+
+// function delay(ms) {
+//     return new Promise(resolve => setTimeout(() => resolve(), ms));
+// }
+
+// function fetchToDoS() {
+//     return delay(2000)
+//         .then(() => fetch(todosUrl))
+//         .then(response => response.json());
+// }
+
+// fetchToDoS().then(data => console.log('res >', data));
+
+
+// async function fetchToDosAsync() {
+//     await delay(2000);
+//     const response = await fetch(todosUrl);
+//     const data = await response.json();
+//     console.log('data >', data)
+// }
+
+// fetchToDosAsync();
+
+
+
+
+
+function loadIFrameAsync(src) {
+    return new Promise(function (resolve, reject) {
+        const iframe = document.createElement('iframe');
+
+        iframe.src = src;
+        iframe.onload = () => resolve("Iframe loaded: ", iframe);
+        iframe.onerror = () => reject(new Error('Bad request'));
+
+        document.body.append(iframe);
+    });
+}
+
+// const iframe = loadIFrameAsync('https://lms.ithillel.ua/');
+
+// iframe.then(result => console.log('result > ', result));
+
+async function loadIframes() {
+    await loadIFrameAsync('https://lms.ithillel.ua/');
+    await loadIFrameAsync('https://lms.ithillel.ua/');
+    await loadIFrameAsync('https://lms.ithillel.ua/');
+    await loadIFrameAsync('https://lms.ithillel.ua/');
+    await loadIFrameAsync('https://lms.ithillel.ua/');
+    await loadIFrameAsync('https://lms.ithillel.ua/');
+}
+
+loadIframes();
