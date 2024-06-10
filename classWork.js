@@ -5809,29 +5809,35 @@ const emptyCat = {};
 
 
 
-function loadIFrameAsync(src) {
-    return new Promise(function (resolve, reject) {
-        const iframe = document.createElement('iframe');
+// function loadIFrameAsync(src) {
+//     return new Promise(function (resolve, reject) {
+//         const iframe = document.createElement('iframe');
 
-        iframe.src = src;
-        iframe.onload = () => resolve("Iframe loaded: ", iframe);
-        iframe.onerror = () => reject(new Error('Bad request'));
+//         iframe.src = src;
+//         iframe.onload = () => resolve("Iframe loaded: ", iframe);
+//         iframe.onerror = () => reject(new Error('Bad request'));
 
-        document.body.append(iframe);
-    });
-}
+//         document.body.append(iframe);
+//     });
+// }
 
-// const iframe = loadIFrameAsync('https://lms.ithillel.ua/');
+// // const iframe = loadIFrameAsync('https://lms.ithillel.ua/');
 
-// iframe.then(result => console.log('result > ', result));
+// // iframe.then(result => console.log('result > ', result));
 
-async function loadIframes() {
-    await loadIFrameAsync('https://lms.ithillel.ua/');
-    await loadIFrameAsync('https://lms.ithillel.ua/');
-    await loadIFrameAsync('https://lms.ithillel.ua/');
-    await loadIFrameAsync('https://lms.ithillel.ua/');
-    await loadIFrameAsync('https://lms.ithillel.ua/');
-    await loadIFrameAsync('https://lms.ithillel.ua/');
-}
+// async function loadIframes() {
+//     await loadIFrameAsync('https://lms.ithillel.ua/');
+//     await loadIFrameAsync('https://lms.ithillel.ua/');
+//     await loadIFrameAsync('https://lms.ithillel.ua/');
+//     await loadIFrameAsync('https://lms.ithillel.ua/');
+//     await loadIFrameAsync('https://lms.ithillel.ua/');
+//     await loadIFrameAsync('https://lms.ithillel.ua/');
+// }
 
-loadIframes();
+// loadIframes();
+
+
+
+
+
+

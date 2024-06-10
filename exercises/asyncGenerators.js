@@ -399,4 +399,67 @@ for (const value of gen33) {
 
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Асинхронні генератори в JavaScript дозволяють працювати з асинхронними операціями, такими як запити до серверів або операції, які займають тривалий час, у зручний і зрозумілий спосіб. Асинхронні генератори використовують синтаксис async function* і повертають асинхронні ітератори, які можуть працювати з for await...of циклами.
+
+
+// Визначення: Асинхронний генератор визначається за допомогою async function*.
+// Оператор yield: Використовується для повернення значень, але в асинхронному контексті можна використовувати await.
+// Асинхронний ітератор: Повертається асинхронний ітератор, який можна використовувати з for await...of.
+
+
+// Визначення асинхронного генератора:
+async function* fetchUrls(urls) {
+    for (const url of urls) {
+        const response = await fetch(url);
+        const data = await response.json();
+        yield data;
+    }
+}
+// Генератор fetchUrls приймає масив URL-адрес, виконує fetch запити до кожного з них, чекає на результат за допомогою await, і використовує yield для повернення отриманих даних.
+
+
+const urls = [
+    'https://jsonplaceholder.typicode.com/posts/1',
+    'https://jsonplaceholder.typicode.com/posts/2',
+    'https://jsonplaceholder.typicode.com/posts/3'
+];
+
+// Асинхронний цикл for await...of ітерує через всі значення, які генерує асинхронний генератор fetchUrls.
+(async () => {
+    for await (const data of fetchUrls(urls)) {
+        console.log(data);
+    }
+})();
+
+
+
+
+
+
+
+
+// Використання асинхронних генераторів з потоками даних
+
+async function* streamData() {
+    let count = 0;
+
+    while (count < 5) {
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Затримка 1 секунда
+        yield count++;
+    }
+
+    // for await (const data of fetchUrls(urls)) {
+    //     await new Promise(resolve => setTimeout(resolve, 1000)); // Затримка 1 секунда
+    //     yield data;
+    // }
+}
+
+(async () => {
+    for await (const value of streamData()) {
+        console.log(value); // Виведе 0, 1, 2, 3, 4 з інтервалом в 1 секунду
+    }
+})();
+
+
 
